@@ -8,8 +8,27 @@ const App = {
   _currentProjectDomain: 'embedded',
   _currentProjectLevel: 'All',
 
-  // ---- INIT ----
-  init() {
+  // 1) Initialize Data (Live API sync with Offline Fallback)
+  async init() {
+    try {
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      // For GitHub pages/APK, point to Vercel. For local testing, use relative or localhost.
+      const apiBase = window.location.protocol === 'file:' ? 'https://web-tech-kappa.vercel.app' : '';
+      
+      const res = await fetch(`${apiBase}/api/all`);
+      if (res.ok) {
+        const liveData = await res.json();
+        // Dynamically override the static arrays from data.js
+        window.ECE_CATEGORIES = liveData.categories;
+        window.COMPANY_DATA = liveData.companies;
+        window.ALL_ECE_PROJECTS = liveData.projects;
+        console.log("✅ Synced live data from Neon PostgreSQL");
+      }
+    } catch(e) {
+      console.log("⚠️ Offline mode: Using local cached data", e);
+    }
+
+    Storage.init(); 
     const savedTheme = Storage.getTheme();
     UI.applyTheme(savedTheme);
 
