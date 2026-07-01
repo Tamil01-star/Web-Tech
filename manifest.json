@@ -1,6 +1,7 @@
 {
   "name": "ECE Career Hub",
   "short_name": "ECE Hub",
+  "id": "/?source=pwa",
   "description": "Your complete career guide for Electronics and Communication Engineering students",
   "start_url": ".",
   "display": "standalone",
