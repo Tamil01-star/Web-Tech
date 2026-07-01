@@ -316,6 +316,10 @@ const ALL_ECE_PROJECTS = [
   { id:'vlsi-il4', domain:'vlsi-main', level:'Industry Level', title:'AI Matrix Multiplication Accelerator', tools:'Verilog, SRAM, Control Unit', desc:'⭐⭐⭐⭐⭐ High-performance MAC array with controller and register file, used in NVIDIA/AMD/TPU architectures.' },
   { id:'vlsi-il5', domain:'vlsi-main', level:'Industry Level', title:'CNN Accelerator', tools:'SystemVerilog, Memory Buffers', desc:'⭐⭐⭐⭐⭐ Convolution engine featuring pooling, ReLU activation, and massive buffer memory.' },
   { id:'vlsi-il6', domain:'vlsi-main', level:'Industry Level', title:'RISC-V Processor', tools:'Verilog, CPU Architecture', desc:'⭐⭐⭐⭐⭐ Complete RISC-V core with ALU, Register File, Control Unit, Program Counter, and Decoder.' },
+  { id:'vlsi-il7', domain:'vlsi-main', level:'Industry Level', title:'CoughGuard — AI Cough Wearable', tools:'MEMS Mic, ESP32-S3, TFLite, Firebase', desc:'Wearable device that uses TinyML to classify cough types (dry, wet) and sends Bluetooth alerts to health workers.' },
+  { id:'vlsi-il8', domain:'vlsi-main', level:'Industry Level', title:'FactoryEar — Machine Health Monitor', tools:'ADXL345, ESP32, FFT, MQTT', desc:'Magnetically clamped sensor that learns motor vibration baselines and predicts machine failure using anomaly detection.' },
+  { id:'vlsi-il9', domain:'vlsi-main', level:'Industry Level', title:'FallWatch — Elderly Fall Detector', tools:'MPU6050, TFLite, BLE, Firebase', desc:'Smart wristband that runs AI to differentiate between sitting and a dangerous fall, automatically alerting family.' },
+  { id:'vlsi-il10', domain:'vlsi-main', level:'Industry Level', title:'PotholeAI — Road Hazard Mapping', tools:'ESP32-CAM, MPU6050, PostGIS', desc:'Dashboard camera with dual-stage AI to detect vibration jolts and visually confirm potholes for city maintenance.' },
 
   // ======== DIGITAL DESIGN (RTL) ========
   { id:'rtl-b1', domain:'digital-rtl', level:'Basic',         title:'ALU Design',               tools:'Verilog, ModelSim, Vivado',     desc:'4-bit and 8-bit ALU supporting ADD, SUB, AND, OR, XOR, shift operations with status flags.' },
