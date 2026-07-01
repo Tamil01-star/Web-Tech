@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.tamil.ececareer",
+    "sha256_cert_fingerprints": [
+      "78:6B:07:13:7D:74:0F:50:AD:19:5C:C7:65:D9:5E:98:30:01:E4:FB:66:D6:9E:A7:95:95:64:3B:D1:6C:AD:57"
+    ]
+  }
+}]
