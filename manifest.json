@@ -2,7 +2,7 @@
   "name": "ECE Career Hub",
   "short_name": "ECE Hub",
   "description": "Your complete career guide for Electronics and Communication Engineering students",
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#0f0f23",
   "theme_color": "#6c63ff",
@@ -58,6 +58,38 @@
     }
   ],
   "categories": ["education", "productivity"],
-  "screenshots": [],
-  "related_applications": []
+  "screenshots": [
+    {
+      "src": "screenshots/screen1.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Discover Electronics Career Domains"
+    },
+    {
+      "src": "screenshots/screen2.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Explore Real-World Project Ideas"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View ECE Projects",
+      "url": "/#projects",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Favorites",
+      "short_name": "Favorites",
+      "description": "View Saved Domains",
+      "url": "/#favorites",
+      "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "dir": "ltr",
+  "lang": "en"
 }
