@@ -300,6 +300,23 @@ const ALL_ECE_PROJECTS = [
   { id:'tinyml-2', domain:'tinyml', level:'Advanced', title:'AI Dangerous Machine Zone Predictor', tools:'TensorFlow Lite, ESP32, Sensors', desc:'Wearable or machine-mounted ML model that predicts and halts operation if a human enters a dangerous industrial zone.' },
   { id:'tinyml-3', domain:'tinyml', level:'Industry Level', title:'CoughGuard — AI Cough Wearable', tools:'Cortex-M4, Audio DSP, Edge Impulse', desc:'Wearable audio classification device that continuously listens for and logs coughing patterns for remote medical diagnostics.' },
 
+  // ======== VLSI (GENERAL / NEW ADDITIONS) ========
+  { id:'vlsi-b1', domain:'vlsi-main', level:'Basic', title:'Smart Parking Controller', tools:'Verilog, FSM, Counters', desc:'Digital logic for vehicle entry/exit monitoring with slot counting and full parking indicator.' },
+  { id:'vlsi-b2', domain:'vlsi-main', level:'Basic', title:'Password Lock System', tools:'Verilog, FSM, Comparators', desc:'4-digit password unlock system with wrong attempt counter and alarm triggering.' },
+  { id:'vlsi-i1', domain:'vlsi-main', level:'Intermediate', title:'Elevator Controller', tools:'Verilog, Priority Logic', desc:'4-floor elevator control logic using FSM, up/down direction prioritization and door control.' },
+  { id:'vlsi-i2', domain:'vlsi-main', level:'Intermediate', title:'Vending Machine Controller', tools:'Verilog, FSM, Arithmetic', desc:'Coin detection logic with product selection and exact change/balance return calculation.' },
+  { id:'vlsi-i3', domain:'vlsi-main', level:'Intermediate', title:'DSP FIR Filter Accelerator', tools:'Verilog, MAC, DSP Blocks', desc:'High-speed Finite Impulse Response (FIR) filter accelerator for 5G, audio, and radar processing.' },
+  { id:'vlsi-a1', domain:'vlsi-main', level:'Advanced', title:'DDR Memory Controller', tools:'SystemVerilog, Memory Interfaces', desc:'DDR controller logic designed for seamless integration with FPGAs, processors, and AI chips.' },
+  { id:'vlsi-a2', domain:'vlsi-main', level:'Advanced', title:'USB 2.0 Controller', tools:'Verilog, USB Protocol', desc:'Custom USB 2.0 interface controller for consumer electronics and industrial applications.' },
+  { id:'vlsi-a3', domain:'vlsi-main', level:'Advanced', title:'Image Processing Accelerator', tools:'Verilog, Pipelining', desc:'Hardware accelerator for edge detection, noise removal, and sharpening in camera and medical imaging.' },
+  { id:'vlsi-a4', domain:'vlsi-main', level:'Advanced', title:'AES Encryption ASIC', tools:'Verilog, Cryptography', desc:'Hardware implementation of Advanced Encryption Standard with Key Expansion, S-Box, and MixColumns modules.' },
+  { id:'vlsi-il1', domain:'vlsi-main', level:'Industry Level', title:'AI Edge Accelerator', tools:'Cadence Genus, Innovus, Xcelium', desc:'⭐⭐⭐⭐⭐ Matrix multiplication engine with MAC array, weight memory, and activation unit (Full RTL to GDS Flow).' },
+  { id:'vlsi-il2', domain:'vlsi-main', level:'Industry Level', title:'Industrial Predictive Maintenance Accelerator', tools:'SystemVerilog, Sensor Interfaces', desc:'⭐⭐⭐⭐⭐ Processes motor vibration, temp, and RPM with a decision engine for Industry 4.0 predictive maintenance.' },
+  { id:'vlsi-il3', domain:'vlsi-main', level:'Industry Level', title:'Smart Industrial Vision Processor', tools:'Verilog, Memory, Display Out', desc:'⭐⭐⭐⭐⭐ Object counter and defect detection logic via edge detection for manufacturing conveyor belts.' },
+  { id:'vlsi-il4', domain:'vlsi-main', level:'Industry Level', title:'AI Matrix Multiplication Accelerator', tools:'Verilog, SRAM, Control Unit', desc:'⭐⭐⭐⭐⭐ High-performance MAC array with controller and register file, used in NVIDIA/AMD/TPU architectures.' },
+  { id:'vlsi-il5', domain:'vlsi-main', level:'Industry Level', title:'CNN Accelerator', tools:'SystemVerilog, Memory Buffers', desc:'⭐⭐⭐⭐⭐ Convolution engine featuring pooling, ReLU activation, and massive buffer memory.' },
+  { id:'vlsi-il6', domain:'vlsi-main', level:'Industry Level', title:'RISC-V Processor', tools:'Verilog, CPU Architecture', desc:'⭐⭐⭐⭐⭐ Complete RISC-V core with ALU, Register File, Control Unit, Program Counter, and Decoder.' },
+
   // ======== DIGITAL DESIGN (RTL) ========
   { id:'rtl-b1', domain:'digital-rtl', level:'Basic',         title:'ALU Design',               tools:'Verilog, ModelSim, Vivado',     desc:'4-bit and 8-bit ALU supporting ADD, SUB, AND, OR, XOR, shift operations with status flags.' },
   { id:'rtl-b2', domain:'digital-rtl', level:'Basic',         title:'Traffic Light Controller', tools:'Verilog, FPGA, FSM',            desc:'Moore/Mealy FSM-based traffic light controller with pedestrian crossing and emergency override.' },
