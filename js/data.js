@@ -255,6 +255,8 @@ const COMPANY_DATA = {
 // ---- 14 PROJECT DOMAINS (from the ECE & VLSI Projects Chart) ----
 const PROJECT_DOMAINS = [
   { id:'embedded',      name:'Embedded Systems',       icon:'🔬', color:'#ff6b9d' },
+  { id:'tinyml',        name:'TinyML',                 icon:'🧠', color:'#00c9a7' },
+  { id:'vlsi-main',     name:'VLSI',                   icon:'💎', color:'#4158d0' },
   { id:'digital-rtl',  name:'Digital Design (RTL)',    icon:'⚙️', color:'#c850c0' },
   { id:'asic-flow',    name:'RTL to GDS (ASIC Flow)',  icon:'🏗️', color:'#4158d0' },
   { id:'verification', name:'Verification (SV/UVM)',   icon:'✅', color:'#0093e9' },
@@ -292,6 +294,11 @@ const ALL_ECE_PROJECTS = [
   { id:'emb-il2',domain:'embedded', level:'Industry Level', title:'OTA Firmware Platform',      tools:'FreeRTOS, MCUboot, MQTT, AWS',  desc:'Over-the-air firmware update platform with A/B partition scheme, digital signature verification.' },
   { id:'emb-il3',domain:'embedded', level:'Industry Level', title:'Industrial Controller',      tools:'CODESYS, EtherCAT, IEC 61131-3',desc:'Industrial PLC-class controller implementing IEC 61131-3 languages with real-time EtherCAT fieldbus.' },
   { id:'emb-il4',domain:'embedded', level:'Industry Level', title:'AI Edge Device',             tools:'Cortex-M55, TFLite Micro, CMSIS-NN', desc:'Edge AI inference device running TensorFlow Lite Micro on Cortex-M55 with Ethos-U55 NPU.' },
+
+  // ======== TINYML ========
+  { id:'tinyml-1', domain:'tinyml', level:'Intermediate', title:'Traffic control system (ambulance and vip)', tools:'Arduino, Edge Impulse, Camera', desc:'Smart traffic light control prioritizing emergency vehicles (ambulances) and VIP convoys using on-device vision AI.' },
+  { id:'tinyml-2', domain:'tinyml', level:'Advanced', title:'AI Dangerous Machine Zone Predictor', tools:'TensorFlow Lite, ESP32, Sensors', desc:'Wearable or machine-mounted ML model that predicts and halts operation if a human enters a dangerous industrial zone.' },
+  { id:'tinyml-3', domain:'tinyml', level:'Industry Level', title:'CoughGuard — AI Cough Wearable', tools:'Cortex-M4, Audio DSP, Edge Impulse', desc:'Wearable audio classification device that continuously listens for and logs coughing patterns for remote medical diagnostics.' },
 
   // ======== DIGITAL DESIGN (RTL) ========
   { id:'rtl-b1', domain:'digital-rtl', level:'Basic',         title:'ALU Design',               tools:'Verilog, ModelSim, Vivado',     desc:'4-bit and 8-bit ALU supporting ADD, SUB, AND, OR, XOR, shift operations with status flags.' },
