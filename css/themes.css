@@ -1,0 +1,144 @@
+/* ============================================
+   ECE CAREER HUB - THEME SYSTEM
+   Light Mode, Dark Mode, System Auto-detect
+   ============================================ */
+
+:root {
+  --transition-speed: 0.3s;
+}
+
+/* ---- DARK THEME (default) ---- */
+[data-theme="dark"] {
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16213e;
+  --bg-card: #1e1e35;
+  --bg-card-hover: #252545;
+  --bg-bottom-nav: #12121f;
+  --bg-glass: rgba(30, 30, 60, 0.6);
+  --bg-glass-hover: rgba(40, 40, 80, 0.7);
+  --bg-skeleton: #2a2a45;
+  --bg-skeleton-shine: #353560;
+  --bg-input: #1e1e35;
+  --bg-modal: #1a1a2e;
+  --bg-toast: #2a2a45;
+  --bg-chip: #252545;
+
+  --text-primary: #e8e8ff;
+  --text-secondary: #a0a0c8;
+  --text-muted: #6868a0;
+  --text-accent: #b8b5ff;
+  --text-on-primary: #ffffff;
+  --text-placeholder: #5858888;
+
+  --accent-primary: #6c63ff;
+  --accent-secondary: #9c8bff;
+  --accent-tertiary: #c4b8ff;
+  --accent-gradient: linear-gradient(135deg, #6c63ff, #9c8bff);
+  --accent-gradient-vivid: linear-gradient(135deg, #7c6fff, #b860ff);
+
+  --color-embedded: #ff6b9d;
+  --color-vlsi: #c850c0;
+  --color-semiconductor: #4158d0;
+  --color-pcb: #0093e9;
+  --color-iot: #00c9a7;
+  --color-robotics: #f7971e;
+  --color-automation: #f953c6;
+  --color-mfg: #43e97b;
+  --color-auto: #fa709a;
+  --color-fpga: #a18cd1;
+  --color-linux: #ffd89b;
+  --color-firmware: #96fbc4;
+  --color-hardware: #89f7fe;
+  --color-testing: #fddb92;
+  --color-signal: #d299c2;
+  --color-wireless: #667eea;
+  --color-ai: #4facfe;
+  --color-ev: #43e97b;
+  --color-medical: #f093fb;
+  --color-defence: #4481eb;
+
+  --border-color: rgba(108, 99, 255, 0.2);
+  --border-card: rgba(108, 99, 255, 0.15);
+  --border-input: rgba(108, 99, 255, 0.3);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+  --shadow-card: 0 4px 24px rgba(108,99,255,0.15);
+  --shadow-card-hover: 0 8px 40px rgba(108,99,255,0.3);
+  --shadow-fab: 0 6px 20px rgba(108,99,255,0.5);
+  --shadow-glow: 0 0 20px rgba(108,99,255,0.4);
+
+  --ripple-color: rgba(255,255,255,0.2);
+  --scrollbar-thumb: #3a3a6a;
+  --scrollbar-track: #1a1a2e;
+}
+
+/* ---- LIGHT THEME ---- */
+[data-theme="light"] {
+  --bg-primary: #f8f8ff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f0fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5f5ff;
+  --bg-bottom-nav: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+  --bg-glass-hover: rgba(255, 255, 255, 0.9);
+  --bg-skeleton: #e8e8f0;
+  --bg-skeleton-shine: #f0f0fa;
+  --bg-input: #f5f5ff;
+  --bg-modal: #ffffff;
+  --bg-toast: #323244;
+  --bg-chip: #ededff;
+
+  --text-primary: #1a1a3e;
+  --text-secondary: #4a4a78;
+  --text-muted: #8888b0;
+  --text-accent: #5a52cc;
+  --text-on-primary: #ffffff;
+  --text-placeholder: #9999bb;
+
+  --accent-primary: #5a52cc;
+  --accent-secondary: #8878ff;
+  --accent-tertiary: #b8a8ff;
+  --accent-gradient: linear-gradient(135deg, #5a52cc, #8878ff);
+  --accent-gradient-vivid: linear-gradient(135deg, #6c63ff, #b860ff);
+
+  --color-embedded: #e8355c;
+  --color-vlsi: #a0209a;
+  --color-semiconductor: #3050c0;
+  --color-pcb: #0070c0;
+  --color-iot: #009a7a;
+  --color-robotics: #d06810;
+  --color-automation: #d030a0;
+  --color-mfg: #2aaa55;
+  --color-auto: #e05070;
+  --color-fpga: #7850c0;
+  --color-linux: #c09820;
+  --color-firmware: #40a070;
+  --color-hardware: #4090b8;
+  --color-testing: #c09000;
+  --color-signal: #a050a0;
+  --color-wireless: #4055cc;
+  --color-ai: #2080d0;
+  --color-ev: #2aaa55;
+  --color-medical: #c040d0;
+  --color-defence: #2050c0;
+
+  --border-color: rgba(90, 82, 204, 0.15);
+  --border-card: rgba(90, 82, 204, 0.12);
+  --border-input: rgba(90, 82, 204, 0.25);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+  --shadow-card: 0 4px 24px rgba(90,82,204,0.08);
+  --shadow-card-hover: 0 8px 40px rgba(90,82,204,0.2);
+  --shadow-fab: 0 6px 20px rgba(90,82,204,0.4);
+  --shadow-glow: 0 0 20px rgba(90,82,204,0.3);
+
+  --ripple-color: rgba(90,82,204,0.15);
+  --scrollbar-thumb: #c0c0e0;
+  --scrollbar-track: #f0f0fa;
+}

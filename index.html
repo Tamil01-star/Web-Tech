@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#6c63ff" />
+  <meta name="description" content="ECE Career Hub — Your complete career guide for Electronics and Communication Engineering students. Explore 20 career domains, 160+ company links, and 40+ hands-on project ideas." />
+  <meta name="keywords" content="ECE, Electronics, Communication Engineering, VLSI, Embedded Systems, IoT, PCB Design, Career Hub, Engineering Projects" />
+  <meta name="author" content="ECE Career Hub" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ECE Hub" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ECE Career Hub" />
+  <meta property="og:description" content="Complete career guide for ECE students — 20 domains, 160+ links, 40+ projects." />
+  <meta property="og:type" content="website" />
+
+  <title>ECE Career Hub — Electronics & Communication Engineering</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Apple touch icons -->
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png" />
+  
+  <!-- Favicon placeholder (can replace with real icon) -->
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/main.css" />
+
+  <!-- Google Fonts (preloaded for performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ============================
+     LOADING SCREEN
+     ============================ -->
+<div id="loading-screen" role="status" aria-label="Loading ECE Career Hub">
+  <div class="loading-logo">⚡</div>
+  <div class="loading-title">ECE Career Hub</div>
+  <div class="loading-dots">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="loading-sub">Your Engineering Career Companion</div>
+</div>
+
+<!-- ============================
+     APP SHELL
+     ============================ -->
+<div id="app">
+
+  <!-- TOP APP BAR -->
+  <header id="app-header" role="banner">
+    <div class="app-logo">
+      <div class="app-logo-icon">⚡</div>
+      <div class="app-logo-text">ECE <span>Career Hub</span></div>
+    </div>
+    <div class="header-actions">
+      <!-- Global Search Icon -->
+      <button class="btn btn-icon btn-ghost" 
+              id="header-search-btn" 
+              aria-label="Search"
+              onclick="Router.navigate('search'); setTimeout(()=>document.getElementById('global-search-input')?.focus(),200);">
+        🔍
+      </button>
+      <!-- Theme Toggle -->
+      <button class="btn btn-icon btn-ghost" 
+              id="header-theme-btn" 
+              aria-label="Toggle theme"
+              onclick="UI.applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark')">
+        🌓
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE CONTAINER -->
+  <main id="page-container" role="main">
+
+    <!-- ============================
+         HOME PAGE
+         ============================ -->
+    <section id="home-page" class="page active" aria-label="Home">
+
+      <!-- Install Banner -->
+      <div id="install-banner" class="install-banner hidden" style="display:none;" role="banner">
+        <div class="install-icon">📲</div>
+        <div class="install-text">
+          <div class="install-title">Install ECE Career Hub</div>
+          <div class="install-sub">Add to home screen for app-like experience</div>
+        </div>
+        <button id="install-close" class="btn btn-icon btn-ghost" aria-label="Close install banner" style="color:#fff;">✕</button>
+      </div>
+
+      <!-- Hero -->
+      <div class="home-hero animate-fade-in">
+        <div class="hero-greeting">👋 Welcome, Engineer!</div>
+        <h1 class="hero-title">Your ECE<br><span class="gradient-text">Career Guide</span></h1>
+        <p class="hero-sub">Explore career domains, discover companies & build amazing projects</p>
+        <div class="hero-stats" id="hero-stats"></div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="global-search">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" 
+                 id="home-search-input"
+                 placeholder="Search domains, projects, topics..."
+                 aria-label="Search ECE Career Hub" />
+        </div>
+      </div>
+
+      <!-- Recently Opened -->
+      <div id="recent-section" style="padding:4px 16px 0;display:none;">
+        <p class="section-title" style="margin-bottom:8px;">🕐 Recently Opened</p>
+        <div class="recent-scroll" id="recently-opened"></div>
+      </div>
+
+      <!-- Categories -->
+      <div style="padding:12px 16px 4px;">
+        <p class="section-title">🎯 Career Domains</p>
+      </div>
+      <div class="categories-grid card-grid stagger-children" id="categories-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Footer hint -->
+      <div style="text-align:center;padding:20px 16px 8px;">
+        <p style="font-size:0.75rem;color:var(--text-muted);">
+          Tap any domain to explore company links &amp; resources
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ============================
+         COMPANY LINKS PAGE
+         ============================ -->
+    <section id="company-page" class="page" aria-label="Company Links">
+      <!-- Rendered dynamically by App.renderCompanyPage() -->
+    </section>
+
+    <!-- ============================
+         PROJECT IDEAS PAGE
+         ============================ -->
+    <section id="projects-page" class="page" aria-label="Project Ideas">
+
+      <!-- Sticky header area -->
+      <div style="position:sticky;top:60px;z-index:90;background:var(--bg-primary);padding-top:12px;">
+        <!-- Search -->
+        <div style="padding:0 16px 8px;">
+          <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="projects-search" placeholder="Search projects..." aria-label="Search projects" />
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="projects-tabs">
+          <button class="tab-btn active ripple-container" data-tab="embedded" aria-selected="true">
+            🔬 Embedded
+          </button>
+          <button class="tab-btn ripple-container" data-tab="vlsi" aria-selected="false">
+            💎 VLSI
+          </button>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="filter-chips" id="projects-filter-chips">
+          <div class="chip active" data-diff="all">All</div>
+          <div class="chip diff-beginner" data-diff="beginner">🟢 Beginner</div>
+          <div class="chip diff-intermediate" data-diff="intermediate">🟡 Intermediate</div>
+          <div class="chip diff-advanced" data-diff="advanced">🔴 Advanced</div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid card-grid" id="projects-grid" style="padding:4px 16px;">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ============================
+         FAVORITES PAGE
+         ============================ -->
+    <section id="favorites-page" class="page" aria-label="Favorites">
+      <div style="padding:16px 16px 0;">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text-primary);margin-bottom:4px;">
+          ⭐ Favorites
+        </h2>
+        <p style="font-size:0.82rem;color:var(--text-muted);">Your saved categories, projects & bookmarked links</p>
+      </div>
+      <div id="favorites-content" style="padding:12px 16px;"></div>
+    </section>
+
+    <!-- ============================
+         SETTINGS PAGE
+         ============================ -->
+    <section id="settings-page" class="page" aria-label="Settings">
+
+      <div style="padding:16px 16px 0;">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:800;color:var(--text-primary);margin-bottom:16px;">
+          ⚙️ Settings
+        </h2>
+      </div>
+
+      <!-- Theme -->
+      <div class="settings-group">
+        <div class="settings-group-title">Appearance</div>
+        <div class="theme-options">
+          <div class="theme-option" data-theme="light">
+            <span class="theme-icon">☀️</span>
+            Light
+          </div>
+          <div class="theme-option" data-theme="dark">
+            <span class="theme-icon">🌙</span>
+            Dark
+          </div>
+          <div class="theme-option" data-theme="system">
+            <span class="theme-icon">🌓</span>
+            System
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Management -->
+      <div class="settings-group">
+        <div class="settings-group-title">Data</div>
+        <div class="settings-item ripple-container" id="clear-data-btn" role="button" tabindex="0">
+          <div class="settings-icon" style="background:rgba(255,68,68,0.15);">🗑️</div>
+          <div class="settings-info">
+            <div class="settings-title">Clear Local Data</div>
+            <div class="settings-desc">Remove all favorites, notes & history</div>
+          </div>
+          <span style="color:var(--text-muted);">›</span>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item" id="export-data-btn" role="button" tabindex="0" onclick="App.exportData ? App.exportData() : UI.showToast('Export coming soon!','info')">
+          <div class="settings-icon" style="background:rgba(67,233,123,0.15);">📤</div>
+          <div class="settings-info">
+            <div class="settings-title">Export Favorites</div>
+            <div class="settings-desc">Save your data as JSON</div>
+          </div>
+          <span style="color:var(--text-muted);">›</span>
+        </div>
+      </div>
+
+      <!-- App Info -->
+      <div class="settings-group">
+        <div class="settings-group-title">About</div>
+        <div class="settings-item">
+          <div class="settings-icon">⚡</div>
+          <div class="settings-info">
+            <div class="settings-title">ECE Career Hub</div>
+            <div class="settings-desc">Version 1.0.0</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon">👨‍💻</div>
+          <div class="settings-info">
+            <div class="settings-title">Developer</div>
+            <div class="settings-desc">ECE Career Hub Team</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon">🔒</div>
+          <div class="settings-info">
+            <div class="settings-title">Privacy Policy</div>
+            <div class="settings-desc">No data is collected. All data stays on your device.</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon">📲</div>
+          <div class="settings-info">
+            <div class="settings-title">Install as App</div>
+            <div class="settings-desc">Use browser menu → "Add to Home Screen"</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon">✈️</div>
+          <div class="settings-info">
+            <div class="settings-title">Offline Support</div>
+            <div class="settings-desc">Works without internet after first visit</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PWA Features -->
+      <div class="settings-group">
+        <div class="settings-group-title">Features</div>
+        <div class="settings-item">
+          <div class="settings-icon" style="background:rgba(108,99,255,0.15);">🗂️</div>
+          <div class="settings-info">
+            <div class="settings-title">20 Career Domains</div>
+            <div class="settings-desc">Embedded, VLSI, IoT, FPGA, and more</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon" style="background:rgba(67,233,123,0.15);">💡</div>
+          <div class="settings-info">
+            <div class="settings-title">40+ Project Ideas</div>
+            <div class="settings-desc">Embedded & VLSI projects with AI integration</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="settings-item">
+          <div class="settings-icon" style="background:rgba(247,151,30,0.15);">📝</div>
+          <div class="settings-info">
+            <div class="settings-title">Personal Notes</div>
+            <div class="settings-desc">Save notes per project — stored locally</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="app-footer">
+        <div class="footer-logo">ECE Career Hub</div>
+        <div>Built with ❤️ for ECE Students</div>
+        <div>Version 1.0.0 • 2024</div>
+        <div style="margin-top:4px;">Privacy Policy • No data collected • 100% Offline</div>
+      </div>
+
+    </section>
+
+    <!-- ============================
+         SEARCH PAGE
+         ============================ -->
+    <section id="search-page" class="page" aria-label="Search">
+      <div class="page-header" style="background:var(--bg-primary);border-bottom:1px solid var(--border-color);">
+        <button class="back-btn" onclick="Router.back()" aria-label="Go back">←</button>
+        <div class="search-bar" style="flex:1;">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="global-search-input" placeholder="Search anything..." aria-label="Global search" autofocus />
+          <button class="btn btn-icon-sm btn-ghost" onclick="document.getElementById('global-search-input').value='';App.renderSearchPage('');" aria-label="Clear search">✕</button>
+        </div>
+      </div>
+
+      <div id="search-results" class="search-results-list">
+        <div class="empty-state" style="padding-top:48px;">
+          <div class="empty-icon">🔍</div>
+          <div class="empty-title">Search ECE Career Hub</div>
+          <div class="empty-desc">Type to search career domains, projects, components, applications...</div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- end #page-container -->
+
+  <!-- ============================
+       BOTTOM NAVIGATION
+       ============================ -->
+  <nav class="bottom-nav" role="navigation" aria-label="Main navigation">
+    <button class="nav-item active ripple-container" data-page="home" aria-label="Home" aria-selected="true">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item ripple-container" data-page="company" aria-label="Company Links" aria-selected="false">
+      <span class="nav-icon">🏢</span>
+      <span class="nav-label">Companies</span>
+    </button>
+    <button class="nav-item ripple-container" data-page="projects" aria-label="Project Ideas" aria-selected="false">
+      <span class="nav-icon">💡</span>
+      <span class="nav-label">Projects</span>
+    </button>
+    <button class="nav-item ripple-container" data-page="favorites" aria-label="Favorites" aria-selected="false">
+      <span class="nav-icon">⭐</span>
+      <span class="nav-label">Favorites</span>
+    </button>
+    <button class="nav-item ripple-container" data-page="settings" aria-label="Settings" aria-selected="false">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Settings</span>
+    </button>
+  </nav>
+
+  <!-- ============================
+       FLOATING ACTION BUTTON
+       ============================ -->
+  <button class="fab" id="fab" aria-label="Quick action" title="Go to projects">
+    💡
+  </button>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top" title="Scroll to top">
+    ↑
+  </button>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container" role="status" aria-live="polite"></div>
+
+</div><!-- end #app -->
+
+<!-- ============================
+     SCRIPTS (load in order)
+     ============================ -->
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/search.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
