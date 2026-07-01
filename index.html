@@ -153,37 +153,47 @@
          ============================ -->
     <section id="projects-page" class="page" aria-label="Project Ideas">
 
-      <!-- Sticky header area -->
+      <!-- Sticky top area -->
       <div style="position:sticky;top:60px;z-index:90;background:var(--bg-primary);padding-top:12px;">
+
         <!-- Search -->
         <div style="padding:0 16px 8px;">
           <div class="search-bar">
             <span class="search-icon">🔍</span>
-            <input type="text" id="projects-search" placeholder="Search projects..." aria-label="Search projects" />
+            <input type="text" id="projects-search" placeholder="Search projects, tools..." aria-label="Search projects" />
           </div>
         </div>
 
-        <!-- Tabs -->
-        <div class="projects-tabs">
-          <button class="tab-btn active ripple-container" data-tab="embedded" aria-selected="true">
-            🔬 Embedded
-          </button>
-          <button class="tab-btn ripple-container" data-tab="vlsi" aria-selected="false">
-            💎 VLSI
-          </button>
+        <!-- Domain Tabs (horizontal scroll) -->
+        <div class="domain-tabs-scroll" id="domain-tabs-scroll">
+          <button class="domain-tab active" data-domain="embedded">🔬 Embedded</button>
+          <button class="domain-tab" data-domain="digital-rtl">⚙️ Digital RTL</button>
+          <button class="domain-tab" data-domain="asic-flow">🏗️ ASIC Flow</button>
+          <button class="domain-tab" data-domain="verification">✅ Verification</button>
+          <button class="domain-tab" data-domain="analog-ic">📐 Analog IC</button>
+          <button class="domain-tab" data-domain="fpga-proj">🧩 FPGA</button>
+          <button class="domain-tab" data-domain="comm-systems">📡 Comm Systems</button>
+          <button class="domain-tab" data-domain="dsp">🌊 DSP</button>
+          <button class="domain-tab" data-domain="power-elec">⚡ Power Elec</button>
+          <button class="domain-tab" data-domain="robotics-proj">🤖 Robotics</button>
+          <button class="domain-tab" data-domain="iot-proj">🌐 IoT</button>
+          <button class="domain-tab" data-domain="control">🎛️ Control</button>
+          <button class="domain-tab" data-domain="physical-des">🗺️ Physical Design</button>
+          <button class="domain-tab" data-domain="rf-micro">📻 RF &amp; Microwave</button>
         </div>
 
-        <!-- Difficulty Filter -->
-        <div class="filter-chips" id="projects-filter-chips">
-          <div class="chip active" data-diff="all">All</div>
-          <div class="chip diff-beginner" data-diff="beginner">🟢 Beginner</div>
-          <div class="chip diff-intermediate" data-diff="intermediate">🟡 Intermediate</div>
-          <div class="chip diff-advanced" data-diff="advanced">🔴 Advanced</div>
+        <!-- Level Filter Chips -->
+        <div class="filter-chips" id="proj-level-chips">
+          <div class="chip active" data-level="All">All Levels</div>
+          <div class="chip diff-beginner" data-level="Basic">🟢 Basic</div>
+          <div class="chip diff-intermediate" data-level="Intermediate">🟡 Intermediate</div>
+          <div class="chip diff-advanced" data-level="Advanced">🔴 Advanced</div>
+          <div class="chip badge-primary" data-level="Industry Level">🏭 Industry Level</div>
         </div>
       </div>
 
       <!-- Projects Grid -->
-      <div class="projects-grid card-grid" id="projects-grid" style="padding:4px 16px;">
+      <div class="projects-grid-list" id="projects-grid" style="padding:8px 16px 16px;">
         <!-- Rendered by JS -->
       </div>
     </section>

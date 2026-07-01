@@ -53,7 +53,7 @@ const Router = {
     } else if (pageName === 'search') {
       App.renderSearchPage(data.query);
     } else if (pageName === 'projects') {
-      App.renderProjectsPage(data.tab || App._currentProjectTab || 'embedded');
+      App.renderProjectsPage(data.domain || App._currentProjectDomain || 'embedded', data.level || App._currentProjectLevel || 'All');
     } else if (pageName === 'home') {
       App.renderRecentlyOpened();
     }
