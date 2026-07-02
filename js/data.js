@@ -61,7 +61,15 @@ const COMPANY_DATA = {
     { id:'semi-c5', name:'Samsung Semiconductor',    url:'https://semiconductor.samsung.com/us/careers/',     desc:'Foundry, memory, logic — Aug–Nov' },
     { id:'semi-c6', name:'Infineon Technologies',    url:'https://www.infineon.com/cms/en/careers/',          desc:'Power, security, automotive ICs' },
     { id:'semi-c7', name:'Broadcom',                 url:'https://www.broadcom.com/company/careers',          desc:'Networking, storage, wireless ICs' },
-    { id:'semi-c8', name:'Western Digital',          url:'https://jobs.westerndigital.com',                   desc:'NAND flash, HDD, storage ICs — Aug–Oct' }
+    { id:'semi-c8', name:'Western Digital',          url:'https://jobs.westerndigital.com',                   desc:'NAND flash, HDD, storage ICs — Aug–Oct' },
+    { id:'semi-dli1', name:'Vervesemi Microelectronics', url:'http://www.vervesemi.com/',                    desc:'DLI Approved: High-performance analog and mixed-signal IPs and ASICs' },
+    { id:'semi-dli2', name:'Mindgrove Technologies', url:'https://www.mindgrovetech.in/',                 desc:'DLI Approved: RISC-V based System-on-Chips (SoCs) and IoT processors' },
+    { id:'semi-dli3', name:'Netrasemi',              url:'http://www.netrasemi.com/',                     desc:'DLI Approved: Edge AI/ML chipsets and smart vision processors' },
+    { id:'semi-dli4', name:'Fermionic Design',       url:'https://www.fermionic.design/',                 desc:'DLI Approved: Specialized semiconductor design and high-frequency RF ICs' },
+    { id:'semi-dli5', name:'Incore Semiconductors',  url:'https://incoresemi.com/',                        desc:'DLI Approved: Custom RISC-V processors and core generators' },
+    { id:'semi-dli6', name:'Morphing Machines',       url:'http://www.morphing.in/',                       desc:'DLI Approved: Reconfigurable many-core silicon platforms (REDIS)' },
+    { id:'semi-dli7', name:'Calligo Technologies',   url:'http://www.calligotech.com/',                   desc:'DLI Approved: Accelerator chips for HPC, AI, and supercomputing' },
+    { id:'semi-dli8', name:'Silizium Circuits',      url:'https://www.siliziumcircuits.com',              desc:'DLI Approved: Radio Frequency (RF) and Analog Mixed Signal IP' }
   ],
 
   'pcb-design': [
