@@ -1,8 +1,7 @@
 {
   "version": 2,
-  "env": {
-    "DATABASE_URL": "@database_url"
-  },
+  "buildCommand": "",
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -11,15 +10,27 @@
   ],
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/sw.js",
       "headers": [
-        { "key": "Cache-Control", "value": "s-maxage=60, stale-while-revalidate" }
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/js/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" }
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/icons/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
       ]
     }
   ]
