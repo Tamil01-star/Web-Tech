@@ -1,11 +1,17 @@
 require('dotenv').config();
-const db = require('../api/db');
+const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
+
+const db = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
 
 async function seed() {
   try {
     console.log('Connecting to database...');
+
     
     // Create tables
     console.log('Creating tables...');
@@ -91,9 +97,11 @@ async function seed() {
     }
     
     console.log('🎉 Database seeding completed successfully!');
+    await db.end();
     process.exit(0);
   } catch (error) {
     console.error('Error seeding database:', error);
+    try { await db.end(); } catch (e) {}
     process.exit(1);
   }
 }
