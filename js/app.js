@@ -53,7 +53,7 @@ const App = {
     try {
       const apiBase = 'https://web-tech-kappa.vercel.app';
       const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+      const timeout = setTimeout(() => controller.abort(), 8000);
 
       const res = await fetch(`${apiBase}/api/all`, { signal: controller.signal });
       clearTimeout(timeout);
@@ -64,16 +64,16 @@ const App = {
           window.ECE_CATEGORIES = liveData.categories;
           window.COMPANY_DATA = liveData.companies;
           window.ALL_ECE_PROJECTS = liveData.projects;
-          // Silently re-render in background if user is on home or projects page
+          // Silently re-render whichever page is active
           const activePage = document.querySelector('.page.active')?.id;
           if (activePage === 'home-page') this.renderHomePage();
-          if (activePage === 'projects-page') this.renderProjectGrid();
+          if (activePage === 'projects-page') this.renderProjectsPage(this._currentProjectDomain, this._currentProjectLevel);
           console.log('✅ Live data synced from Neon DB:', liveData.projects.length, 'projects');
         }
       }
     } catch(e) {
-      // Silently fail — local data.js is always the fallback
-      if (e.name !== 'AbortError') console.log('⚠️ DB sync skipped (offline or timeout)');
+      // Silently fail — local data.js is always the fallback, never crash the app
+      console.log('⚠️ DB sync skipped:', e.name === 'AbortError' ? 'timeout' : e.message);
     }
   },
 
