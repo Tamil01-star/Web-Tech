@@ -8,27 +8,9 @@ const App = {
   _currentProjectDomain: 'embedded',
   _currentProjectLevel: 'All',
 
-  // 1) Initialize Data (Live API sync with Offline Fallback)
-  async init() {
-    try {
-      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      // For GitHub pages/APK, point to Vercel. For local testing, use relative or localhost.
-      const apiBase = window.location.protocol === 'file:' ? 'https://web-tech-kappa.vercel.app' : '';
-      
-      const res = await fetch(`${apiBase}/api/all`);
-      if (res.ok) {
-        const liveData = await res.json();
-        // Dynamically override the static arrays from data.js
-        window.ECE_CATEGORIES = liveData.categories;
-        window.COMPANY_DATA = liveData.companies;
-        window.ALL_ECE_PROJECTS = liveData.projects;
-        console.log("✅ Synced live data from Neon PostgreSQL");
-      }
-    } catch(e) {
-      console.log("⚠️ Offline mode: Using local cached data", e);
-    }
-
-    Storage.init(); 
+  // 1) Initialize App — render IMMEDIATELY from local data, then sync DB in background
+  init() {
+    Storage.init();
     const savedTheme = Storage.getTheme();
     UI.applyTheme(savedTheme);
 
@@ -46,6 +28,7 @@ const App = {
       document.getElementById('install-banner')?.style?.setProperty('display', 'flex');
     });
 
+    // Render immediately from local data.js (no waiting!)
     this.renderHomePage();
     this.initBottomNav();
     UI.initScrollTop();
@@ -55,11 +38,45 @@ const App = {
     this.initFab();
     this.initInstallBanner();
 
+    // Hide loading screen quickly
     setTimeout(() => {
       const ls = document.getElementById('loading-screen');
       if (ls) { ls.classList.add('hide'); setTimeout(() => ls.remove(), 500); }
-    }, 1200);
+    }, 800);
+
+    // Sync from Neon DB silently in background AFTER page is shown
+    this._syncFromDB();
   },
+
+  // Background DB sync — never blocks UI
+  async _syncFromDB() {
+    try {
+      const apiBase = 'https://web-tech-kappa.vercel.app';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+
+      const res = await fetch(`${apiBase}/api/all`, { signal: controller.signal });
+      clearTimeout(timeout);
+
+      if (res.ok) {
+        const liveData = await res.json();
+        if (liveData.categories && liveData.categories.length > 0) {
+          window.ECE_CATEGORIES = liveData.categories;
+          window.COMPANY_DATA = liveData.companies;
+          window.ALL_ECE_PROJECTS = liveData.projects;
+          // Silently re-render in background if user is on home or projects page
+          const activePage = document.querySelector('.page.active')?.id;
+          if (activePage === 'home-page') this.renderHomePage();
+          if (activePage === 'projects-page') this.renderProjectGrid();
+          console.log('✅ Live data synced from Neon DB:', liveData.projects.length, 'projects');
+        }
+      }
+    } catch(e) {
+      // Silently fail — local data.js is always the fallback
+      if (e.name !== 'AbortError') console.log('⚠️ DB sync skipped (offline or timeout)');
+    }
+  },
+
 
   // ---- HOME PAGE ----
   renderHomePage() {

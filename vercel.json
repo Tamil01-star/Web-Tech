@@ -1,9 +1,26 @@
 {
   "version": 2,
+  "env": {
+    "DATABASE_URL": "@database_url"
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "s-maxage=60, stale-while-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
     }
   ]
 }
