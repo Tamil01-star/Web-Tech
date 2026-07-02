@@ -71,29 +71,43 @@ async function seed() {
     await db.query('DELETE FROM categories');
     
     console.log('Inserting categories...');
-    for (const cat of ECE_CATEGORIES) {
-      await db.query(
-        'INSERT INTO categories (id, name, icon, gradient, description) VALUES ($1, $2, $3, $4, $5)',
-        [cat.id, cat.name, cat.icon, cat.gradient, cat.desc]
-      );
+    if (ECE_CATEGORIES.length > 0) {
+      const values = [];
+      const placeholders = ECE_CATEGORIES.map((cat, idx) => {
+        const offset = idx * 5;
+        values.push(cat.id, cat.name, cat.icon, cat.gradient, cat.desc);
+        return `($${offset+1}, $${offset+2}, $${offset+3}, $${offset+4}, $${offset+5})`;
+      }).join(', ');
+      await db.query(`INSERT INTO categories (id, name, icon, gradient, description) VALUES ${placeholders}`, values);
     }
     
     console.log('Inserting companies...');
+    const flatCompanies = [];
     for (const [catId, companies] of Object.entries(COMPANY_DATA)) {
       for (const comp of companies) {
-        await db.query(
-          'INSERT INTO companies (id, category_id, name, url, description) VALUES ($1, $2, $3, $4, $5)',
-          [comp.id, catId, comp.name, comp.url, comp.desc]
-        );
+        flatCompanies.push({ id: comp.id, category_id: catId, name: comp.name, url: comp.url, desc: comp.desc });
       }
+    }
+    if (flatCompanies.length > 0) {
+      // Process in chunks of 50 to avoid parameter limit of 65535 in pg (though flatCompanies is ~160, so 1 chunk is fine)
+      const values = [];
+      const placeholders = flatCompanies.map((comp, idx) => {
+        const offset = idx * 5;
+        values.push(comp.id, comp.category_id, comp.name, comp.url, comp.desc);
+        return `($${offset+1}, $${offset+2}, $${offset+3}, $${offset+4}, $${offset+5})`;
+      }).join(', ');
+      await db.query(`INSERT INTO companies (id, category_id, name, url, description) VALUES ${placeholders}`, values);
     }
     
     console.log('Inserting projects...');
-    for (const proj of ALL_ECE_PROJECTS) {
-      await db.query(
-        'INSERT INTO projects (id, domain, level, title, tools, description) VALUES ($1, $2, $3, $4, $5, $6)',
-        [proj.id, proj.domain, proj.level, proj.title, proj.tools, proj.desc]
-      );
+    if (ALL_ECE_PROJECTS.length > 0) {
+      const values = [];
+      const placeholders = ALL_ECE_PROJECTS.map((proj, idx) => {
+        const offset = idx * 6;
+        values.push(proj.id, proj.domain, proj.level, proj.title, proj.tools, proj.desc);
+        return `($${offset+1}, $${offset+2}, $${offset+3}, $${offset+4}, $${offset+5}, $${offset+6})`;
+      }).join(', ');
+      await db.query(`INSERT INTO projects (id, domain, level, title, tools, description) VALUES ${placeholders}`, values);
     }
     
     console.log('🎉 Database seeding completed successfully!');
