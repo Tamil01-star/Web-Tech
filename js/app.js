@@ -8,45 +8,60 @@ const App = {
   _currentProjectDomain: 'embedded',
   _currentProjectLevel: 'All',
 
-  // 1) Initialize App — render IMMEDIATELY from local data, then sync DB in background
+  // 1) Initialize App — guaranteed to show UI within 1 second no matter what
   init() {
-    Storage.init();
-    const savedTheme = Storage.getTheme();
-    UI.applyTheme(savedTheme);
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (Storage.getTheme() === 'system') UI.applyTheme('system');
-    });
-
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {});
-    }
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      App.deferredInstallPrompt = e;
-      document.getElementById('install-banner')?.style?.setProperty('display', 'flex');
-    });
-
-    // Render immediately from local data.js (no waiting!)
-    this.renderHomePage();
-    this.initBottomNav();
-    UI.initScrollTop();
-    UI.initPullToRefresh();
-    this.initHomeSearch();
-    this.initSettings();
-    this.initFab();
-    this.initInstallBanner();
-
-    // Hide loading screen quickly
-    setTimeout(() => {
+    // Helper: hide loading screen — called in ALL code paths
+    const hideLoader = () => {
       const ls = document.getElementById('loading-screen');
-      if (ls) { ls.classList.add('hide'); setTimeout(() => ls.remove(), 500); }
-    }, 800);
+      if (!ls) return;
+      ls.classList.add('hide');
+      setTimeout(() => { ls.classList.add('gone'); }, 600);
+    };
 
-    // Sync from Neon DB silently in background AFTER page is shown
-    this._syncFromDB();
+    try { Storage.init(); } catch(e) { console.warn('Storage init failed', e); }
+
+    try {
+      const savedTheme = Storage.getTheme();
+      UI.applyTheme(savedTheme);
+    } catch(e) { console.warn('Theme failed', e); }
+
+    try {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (Storage.getTheme() === 'system') UI.applyTheme('system');
+      });
+    } catch(e) {}
+
+    try {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      }
+    } catch(e) {}
+
+    try {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        App.deferredInstallPrompt = e;
+        document.getElementById('install-banner')?.style?.setProperty('display', 'flex');
+      });
+    } catch(e) {}
+
+    // Render all UI — each step isolated so one crash doesn't break everything
+    try { this.renderHomePage(); } catch(e) { console.error('renderHomePage failed:', e); }
+    try { this.initBottomNav(); } catch(e) { console.error('initBottomNav failed:', e); }
+    try { UI.initScrollTop(); } catch(e) {}
+    try { UI.initPullToRefresh(); } catch(e) {}
+    try { this.initHomeSearch(); } catch(e) {}
+    try { this.initSettings(); } catch(e) {}
+    try { this.initFab(); } catch(e) {}
+    try { this.initInstallBanner(); } catch(e) {}
+
+    // ALWAYS hide loader — guaranteed within 800ms
+    setTimeout(hideLoader, 800);
+
+    // Sync from Neon DB silently after page is already visible
+    setTimeout(() => this._syncFromDB(), 1200);
   },
+
 
   // Background DB sync — never blocks UI
   async _syncFromDB() {
