@@ -631,7 +631,7 @@ const App = {
     const container = document.getElementById('tech-links-container');
     if (!container) return;
 
-    if (!window.TECH_LINKS || window.TECH_LINKS.length === 0) {
+    if (typeof TECH_LINKS === 'undefined' || TECH_LINKS.length === 0) {
       container.innerHTML = `
         <div class="empty-state" style="padding-top:48px;">
           <div class="empty-icon">🔗</div>
@@ -642,7 +642,7 @@ const App = {
       return;
     }
 
-    container.innerHTML = window.TECH_LINKS.map(cat => `
+    container.innerHTML = TECH_LINKS.map(cat => `
       <div class="links-section">
         <div class="links-section-title">${cat.category}</div>
         <div class="links-grid">

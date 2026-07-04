@@ -757,7 +757,7 @@ const ALL_ECE_PROJECTS = [
 ];
 
 // ---- TECH NEWS & IMPORTANT WEB LINKS ----
-const TECH_LINKS = [
+var TECH_LINKS = [
   {
     category: 'ECE & Engineering Resources',
     links: [
