@@ -1,6 +1,6 @@
-const CACHE_NAME = 'ece-career-hub-v1.0.2';
-const STATIC_CACHE = 'ece-static-v3';
-const DYNAMIC_CACHE = 'ece-dynamic-v3';
+const CACHE_NAME = 'ece-career-hub-v1.0.3';
+const STATIC_CACHE = 'ece-static-v4';
+const DYNAMIC_CACHE = 'ece-dynamic-v4';
 
 const STATIC_ASSETS = [
   '/',
