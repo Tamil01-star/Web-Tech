@@ -13,6 +13,7 @@ const Router = {
     'projects': 'projects-page',
     'favorites': 'favorites-page',
     'settings': 'settings-page',
+    'tech-links': 'tech-links-page',
     'search': 'search-page'
   },
 
@@ -42,7 +43,7 @@ const Router = {
     // Show/hide app header
     const header = document.getElementById('app-header');
     if (header) {
-      header.style.display = ['home','company','projects','favorites','settings'].includes(pageName) ? '' : '';
+      header.style.display = ['home','company','projects','favorites','settings','tech-links'].includes(pageName) ? '' : 'none';
     }
 
     // Render page content
