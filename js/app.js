@@ -626,6 +626,43 @@ const App = {
     gs?.addEventListener('keydown', e => { if (e.key==='Enter') App.renderSearchPage(gs.value.trim()); });
   },
 
+  // ---- TECH LINKS PAGE ----
+  renderTechLinksPage() {
+    const container = document.getElementById('tech-links-container');
+    if (!container) return;
+
+    if (!window.TECH_LINKS || window.TECH_LINKS.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state" style="padding-top:48px;">
+          <div class="empty-icon">🔗</div>
+          <div class="empty-title">Important Web Links</div>
+          <div class="empty-desc">Important tech news and website links will appear here.</div>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = window.TECH_LINKS.map(cat => `
+      <div class="links-section">
+        <div class="links-section-title">${cat.category}</div>
+        <div class="links-grid">
+          ${cat.links.map(link => `
+            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-card ripple-container">
+              <div class="link-header">
+                <span class="link-name">${link.name}</span>
+                <span class="link-arrow">→</span>
+              </div>
+              <div class="link-desc">${link.desc}</div>
+              <div class="link-url">${link.url}</div>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    `).join('<div class="divider" style="margin:16px 0 24px;"></div>');
+
+    container.querySelectorAll('.link-card').forEach(el => UI.addRipple(el));
+  },
+
   exportData() {
     const data = { favorites: Storage.getFavorites(), notes: Storage.get('ece-notes',{}), bookmarkedLinks: Storage.getBookmarkedLinks(), exportedAt: new Date().toISOString() };
     const blob = new Blob([JSON.stringify(data,null,2)],{type:'application/json'});

@@ -57,6 +57,8 @@ const Router = {
       App.renderProjectsPage(data.domain || App._currentProjectDomain || 'embedded', data.level || App._currentProjectLevel || 'All');
     } else if (pageName === 'home') {
       App.renderRecentlyOpened();
+    } else if (pageName === 'tech-links') {
+      App.renderTechLinksPage();
     }
   },
 
@@ -70,7 +72,7 @@ const Router = {
   },
 
   updateNav(pageName) {
-    const mainPages = ['home', 'company', 'projects', 'favorites', 'settings'];
+    const mainPages = ['home', 'company', 'projects', 'favorites', 'settings', 'tech-links'];
     document.querySelectorAll('.nav-item').forEach(item => {
       item.classList.toggle('active', item.dataset.page === pageName);
     });

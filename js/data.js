@@ -755,3 +755,35 @@ const ALL_ECE_PROJECTS = [
   { id:'tvmabe326', domain:'physical-des', level:'Industry Level', title:'Reliable Multistate RRAM Devices for Reconfigurable CAM and IMC Applications', tools:'Cadence Innovus, Synopsys IC Compiler', desc:'Integrate these RRAM devices with MOS transistors to build a 4T2R array, enabling reconfigurable analog voltage-based Content- Addressable Memory (CAM) and In-Memory Computing (IMC) accelerators. Backend/Nano' },
   { id:'tvmabe325', domain:'analog-ic', level:'Advanced', title:'A 10bit 50MS per sec Radiation Tolerant Split Coarse or Fine SAR ADC in 65-nm CMOS', tools:'Cadence Virtuoso, Spectre', desc:'Radiation-Hardened by Design (RHBD): Incorporate robust architecture and circuit-level strategies to mitigate radiation-induced errors (Single Event Effects, Total Ionizing Dose effects, Backend/Nano technology/ Low power etc.) without resorting to inherently radiation- hardened (and often expensive) fabrication processes.  PLAGARISM DOCUMENTATION' }
 ];
+
+// ---- TECH NEWS & IMPORTANT WEB LINKS ----
+const TECH_LINKS = [
+  {
+    category: 'ECE & Engineering Resources',
+    links: [
+      { name: 'Takeoff Projects', url: 'https://takeoffprojects.com/', desc: 'Academic and live project ideas for engineering students.' },
+      { name: 'IEEE Xplore', url: 'https://ieeexplore.ieee.org/Xplore/home.jsp', desc: 'Search and access scientific journals and research papers.' },
+      { name: 'EDA Playground', url: 'https://www.edaplayground.com/', desc: 'Simulate system-level HDL and verification code in your browser.' },
+      { name: 'ChipIN Cloud', url: 'https://chipin-cloud.cdacb.in/index.php/login', desc: 'Access details and files for Cadence EDA Tools under the ChipIN scheme.' },
+      { name: 'Chips DLI Portal', url: 'https://chips-dli.gov.in/DLI/HomePage', desc: 'Design Linked Incentive (DLI) Scheme & approved Indian chip companies.' }
+    ]
+  },
+  {
+    category: 'PWA, Internships & AI Tools',
+    links: [
+      { name: 'PWA Builder', url: 'https://www.pwabuilder.com/', desc: 'Convert web applications and PWAs into native Android APKs.' },
+      { name: 'PM Internship Scheme', url: 'https://pminternship.mca.gov.in/login/', desc: 'Government internship opportunities and portal login.' },
+      { name: 'ATXP AI', url: 'https://chat.atxp.ai/share/ge11rQ9rGAgnjC7afE9yF', desc: 'All-in-one AI chat platform and shared prompts.' }
+    ]
+  },
+  {
+    category: 'My Custom Portals & Projects',
+    links: [
+      { name: 'My Portfolio', url: 'https://portfolio-eight-pi-ebym1t0zvb.vercel.app/', desc: 'My personal professional portfolio website.' },
+      { name: 'Jarvis AI', url: 'https://jarvis-ai-nine-lac.vercel.app/', desc: 'Custom AI conversational agent platform.' },
+      { name: 'Students Test Portal', url: 'https://students-test-portal.vercel.app/', desc: 'Online testing and portal platform for students.' },
+      { name: 'Personal Vault', url: 'https://personal-vault-fawn-five.vercel.app/', desc: 'Secure cloud vault application.' },
+      { name: 'Engineering Notes Library', url: 'https://engineering-notes-library-85mv-km7tbdj61-tamil01-stars-projects.vercel.app/', desc: 'Access academic notes, libraries, and resources.' }
+    ]
+  }
+];
