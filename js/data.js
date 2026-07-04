@@ -50,7 +50,14 @@ const COMPANY_DATA = {
     { id:'vlsi-c5', name:'Synopsys',   url:'https://careers.synopsys.com',                                   desc:'EDA tools, DesignWare IP — Jul–Oct' },
     { id:'vlsi-c6', name:'Cadence',    url:'https://www.cadence.com/en_US/home/company/careers.html',        desc:'Virtuoso, Innovus, Sigrity — Jul–Oct' },
     { id:'vlsi-c7', name:'Marvell',    url:'https://www.marvell.com/company/careers.html',                   desc:'Ethernet, storage, HPC SoCs — Aug–Nov' },
-    { id:'vlsi-c8', name:'MediaTek',   url:'https://careers.mediatek.com',                                   desc:'Dimensity, HELIO, 5G SoCs — Aug–Oct' }
+    { id:'vlsi-c8', name:'MediaTek',   url:'https://careers.mediatek.com',                                   desc:'Dimensity, HELIO, 5G SoCs — Aug–Oct' },
+    { id:'vlsi-chipin1', name:'Manovega AI',              url:'https://manovega.com',                desc:'🇮🇳 DLI Approved: AI-based SoC and chip design startup building intelligent silicon for edge applications' },
+    { id:'vlsi-chipin2', name:'Sampige Semiconductors',   url:'https://www.sampigesemi.com',         desc:'🇮🇳 DLI Approved: Mixed-signal and analog semiconductor design house based in India' },
+    { id:'vlsi-chipin3', name:'Atantri Communications',   url:'https://atantri.com',                 desc:'🇮🇳 DLI Approved: RF and communication chip design startup developing wireless connectivity ICs' },
+    { id:'vlsi-chipin4', name:'Ciris Semi',               url:'https://www.cirissemi.com',           desc:'🇮🇳 DLI Approved: Mixed-signal IP and ASIC realization company focused on precision analog design' },
+    { id:'vlsi-chipin5', name:'SmartDV Technologies',     url:'https://www.smartdv.com',             desc:'🇮🇳 DLI Approved: Semiconductor IP and verification solutions provider for SoC design teams' },
+    { id:'vlsi-chipin6', name:'Millimeter Chips',         url:'https://millimeterchips.co.in',       desc:'🇮🇳 DLI Approved: RF, microwave and millimeter-wave IC design for 5G and radar applications' },
+    { id:'vlsi-chipin7', name:'GTS25 — Second Union Silicon', url:'https://chips-dli.gov.in/DLI/HomePage', desc:'🇮🇳 DLI Approved: Semiconductor chip design startup incubated under India\'s ChipIN programme' }
   ],
 
   'semiconductor': [
