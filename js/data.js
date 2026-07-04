@@ -773,7 +773,8 @@ var TECH_LINKS = [
     links: [
       { name: 'PWA Builder', url: 'https://www.pwabuilder.com/', desc: 'Convert web applications and PWAs into native Android APKs.' },
       { name: 'PM Internship Scheme', url: 'https://pminternship.mca.gov.in/login/', desc: 'Government internship opportunities and portal login.' },
-      { name: 'ATXP AI', url: 'https://chat.atxp.ai/share/ge11rQ9rGAgnjC7afE9yF', desc: 'All-in-one AI chat platform and shared prompts.' }
+      { name: 'ATXP AI', url: 'https://chat.atxp.ai/share/ge11rQ9rGAgnjC7afE9yF', desc: 'All-in-one AI chat platform and shared prompts.' },
+      { name: 'Claude AI (Four-Stage OTA)', url: 'https://claude.ai/share/eed45166-ba01-4c22-aeb7-8f8f39fb5b8e', desc: 'Discussion on Four-Stage OTA with Hybrid Cascode Frequency Compensation.' }
     ]
   },
   {
