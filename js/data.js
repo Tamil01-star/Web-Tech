@@ -345,7 +345,8 @@ const PROJECT_DOMAINS = [
   { id:'iot-proj',     name:'IoT',                     icon:'🌐', color:'#ffd89b' },
   { id:'control',      name:'Control Systems',         icon:'🎛️', color:'#96fbc4' },
   { id:'physical-des', name:'Physical Design',         icon:'🗺️', color:'#89f7fe' },
-  { id:'rf-micro',     name:'RF & Microwave',          icon:'📻', color:'#667eea' }
+  { id:'rf-micro',     name:'RF & Microwave',          icon:'📻', color:'#667eea' },
+  { id:'python-proj',  name:'Python',                  icon:'🐍', color:'#f7ca18' }
 ];
 
 // ---- ALL ECE & VLSI PROJECTS (from chart image — 4 domains × 4 levels × 4 projects) ----
@@ -755,7 +756,8 @@ const ALL_ECE_PROJECTS = [
   { id:'tvmabe323', domain:'analog-ic', level:'Advanced', title:'A 10-bit 50-MS/s Radiation Tolerant Split Coarse/Fine SAR ADC in 65-nm CMOS', tools:'Cadence Virtuoso, Spectre', desc:'Radiation-Hardened by Design (RHBD): Incorporate robust architecture and circuit-level strategies to mitigate radiation-induced errors (Single Event Effects, Total Ionizing Dose effects, etc.) without resorting to inherently radiation- hardened (and often expensive) fabrication processes Back-end Domain/' },
   { id:'tvmafe664', domain:'digital-rtl', level:'Advanced', title:'Performance Analysis of MAC Unit with Various Parallel Adders', tools:'Verilog RTL, Synopsys Design Compiler', desc:'To evaluate the performance of a multiply-accumulate (MAC) unit using different parallel adder architectures to determine trade- offs in speed, area, and power. To identify the best adder choice for MAC-based applications by comparing latency, resource utilization, and energy efficiency across implementations.' },
   { id:'tvmabe326', domain:'physical-des', level:'Industry Level', title:'Reliable Multistate RRAM Devices for Reconfigurable CAM and IMC Applications', tools:'Cadence Innovus, Synopsys IC Compiler', desc:'Integrate these RRAM devices with MOS transistors to build a 4T2R array, enabling reconfigurable analog voltage-based Content- Addressable Memory (CAM) and In-Memory Computing (IMC) accelerators. Backend/Nano' },
-  { id:'tvmabe325', domain:'analog-ic', level:'Advanced', title:'A 10bit 50MS per sec Radiation Tolerant Split Coarse or Fine SAR ADC in 65-nm CMOS', tools:'Cadence Virtuoso, Spectre', desc:'Radiation-Hardened by Design (RHBD): Incorporate robust architecture and circuit-level strategies to mitigate radiation-induced errors (Single Event Effects, Total Ionizing Dose effects, Backend/Nano technology/ Low power etc.) without resorting to inherently radiation- hardened (and often expensive) fabrication processes.  PLAGARISM DOCUMENTATION' }
+  { id:'tvmabe325', domain:'analog-ic', level:'Advanced', title:'A 10bit 50MS per sec Radiation Tolerant Split Coarse or Fine SAR ADC in 65-nm CMOS', tools:'Cadence Virtuoso, Spectre', desc:'Radiation-Hardened by Design (RHBD): Incorporate robust architecture and circuit-level strategies to mitigate radiation-induced errors (Single Event Effects, Total Ionizing Dose effects, Backend/Nano technology/ Low power etc.) without resorting to inherently radiation- hardened (and often expensive) fabrication processes.  PLAGARISM DOCUMENTATION' },
+  { id:'py-a1', domain:'python-proj', level:'Advanced', title:'TrafficSense AI Deep Learning Ensemble Approach to Traffic Signal Recognition', tools:'Python, AI, Deep Learning', url:'https://takeoffprojects.com/project-details/trafficsense-ai-deep-learning-ensemble-approach-to-traffic-signal-recognition--21973', desc:'Deep Learning Ensemble Approach to Traffic Signal Recognition.' }
 ];
 
 // ---- TECH NEWS & IMPORTANT WEB LINKS ----
@@ -800,6 +802,12 @@ var TECH_LINKS = [
     category: 'Internet of Things',
     links: [
       { name: 'IoT Industrial Automation', url: 'https://takeoffprojects.com/project-details/iot-based-industrial-automation-for-various-load-using-atmega328p-microcontroller--16679', desc: 'IoT based Industrial Automation for Various Load using ATmega328p Microcontroller.' }
+    ]
+  },
+  {
+    category: 'Python Projects',
+    links: [
+      { name: 'TrafficSense AI', url: 'https://takeoffprojects.com/project-details/trafficsense-ai-deep-learning-ensemble-approach-to-traffic-signal-recognition--21973', desc: 'TrafficSense AI Deep Learning Ensemble Approach to Traffic Signal Recognition.' }
     ]
   }
 ];

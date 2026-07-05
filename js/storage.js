@@ -16,12 +16,13 @@ const STORAGE_KEYS = {
 
 const Storage = {
   init() {
-    if (!localStorage.getItem('ece-default-favs-set')) {
+    if (!localStorage.getItem('ece-default-favs-v2-set')) {
        let favs = this.getFavorites();
        if (!favs.projects.includes('pow-il5')) favs.projects.push('pow-il5');
        if (!favs.projects.includes('iot-a5')) favs.projects.push('iot-a5');
+       if (!favs.projects.includes('py-a1')) favs.projects.push('py-a1');
        this.set(STORAGE_KEYS.FAVORITES, favs);
-       localStorage.setItem('ece-default-favs-set', 'true');
+       localStorage.setItem('ece-default-favs-v2-set', 'true');
     }
   },
 
