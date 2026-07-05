@@ -709,6 +709,7 @@ const ALL_ECE_PROJECTS = [
   { id:'tembma3789', domain:'tinyml', level:'Advanced', title:'Raspberry Pi-Based Non-Invasive Anemia Detection via Palpebral Conjunctiva Image Analysis', tools:'Raspberry Pi, TensorFlow Lite, Camera', desc:'The objective of Raspberry Pi-Based Non-Invasive Anemia Detection via Palpebral Conjunctiva Image Analysis is to develop a low- cost system that analyzes eye images to detect Image Processing anemia without blood tests. This enables quick, portable, and non-invasive health screening.' },
   { id:'tembma3790', domain:'embedded', level:'Intermediate', title:'AI-Based Intelligent Garbage Classification and Disposal System', tools:'STM32, FreeRTOS, Embedded C', desc:'The objective is to develop an AI- based system that classifies and disposes of waste into categories such as biodegradable, recyclable, and hazardous, promoting recycling and sustainable waste management.' },
   { id:'tembma3791', domain:'iot-proj', level:'Intermediate', title:'Renal Care: Personalized Alerting System for Renal Cancer Recurrence Prevention via IoT and ML', tools:'ESP32, Wi-Fi, Cloud Dashboard', desc:'The objective is to develop an IoT- and ML-based system that monitors patient data, predicts renal cancer recurrence risks, and sends personalized alerts for timely intervention. IOT+ Machine' },
+  { id:'iot-a5', domain:'iot-proj', level:'Intermediate', title:'IoT based Industrial Automation for Various Load using ATmega328p Microcontroller', tools:'ATmega328p, IoT, Web', url:'https://takeoffprojects.com/project-details/iot-based-industrial-automation-for-various-load-using-atmega328p-microcontroller--16679', desc:'IoT-based Industrial Automation for controlling and monitoring various loads using ATmega328p microcontroller.' },
   { id:'tembma3792', domain:'embedded', level:'Intermediate', title:'Coin Operated Water ATM with Bottle Dispenser', tools:'STM32, FreeRTOS, Embedded C', desc:'The objective of Coin Operated Water ATM with Bottle Dispenser is to design an automated system that dispenses purified water and bottles upon coin insertion. It provides an affordable, user-friendly, and efficient solution for clean drinking water access.' },
   { id:'tmmaco171', domain:'comm-systems', level:'Advanced', title:'Deep Reinforcement Learning-Driven Secure ISAC Optimization Using STAR-RIS in 6G Networks', tools:'MATLAB, Simulink', desc:'To develop a DRL-based framework using Soft Actor-Critic for optimizing secure multi-user ISAC systems with STAR-RIS, enhancing 6G communication, sensing, and security performance.' },
   { id:'tmmaco172', domain:'comm-systems', level:'Advanced', title:'Secure THz Communication in 6G: A Two-Stage DRL Approach for IRS-Assisted NOMA', tools:'MATLAB, Simulink', desc:'To optimize secrecy energy efficiency in IRS – assisted THz – NOMA systems using a two-stage DDPG- based deep reinforcement learning approach.' },
@@ -793,6 +794,12 @@ var TECH_LINKS = [
     category: 'Power Electronics',
     links: [
       { name: 'Transformer-Less UPQC', url: 'https://takeoffprojects.com/project-details/single-phase-transformer-less-unified-power-quality-conditioner-based-on-three-leg-and-standby-converters--19914', desc: 'Single-Phase Transformer-Less Unified Power Quality Conditioner Based on Three-Leg and Standby Converters.' }
+    ]
+  },
+  {
+    category: 'Internet of Things',
+    links: [
+      { name: 'IoT Industrial Automation', url: 'https://takeoffprojects.com/project-details/iot-based-industrial-automation-for-various-load-using-atmega328p-microcontroller--16679', desc: 'IoT based Industrial Automation for Various Load using ATmega328p Microcontroller.' }
     ]
   }
 ];
