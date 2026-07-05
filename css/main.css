@@ -656,7 +656,15 @@ body {
    ============================================ */
 @media (min-width: 768px) {
   /* 1. Layout & Sidebar */
-  #app { flex-direction: row; }
+  #app { flex-direction: column; }
+  
+  #app-header {
+    max-width: none;
+    width: calc(100% - 240px);
+    margin-left: 240px;
+    margin-right: 0;
+    padding: 16px 32px;
+  }
   
   #page-container {
     flex: 1;
@@ -664,8 +672,8 @@ body {
     padding-bottom: 24px; /* remove mobile nav padding */
     padding-left: 32px;
     padding-right: 32px;
-    max-width: 1400px;
-    margin-right: auto;
+    max-width: none;
+    width: calc(100% - 240px);
   }
   
   .bottom-nav {
@@ -689,6 +697,7 @@ body {
   }
   
   .nav-item {
+    flex: none; /* prevent stretching vertically */
     flex-direction: row;
     justify-content: flex-start;
     padding: 16px 24px;
@@ -713,7 +722,7 @@ body {
     color: #fff;
   }
   .nav-item.active .nav-icon, .nav-item.active .nav-label { color: #fff; }
-  .nav-item.active::after { display: none; }
+  .nav-item.active::before, .nav-item::before { display: none; }
   
   .nav-item:hover { background: rgba(255,255,255,0.05); }
 
@@ -734,6 +743,12 @@ body {
   /* 4. Page Elements */
   .hero-title { font-size: 3rem; }
   .hero-sub { font-size: 1.1rem; }
-  .search-container { max-width: 600px; }
+  .search-container { max-width: 600px; margin: 0 auto; }
   .home-hero::after { width: 300px; height: 300px; bottom: -100px; left: -100px; }
+  
+  /* Center page content nicely */
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
