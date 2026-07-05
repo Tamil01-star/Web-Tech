@@ -15,6 +15,16 @@ const STORAGE_KEYS = {
 };
 
 const Storage = {
+  init() {
+    if (!localStorage.getItem('ece-default-favs-set')) {
+       let favs = this.getFavorites();
+       if (!favs.projects.includes('pow-il5')) favs.projects.push('pow-il5');
+       if (!favs.projects.includes('iot-a5')) favs.projects.push('iot-a5');
+       this.set(STORAGE_KEYS.FAVORITES, favs);
+       localStorage.setItem('ece-default-favs-set', 'true');
+    }
+  },
+
   get(key, fallback = null) {
     try {
       const val = localStorage.getItem(key);
