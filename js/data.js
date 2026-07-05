@@ -809,5 +809,40 @@ var TECH_LINKS = [
     links: [
       { name: 'TrafficSense AI', url: 'https://takeoffprojects.com/project-details/trafficsense-ai-deep-learning-ensemble-approach-to-traffic-signal-recognition--21973', desc: 'TrafficSense AI Deep Learning Ensemble Approach to Traffic Signal Recognition.' }
     ]
+  },
+  {
+    category: 'Important Websites',
+    links: [
+      { name: 'Vercel', url: 'https://vercel.com/', desc: 'Create web or publish to public.' },
+      { name: 'Fletter (FlutterFlow)', url: 'https://flutterflow.io/', desc: 'AI web development (UI).' },
+      { name: 'Gamma AI', url: 'https://gamma.app/', desc: 'To create an PPT.' },
+      { name: 'Tesana AI', url: 'https://tesana.ai/', desc: 'Developing game.' },
+      { name: 'YCombinator', url: 'https://www.ycombinator.com/', desc: 'For project requirement.' },
+      { name: 'Antigravity', url: 'https://github.com/GoogleCloudPlatform/antigravity', desc: 'AI web development.' },
+      { name: 'GitHub', url: 'https://github.com/', desc: 'Project uploading.' },
+      { name: 'Git', url: 'https://git-scm.com/', desc: 'Alternate project in gitub (side web).' },
+      { name: 'VS Code', url: 'https://code.visualstudio.com/', desc: 'Editing the file in gitub as well upload also.' },
+      { name: 'Ngrok', url: 'https://ngrok.com/', desc: 'Publish to public.' },
+      { name: 'Node.js', url: 'https://nodejs.org/', desc: 'Terminal running.' },
+      { name: 'Vibe Coding', url: 'https://vibecoding.com/', desc: 'Vibe coding approach.' },
+      { name: 'PentAGI', url: 'https://github.com/pentestgpt/PentAGI', desc: 'Hack AI.' },
+      { name: 'Code Flying', url: 'https://codeflying.app/', desc: 'App development AI.' },
+      { name: 'Stitch AI', url: 'https://stitch.ai/', desc: 'Design the web.' },
+      { name: 'Google AI Studio', url: 'https://aistudio.google.com/', desc: 'Web develop and connect api.' },
+      { name: 'Omma Build AI', url: 'https://withoma.com/', desc: 'Web develop in 3d theme.' },
+      { name: 'Hermous AI', url: 'https://www.google.com/search?q=Hermous+ai', desc: 'AI Platform.' },
+      { name: 'Neon Database', url: 'https://neon.tech/', desc: 'Serverless Postgres.' },
+      { name: 'PostgreSQL', url: 'https://www.postgresql.org/', desc: 'Database.' },
+      { name: 'Test Spirit MCP', url: 'https://testspirit.com/', desc: 'Error Detector.' },
+      { name: 'Meigen AI', url: 'https://meigen.ai/', desc: 'Photo prompt.' },
+      { name: 'Manus AI', url: 'https://manus.ai/', desc: '3d web development.' },
+      { name: 'Netlify', url: 'https://www.netlify.com/', desc: 'Hosting.' },
+      { name: 'Railway', url: 'https://railway.app/', desc: 'Hosting.' },
+      { name: 'Render', url: 'https://render.com/', desc: 'Hosting.' },
+      { name: 'Cloudflare', url: 'https://www.cloudflare.com/', desc: 'Hosting.' },
+      { name: 'Chat ATXP AI', url: 'https://chat.atxp.ai/', desc: 'Use pro version ai also.' },
+      { name: 'Openclaw AI', url: 'https://openclaw.ai/', desc: 'Develop and deploy.' },
+      { name: 'Resend', url: 'https://resend.com/', desc: 'Email Generator.' }
+    ]
   }
 ];
