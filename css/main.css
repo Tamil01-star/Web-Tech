@@ -651,3 +651,89 @@ body {
   margin-left: auto;
 }
 
+/* ============================================
+   DESKTOP / PC FULL SCREEN VIEW (Responsive)
+   ============================================ */
+@media (min-width: 768px) {
+  /* 1. Layout & Sidebar */
+  #app { flex-direction: row; }
+  
+  #page-container {
+    flex: 1;
+    margin-left: 240px; /* space for sidebar */
+    padding-bottom: 24px; /* remove mobile nav padding */
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 1400px;
+    margin-right: auto;
+  }
+  
+  .bottom-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 240px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 32px;
+    border-top: none;
+    border-right: 1px solid var(--border-color);
+    border-radius: 0;
+    transform: none;
+    max-width: none;
+    background: var(--bg-bottom-nav);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+  }
+  
+  .nav-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 16px 24px;
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 0 24px 24px 0;
+  }
+  
+  .nav-icon {
+    margin-bottom: 0;
+    margin-right: 16px;
+    font-size: 1.4rem;
+  }
+  
+  .nav-label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .nav-item.active {
+    background: var(--accent-gradient);
+    color: #fff;
+  }
+  .nav-item.active .nav-icon, .nav-item.active .nav-label { color: #fff; }
+  .nav-item.active::after { display: none; }
+  
+  .nav-item:hover { background: rgba(255,255,255,0.05); }
+
+  /* 2. Responsive Grids */
+  .projects-grid, .projects-grid-list, .projects-grid-fav, .category-grid, .link-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    flex-direction: unset;
+  }
+  
+  .domain-tabs-scroll { flex-wrap: wrap; justify-content: flex-start; }
+
+  /* 3. Floating Elements */
+  .fab { bottom: 32px; right: 32px; }
+  .toast-container { bottom: 32px; left: calc(50% + 120px); }
+
+  /* 4. Page Elements */
+  .hero-title { font-size: 3rem; }
+  .hero-sub { font-size: 1.1rem; }
+  .search-container { max-width: 600px; }
+  .home-hero::after { width: 300px; height: 300px; bottom: -100px; left: -100px; }
+}
