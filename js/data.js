@@ -544,6 +544,7 @@ const ALL_ECE_PROJECTS = [
   { id:'pow-il2',domain:'power-elec', level:'Industry Level',title:'Battery Management System',tools:'STM32, BQ76940, CAN, LTE',   desc:'Multi-cell BMS with coulomb counting, SoC/SoH estimation, cell balancing, and cloud telemetry.' },
   { id:'pow-il3',domain:'power-elec', level:'Industry Level',title:'Digital UPS',             tools:'STM32, Simulink, DSP',         desc:'Online double-conversion UPS with DSP control, seamless transfer, battery management, and SNMP.' },
   { id:'pow-il4',domain:'power-elec', level:'Industry Level',title:'Smart Grid Converter',    tools:'TI DSP, Simulink, IEC 61968',  desc:'Grid-edge power converter with V2G, demand response, smart metering, and IEC 61968 SCADA integration.' },
+  { id:'pow-il5',domain:'power-elec', level:'Industry Level',title:'Transformer-Less UPQC',   tools:'Simulink, Power Electronics', url:'https://takeoffprojects.com/project-details/single-phase-transformer-less-unified-power-quality-conditioner-based-on-three-leg-and-standby-converters--19914', desc:'Single-Phase Transformer-Less Unified Power Quality Conditioner Based on Three-Leg and Standby Converters.' },
 
   // ======== ROBOTICS ========
   { id:'rob-b1', domain:'robotics-proj', level:'Basic',         title:'Line Follower Robot',  tools:'Arduino, IR Sensor, L298N',    desc:'PID-controlled line follower using 5-sensor array with adaptive speed on curves and intersection handling.' },
@@ -786,6 +787,12 @@ var TECH_LINKS = [
       { name: 'Students Test Portal', url: 'https://students-test-portal.vercel.app/', desc: 'Online testing and portal platform for students.' },
       { name: 'Personal Vault', url: 'https://personal-vault-fawn-five.vercel.app/', desc: 'Secure cloud vault application.' },
       { name: 'Engineering Notes Library', url: 'https://engineering-notes-library-85mv-km7tbdj61-tamil01-stars-projects.vercel.app/', desc: 'Access academic notes, libraries, and resources.' }
+    ]
+  },
+  {
+    category: 'Power Electronics',
+    links: [
+      { name: 'Transformer-Less UPQC', url: 'https://takeoffprojects.com/project-details/single-phase-transformer-less-unified-power-quality-conditioner-based-on-three-leg-and-standby-converters--19914', desc: 'Single-Phase Transformer-Less Unified Power Quality Conditioner Based on Three-Leg and Standby Converters.' }
     ]
   }
 ];
