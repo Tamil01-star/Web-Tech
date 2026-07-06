@@ -566,6 +566,14 @@ body {
 .project-card-sm {
   padding: 14px 16px;
   cursor: default;
+  user-select: text;
+  -webkit-user-select: text;
+  -webkit-touch-callout: default;
+}
+
+.project-card-sm * {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .proj-top {
