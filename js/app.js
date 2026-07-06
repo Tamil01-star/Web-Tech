@@ -352,6 +352,9 @@ const App = {
           <button class="btn btn-secondary btn-sm" onclick="App.shareProject('${proj.id}')">
             ↗ Share
           </button>
+          <button class="btn btn-secondary btn-sm" onclick="App.copyProjectText('${proj.id}')" title="Copy Details">
+            📋 Copy
+          </button>
         </div>
       </div>
     `;
