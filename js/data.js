@@ -769,7 +769,8 @@ var TECH_LINKS = [
       { name: 'IEEE Xplore', url: 'https://ieeexplore.ieee.org/Xplore/home.jsp', desc: 'Search and access scientific journals and research papers.' },
       { name: 'EDA Playground', url: 'https://www.edaplayground.com/', desc: 'Simulate system-level HDL and verification code in your browser.' },
       { name: 'ChipIN Cloud', url: 'https://chipin-cloud.cdacb.in/index.php/login', desc: 'Access details and files for Cadence EDA Tools under the ChipIN scheme.' },
-      { name: 'Chips DLI Portal', url: 'https://chips-dli.gov.in/DLI/HomePage', desc: 'Design Linked Incentive (DLI) Scheme & approved Indian chip companies.' }
+      { name: 'Chips DLI Portal', url: 'https://chips-dli.gov.in/DLI/HomePage', desc: 'Design Linked Incentive (DLI) Scheme & approved Indian chip companies.' },
+      { name: 'Proteus (Labcenter)', url: 'https://www.labcenter.com/', desc: 'Advanced circuit simulation, microcontroller co-simulation, and PCB design software.' }
     ]
   },
   {
