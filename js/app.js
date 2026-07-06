@@ -365,6 +365,36 @@ const App = {
     return map[level] || 'badge-muted';
   },
 
+  copyProjectText(id) {
+    const proj = ALL_ECE_PROJECTS.find(p => p.id === id);
+    if (!proj) return;
+    const domainName = PROJECT_DOMAINS.find(d => d.id === proj.domain)?.name || 'ECE';
+    const text = `Project: ${proj.title}\nDomain: ${domainName}\nLevel: ${proj.level}\nTools: ${proj.tools}\n\nDescription: ${proj.desc}`;
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        UI.showToast('Project details copied to clipboard!', 'success');
+      }).catch(err => {
+        console.error('Failed to copy', err);
+        UI.showToast('Failed to copy.', 'error');
+      });
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        UI.showToast('Project details copied to clipboard!', 'success');
+      } catch (err) {
+        UI.showToast('Failed to copy.', 'error');
+      }
+      document.body.removeChild(textarea);
+    }
+  },
+
   toggleProjectFav(projectId, e) {
     e?.stopPropagation();
     const added = Storage.toggleFavoriteProject(projectId);
