@@ -843,7 +843,9 @@ var TECH_LINKS = [
       { name: 'Cloudflare', url: 'https://www.cloudflare.com/', desc: 'A global network designed to make everything you connect to the Internet secure, private, fast, and reliable.' },
       { name: 'Chat ATXP AI', url: 'https://chat.atxp.ai/', desc: 'An all-in-one AI platform providing access to multiple premium AI models and pro-level chat functionalities.' },
       { name: 'Openclaw AI', url: 'https://openclaw.ai/', desc: 'An open-source autonomous AI assistant designed to perform personal tasks, develop, and deploy applications.' },
-      { name: 'Resend', url: 'https://resend.com/', desc: 'An email API for developers to reliably send emails, designed for the modern web with a focus on developer experience.' }
+      { name: 'Resend', url: 'https://resend.com/', desc: 'An email API for developers to reliably send emails, designed for the modern web with a focus on developer experience.' },
+      { name: 'Elicit', url: 'https://elicit.com/', desc: 'An AI research assistant that helps automate research workflows like literature reviews and extracting data from papers.' },
+      { name: 'Microsoft Activation Scripts', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Open-source Windows and Office activation method (CMD license).' }
     ]
   }
 ];
