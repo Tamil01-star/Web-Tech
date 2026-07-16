@@ -770,7 +770,8 @@ var TECH_LINKS = [
       { name: 'EDA Playground', url: 'https://www.edaplayground.com/', desc: 'Simulate system-level HDL and verification code in your browser.' },
       { name: 'ChipIN Cloud', url: 'https://chipin-cloud.cdacb.in/index.php/login', desc: 'Access details and files for Cadence EDA Tools under the ChipIN scheme.' },
       { name: 'Chips DLI Portal', url: 'https://chips-dli.gov.in/DLI/HomePage', desc: 'Design Linked Incentive (DLI) Scheme & approved Indian chip companies.' },
-      { name: 'Proteus (Labcenter)', url: 'https://www.labcenter.com/', desc: 'Advanced circuit simulation, microcontroller co-simulation, and PCB design software.' }
+      { name: 'Proteus (Labcenter)', url: 'https://www.labcenter.com/', desc: 'Advanced circuit simulation, microcontroller co-simulation, and PCB design software.' },
+      { name: 'Microsoft CMD License (MAS)', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Microsoft Activation Scripts resource.' }
     ]
   },
   {
@@ -780,7 +781,8 @@ var TECH_LINKS = [
       { name: 'PM Internship Scheme', url: 'https://pminternship.mca.gov.in/login/', desc: 'Government internship opportunities and portal login.' },
       { name: 'ATXP AI', url: 'https://chat.atxp.ai/share/ge11rQ9rGAgnjC7afE9yF', desc: 'All-in-one AI chat platform and shared prompts.' },
       { name: 'Claude AI (Four-Stage OTA)', url: 'https://claude.ai/share/eed45166-ba01-4c22-aeb7-8f8f39fb5b8e', desc: 'Discussion on Four-Stage OTA with Hybrid Cascode Frequency Compensation.' },
-      { name: 'CMOS Current Comparator', url: 'https://www.youtube.com/shorts/0uDG8VObHGc', desc: 'VLSI Project: CMOS Current Comparator Design and Simulation in Cadence Virtuoso.' }
+      { name: 'CMOS Current Comparator', url: 'https://www.youtube.com/shorts/0uDG8VObHGc', desc: 'VLSI Project: CMOS Current Comparator Design and Simulation in Cadence Virtuoso.' },
+      { name: 'Elicit AI', url: 'https://elicit.com/', desc: 'Analyze research papers at superhuman speed using AI.' }
     ]
   },
   {
@@ -843,9 +845,7 @@ var TECH_LINKS = [
       { name: 'Cloudflare', url: 'https://www.cloudflare.com/', desc: 'A global network designed to make everything you connect to the Internet secure, private, fast, and reliable.' },
       { name: 'Chat ATXP AI', url: 'https://chat.atxp.ai/', desc: 'An all-in-one AI platform providing access to multiple premium AI models and pro-level chat functionalities.' },
       { name: 'Openclaw AI', url: 'https://openclaw.ai/', desc: 'An open-source autonomous AI assistant designed to perform personal tasks, develop, and deploy applications.' },
-      { name: 'Resend', url: 'https://resend.com/', desc: 'An email API for developers to reliably send emails, designed for the modern web with a focus on developer experience.' },
-      { name: 'Elicit', url: 'https://elicit.com/', desc: 'An AI research assistant that helps automate research workflows like literature reviews and extracting data from papers.' },
-      { name: 'Microsoft Activation Scripts', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Open-source Windows and Office activation method (CMD license).' }
+      { name: 'Resend', url: 'https://resend.com/', desc: 'An email API for developers to reliably send emails, designed for the modern web with a focus on developer experience.' }
     ]
   }
 ];
