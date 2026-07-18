@@ -771,7 +771,8 @@ var TECH_LINKS = [
       { name: 'ChipIN Cloud', url: 'https://chipin-cloud.cdacb.in/index.php/login', desc: 'Access details and files for Cadence EDA Tools under the ChipIN scheme.' },
       { name: 'Chips DLI Portal', url: 'https://chips-dli.gov.in/DLI/HomePage', desc: 'Design Linked Incentive (DLI) Scheme & approved Indian chip companies.' },
       { name: 'Proteus (Labcenter)', url: 'https://www.labcenter.com/', desc: 'Advanced circuit simulation, microcontroller co-simulation, and PCB design software.' },
-      { name: 'Microsoft CMD License (MAS)', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Microsoft Activation Scripts resource.' }
+      { name: 'Microsoft CMD License (MAS)', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Microsoft Activation Scripts resource.' },
+      { name: 'WeMakeScholars', url: 'https://www.wemakescholars.com/scholarship?utm_source=homepage&utm_medium=hero&utm_campaign=scholarships', desc: 'Higher studies scholarship resource.' }
     ]
   },
   {
