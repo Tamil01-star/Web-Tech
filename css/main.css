@@ -731,9 +731,9 @@ body {
   
   .nav-item.active {
     background: var(--accent-gradient);
-    color: #fff;
+    color: var(--text-on-primary, #fff);
   }
-  .nav-item.active .nav-icon, .nav-item.active .nav-label { color: #fff; }
+  .nav-item.active .nav-icon, .nav-item.active .nav-label { color: var(--text-on-primary, #fff); }
   .nav-item.active::before, .nav-item::before { display: none; }
   
   .nav-item:hover { background: rgba(255,255,255,0.05); }
