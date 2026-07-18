@@ -142,3 +142,52 @@
   --scrollbar-thumb: #c0c0e0;
   --scrollbar-track: #f0f0fa;
 }
+
+/* ---- AMBER TEXTURE THEME ---- */
+[data-theme="amber-texture"] {
+  --bg-primary: #f47b0a;
+  --bg-image: url('../assets/texture.png');
+  
+  --bg-secondary: rgba(15, 15, 20, 0.75);
+  --bg-tertiary: rgba(10, 10, 15, 0.85);
+  --bg-card: rgba(20, 20, 30, 0.6);
+  --bg-card-hover: rgba(30, 30, 45, 0.8);
+  --bg-bottom-nav: rgba(15, 15, 20, 0.85);
+  --bg-glass: rgba(15, 15, 20, 0.6);
+  --bg-glass-hover: rgba(25, 25, 35, 0.7);
+  --bg-skeleton: rgba(255, 255, 255, 0.1);
+  --bg-skeleton-shine: rgba(255, 255, 255, 0.2);
+  --bg-input: rgba(0, 0, 0, 0.5);
+  --bg-modal: rgba(15, 15, 20, 0.95);
+  --bg-toast: rgba(25, 25, 30, 0.9);
+  --bg-chip: rgba(255, 255, 255, 0.15);
+
+  --text-primary: #ffffff;
+  --text-secondary: #ffecd1;
+  --text-muted: #d4bda5;
+  --text-accent: #ffb84d;
+  --text-on-primary: #000000;
+  --text-placeholder: #a0a0a0;
+
+  --accent-primary: #ffaa00;
+  --accent-secondary: #ff8800;
+  --accent-tertiary: #ffcc66;
+  --accent-gradient: linear-gradient(135deg, #ffaa00, #ff5500);
+  --accent-gradient-vivid: linear-gradient(135deg, #ffcc00, #ff3300);
+
+  --border-color: rgba(255, 170, 0, 0.3);
+  --border-card: rgba(255, 255, 255, 0.15);
+  --border-input: rgba(255, 170, 0, 0.5);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.6);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-card-hover: 0 12px 48px rgba(0,0,0,0.6);
+  --shadow-fab: 0 6px 20px rgba(255,85,0,0.6);
+  --shadow-glow: 0 0 25px rgba(255,170,0,0.5);
+
+  --ripple-color: rgba(255,170,0,0.3);
+  --scrollbar-thumb: rgba(255,170,0,0.5);
+  --scrollbar-track: rgba(0,0,0,0.3);
+}

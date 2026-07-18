@@ -61,7 +61,7 @@ const Storage = {
   },
 
   // Theme
-  getTheme() { return this.get(STORAGE_KEYS.THEME, 'system'); },
+  getTheme() { return this.get(STORAGE_KEYS.THEME, 'amber-texture'); },
   setTheme(theme) { this.set(STORAGE_KEYS.THEME, theme); },
 
   // Favorites (categories and projects)
