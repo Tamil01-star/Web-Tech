@@ -61,7 +61,14 @@ const Storage = {
   },
 
   // Theme
-  getTheme() { return this.get(STORAGE_KEYS.THEME, 'amber-texture'); },
+  getTheme() { 
+    let t = this.get(STORAGE_KEYS.THEME, 'amber-texture'); 
+    if (t === 'system' || t === 'dark' || t === 'light') {
+      t = 'amber-texture';
+      this.setTheme(t);
+    }
+    return t; 
+  },
   setTheme(theme) { this.set(STORAGE_KEYS.THEME, theme); },
 
   // Favorites (categories and projects)

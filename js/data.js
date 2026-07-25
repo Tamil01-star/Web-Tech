@@ -330,6 +330,7 @@ const COMPANY_DATA = {
 
 // ---- 14 PROJECT DOMAINS (from the ECE & VLSI Projects Chart) ----
 const PROJECT_DOMAINS = [
+  { id:'ai-ml',        name:'AI & Agentic Systems',    icon:'🧠', color:'#4facfe' },
   { id:'embedded',      name:'Embedded Systems',       icon:'🔬', color:'#ff6b9d' },
   { id:'tinyml',        name:'TinyML',                 icon:'🧠', color:'#00c9a7' },
   { id:'vlsi-main',     name:'VLSI',                   icon:'💎', color:'#4158d0' },
@@ -353,6 +354,35 @@ const PROJECT_DOMAINS = [
 const LEVEL_ORDER = ['Basic', 'Intermediate', 'Advanced', 'Industry Level'];
 
 const ALL_ECE_PROJECTS = [
+  { id:'emb-smart-access', domain:'embedded', level:'Intermediate', title:'Smart Access and Control System', tools:'Arduino Uno, RFID Reader (MFRC522), LCD 16x2, Relay Module, Embedded C', url:'#', desc:'Secure and efficient access control by authenticating authorized RFID cards. Demonstrates a smart security solution with real-time LCD status updates.' },
+  { id:'ai-llm-01', domain:'ai-ml', level:'Advanced', title:'Domain-Specific Chatbot with RAG', tools:'Python, LLMs, LangChain, VectorDB', url:'#', desc:'A chatbot tailored to a specific domain using Retrieval-Augmented Generation for accurate context.' },
+  { id:'ai-llm-02', domain:'ai-ml', level:'Advanced', title:'Intelligent Code Documentation Generator', tools:'Python, LLMs', url:'#', desc:'Automatically generates documentation for codebases using AI.' },
+  { id:'ai-llm-03', domain:'ai-ml', level:'Intermediate', title:'PDF Question-Answering System', tools:'Python, RAG, OpenAI', url:'#', desc:'Extracts and answers questions based on uploaded PDF documents.' },
+  { id:'ai-llm-04', domain:'ai-ml', level:'Advanced', title:'Enterprise Knowledge Base Chatbot', tools:'Python, Embeddings', url:'#', desc:'Chatbot for querying internal enterprise knowledge bases.' },
+  { id:'ai-llm-05', domain:'ai-ml', level:'Advanced', title:'Legal Contract Analyzer', tools:'Python, NLP, LLMs', url:'#', desc:'Analyzes legal contracts to highlight key clauses and risks.' },
+  { id:'ai-llm-06', domain:'ai-ml', level:'Intermediate', title:'Academic Paper Summarizer', tools:'Python, HuggingFace', url:'#', desc:'Summarizes lengthy academic papers into concise notes.' },
+  { id:'ai-llm-07', domain:'ai-ml', level:'Advanced', title:'Multi-Document Retrieval System', tools:'Python, Vector Search', url:'#', desc:'Retrieves relevant information across multiple documents.' },
+  { id:'ai-llm-08', domain:'ai-ml', level:'Advanced', title:'Custom LLM Fine-tuning Platform', tools:'Python, PyTorch, LoRA', url:'#', desc:'A platform to fine-tune open-source LLMs on custom data.' },
+  { id:'ai-llm-09', domain:'ai-ml', level:'Intermediate', title:'Prompt Engineering & Testing Toolkit', tools:'Python, Gradio', url:'#', desc:'Toolkit for testing and optimizing prompts for LLMs.' },
+  { id:'ai-llm-10', domain:'ai-ml', level:'Advanced', title:'AI Code Assistant with Codebase Context', tools:'Python, OpenAI API', url:'#', desc:'Code assistant that understands the context of an entire repository.' },
+  { id:'ai-llm-11', domain:'ai-ml', level:'Intermediate', title:'Conversational SQL Query Generator', tools:'Python, Text-to-SQL', url:'#', desc:'Converts natural language questions into SQL queries.' },
+  { id:'ai-llm-12', domain:'ai-ml', level:'Advanced', title:'Multi-Language Document Translator', tools:'Python, Translation Models', url:'#', desc:'Translates documents while preserving formatting.' },
+  { id:'ai-agent-01', domain:'ai-ml', level:'Advanced', title:'Autonomous Code Review Agent', tools:'Python, Agentic Frameworks', url:'#', desc:'An agent that autonomously reviews PRs and suggests fixes.' },
+  { id:'ai-agent-02', domain:'ai-ml', level:'Advanced', title:'Multi-Agent Task Automation System', tools:'Python, AutoGen', url:'#', desc:'System of multiple agents collaborating to complete complex tasks.' },
+  { id:'ai-agent-03', domain:'ai-ml', level:'Intermediate', title:'AI Sales Assistant Agent', tools:'Python, NLP', url:'#', desc:'Agent to handle initial sales inquiries and qualification.' },
+  { id:'ai-agent-04', domain:'ai-ml', level:'Advanced', title:'Customer Support Agent with Memory', tools:'Python, VectorDB', url:'#', desc:'Support agent that remembers past interactions with users.' },
+  { id:'ai-agent-05', domain:'ai-ml', level:'Intermediate', title:'Research Assistant Agent', tools:'Python, Web Scraping', url:'#', desc:'Agent that searches the web and compiles research reports.' },
+  { id:'ai-agent-06', domain:'ai-ml', level:'Advanced', title:'AI Data Analyst Agent', tools:'Python, Pandas, LLMs', url:'#', desc:'Agent that analyzes datasets and generates insights.' },
+  { id:'ai-agent-07', domain:'ai-ml', level:'Intermediate', title:'Personal Finance Planning Agent', tools:'Python, Data Analysis', url:'#', desc:'Agent to help users manage and plan their personal finances.' },
+  { id:'ai-agent-08', domain:'ai-ml', level:'Intermediate', title:'Content Creation & SEO Agent', tools:'Python, LLMs', url:'#', desc:'Agent that generates SEO-optimized content.' },
+  { id:'ai-agent-09', domain:'ai-ml', level:'Advanced', title:'Automated Bug Fixing Agent', tools:'Python, AST, LLMs', url:'#', desc:'Agent that identifies and attempts to fix bugs in code.' },
+  { id:'ai-agent-10', domain:'ai-ml', level:'Intermediate', title:'Meeting Scheduler & Coordinator Agent', tools:'Python, Calendar API', url:'#', desc:'Agent that negotiates and schedules meetings.' },
+  { id:'ai-agent-11', domain:'ai-ml', level:'Intermediate', title:'AI Travel Planning Agent', tools:'Python, Travel APIs', url:'#', desc:'Agent that creates customized travel itineraries.' },
+  { id:'ai-agent-12', domain:'ai-ml', level:'Advanced', title:'Legal Document Analysis Agent', tools:'Python, Legal NLP', url:'#', desc:'Agent tailored for reviewing and summarizing legal documents.' },
+  { id:'ai-agent-13', domain:'ai-ml', level:'Advanced', title:'Healthcare Diagnosis Assistant Agent', tools:'Python, Medical Data', url:'#', desc:'Agent to assist in preliminary healthcare diagnosis.' },
+  { id:'ai-agent-14', domain:'ai-ml', level:'Advanced', title:'Supply Chain Optimization Agent', tools:'Python, OR, LLMs', url:'#', desc:'Agent to optimize logistics and supply chain operations.' },
+  { id:'ai-agent-15', domain:'ai-ml', level:'Intermediate', title:'Email Management & Response Agent', tools:'Python, Email APIs', url:'#', desc:'Agent to sort emails and draft intelligent responses.' },
+
 
   // ======== EMBEDDED SYSTEMS ========
   { id:'emb-b1', domain:'embedded', level:'Basic',          title:'LED Controller',             tools:'Arduino, C, AVR Studio',       desc:'GPIO control with PWM dimming, pattern generation and interrupt-driven LED sequencing on 8-bit MCU.' },
