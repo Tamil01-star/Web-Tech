@@ -814,7 +814,9 @@ var TECH_LINKS = [
       { name: 'ATXP AI', url: 'https://chat.atxp.ai/share/ge11rQ9rGAgnjC7afE9yF', desc: 'All-in-one AI chat platform and shared prompts.' },
       { name: 'Claude AI (Four-Stage OTA)', url: 'https://claude.ai/share/eed45166-ba01-4c22-aeb7-8f8f39fb5b8e', desc: 'Discussion on Four-Stage OTA with Hybrid Cascode Frequency Compensation.' },
       { name: 'CMOS Current Comparator', url: 'https://www.youtube.com/shorts/0uDG8VObHGc', desc: 'VLSI Project: CMOS Current Comparator Design and Simulation in Cadence Virtuoso.' },
-      { name: 'Elicit AI', url: 'https://elicit.com/', desc: 'Analyze research papers at superhuman speed using AI.' }
+      { name: 'Elicit AI', url: 'https://elicit.com/', desc: 'Analyze research papers at superhuman speed using AI.' },
+      { name: 'Opencode AI', url: 'https://opencode.ai/', desc: 'AI-powered coding platform.' },
+      { name: 'Kiro Dev', url: 'https://kiro.dev/', desc: 'Developer platform and AI resources.' }
     ]
   },
   {
