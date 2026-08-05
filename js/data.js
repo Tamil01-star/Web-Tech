@@ -816,7 +816,8 @@ var TECH_LINKS = [
       { name: 'CMOS Current Comparator', url: 'https://www.youtube.com/shorts/0uDG8VObHGc', desc: 'VLSI Project: CMOS Current Comparator Design and Simulation in Cadence Virtuoso.' },
       { name: 'Elicit AI', url: 'https://elicit.com/', desc: 'Analyze research papers at superhuman speed using AI.' },
       { name: 'Opencode AI', url: 'https://opencode.ai/', desc: 'AI-powered coding platform.' },
-      { name: 'Kiro Dev', url: 'https://kiro.dev/', desc: 'Developer platform and AI resources.' }
+      { name: 'Kiro Dev', url: 'https://kiro.dev/', desc: 'Developer platform and AI resources.' },
+      { name: 'AI Video Generate Tool', url: 'https://labs.google/fx/tools/flow', desc: 'Google Labs Flow AI video generation tool.' }
     ]
   },
   {
