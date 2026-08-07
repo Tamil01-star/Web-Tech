@@ -827,7 +827,8 @@ var TECH_LINKS = [
       { name: 'Robocraze', url: 'https://robocraze.com/', desc: 'Online electronics components and robotics store.' },
       { name: 'Majestronicz', url: 'https://majestronicz.in/', desc: 'Electronic components and DIY kits store.' },
       { name: 'Swastik Kits', url: 'https://www.swastikkits.com/', desc: 'Electronic project kits and components.' },
-      { name: 'Robu.in', url: 'https://robu.in/', desc: 'Leading electronics, robotics, and drone components store in India.' }
+      { name: 'Robu.in', url: 'https://robu.in/', desc: 'Leading electronics, robotics, and drone components store in India.' },
+      { name: 'Quartz Components', url: 'https://quartzcomponents.com/collections/fnirsi', desc: 'Electronic components and testing equipment (FNIRSI).' }
     ]
   },
   {
