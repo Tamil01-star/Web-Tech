@@ -803,7 +803,8 @@ var TECH_LINKS = [
       { name: 'Proteus (Labcenter)', url: 'https://www.labcenter.com/', desc: 'Advanced circuit simulation, microcontroller co-simulation, and PCB design software.' },
       { name: 'Microsoft CMD License (MAS)', url: 'https://share.google/awFPQ0pCaiNkfPoZC', desc: 'Microsoft Activation Scripts resource.' },
       { name: 'WeMakeScholars', url: 'https://www.wemakescholars.com/scholarship?utm_source=homepage&utm_medium=hero&utm_campaign=scholarships', desc: 'Higher studies scholarship resource.' },
-      { name: 'Embedded Designing Tool', url: 'https://wokwi.com/', desc: 'Online simulator for IoT and embedded projects.' }
+      { name: 'Embedded Designing Tool', url: 'https://wokwi.com/', desc: 'Online simulator for IoT and embedded projects.' },
+      { name: 'Embedded Designing Tool', url: 'https://www.logicbench.online/simulator', desc: 'Online digital logic and embedded simulator.' }
     ]
   },
   {
