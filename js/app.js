@@ -680,14 +680,24 @@ const App = {
         <div class="links-section-title">${cat.category}</div>
         <div class="links-grid">
           ${cat.links.map(link => `
-            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-card ripple-container">
-              <div class="link-header">
-                <span class="link-name">${link.name}</span>
-                <span class="link-arrow">→</span>
+            ${link.isPrompt ? `
+              <div class="link-card ripple-container prompt-card" onclick="navigator.clipboard.writeText('${link.name}'); typeof UI !== 'undefined' ? UI.showToast('Copied ${link.name} to clipboard', 'success') : alert('Copied!')" style="cursor: pointer; background: var(--bg-tertiary); border-left: 4px solid var(--accent-primary);">
+                <div class="link-header">
+                  <span class="link-name" style="font-family: monospace; color: var(--accent-primary);">${link.name}</span>
+                  <span class="link-arrow" style="font-size: 1.2rem;" title="Copy to clipboard">📋</span>
+                </div>
+                <div class="link-desc">${link.desc}</div>
               </div>
-              <div class="link-desc">${link.desc}</div>
-              <div class="link-url">${link.url}</div>
-            </a>
+            ` : `
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-card ripple-container">
+                <div class="link-header">
+                  <span class="link-name">${link.name}</span>
+                  <span class="link-arrow">→</span>
+                </div>
+                <div class="link-desc">${link.desc}</div>
+                <div class="link-url">${link.url}</div>
+              </a>
+            `}
           `).join('')}
         </div>
       </div>

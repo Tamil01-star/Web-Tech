@@ -832,6 +832,41 @@ var TECH_LINKS = [
     ]
   },
   {
+    category: 'ChatGPT Prompt Styles',
+    links: [
+      { isPrompt: true, name: '/visualnotes', desc: 'Create visual study notes with boxes, arrows & emojis' },
+      { isPrompt: true, name: '/stickynotes', desc: 'Generate colorful sticky-note style notes' },
+      { isPrompt: true, name: '/mindmap', desc: 'Turn the topic into a mind map' },
+      { isPrompt: true, name: '/infographic', desc: 'Create an infographic-style explanation' },
+      { isPrompt: true, name: '/flowchart', desc: 'Explain using a step-by-step flowchart' },
+      { isPrompt: true, name: '/diagram', desc: 'Draw a simple diagram with labels' },
+      { isPrompt: true, name: '/timeline', desc: 'Show information as a timeline' },
+      { isPrompt: true, name: '/cheatsheet', desc: 'Create a one-page cheat sheet' },
+      { isPrompt: true, name: '/flashcards', desc: 'Generate revision flashcards' },
+      { isPrompt: true, name: '/comparison', desc: 'Compare in a table format' },
+      { isPrompt: true, name: '/quiz', desc: 'Create MCQs to test understanding' },
+      { isPrompt: true, name: '/eli10', desc: 'Explain like I\'m 10 years old' },
+      { isPrompt: true, name: '/beginner', desc: 'Explain for beginners' },
+      { isPrompt: true, name: '/expert', desc: 'Explain like an industry expert' },
+      { isPrompt: true, name: '/teacher', desc: 'Teach step by step' },
+      { isPrompt: true, name: '/mentor', desc: 'Guide me instead of giving answers' },
+      { isPrompt: true, name: '/stepbystep', desc: 'Break everything into numbered steps' },
+      { isPrompt: true, name: '/deepdive', desc: 'Give a detailed explanation' },
+      { isPrompt: true, name: '/summary', desc: 'Give a concise summary' },
+      { isPrompt: true, name: '/keypoints', desc: 'List only key takeaways' },
+      { isPrompt: true, name: '/examples', desc: 'Include real-world examples' },
+      { isPrompt: true, name: '/analogy', desc: 'Explain using analogies' },
+      { isPrompt: true, name: '/story', desc: 'Teach through storytelling' },
+      { isPrompt: true, name: '/scenario', desc: 'Explain with practical scenarios' },
+      { isPrompt: true, name: '/proscons', desc: 'List advantages and disadvantages' },
+      { isPrompt: true, name: '/framework', desc: 'Use a proven framework' },
+      { isPrompt: true, name: '/template', desc: 'Create a reusable template' },
+      { isPrompt: true, name: '/actionplan', desc: 'Create a step-by-step action plan' },
+      { isPrompt: true, name: '/table', desc: 'Present everything in a table' },
+      { isPrompt: true, name: '/bullet', desc: 'Answer only in bullet points' }
+    ]
+  },
+  {
     category: 'My Custom Portals & Projects',
     links: [
       { name: 'My Portfolio', url: 'https://portfolio-eight-pi-ebym1t0zvb.vercel.app/', desc: 'My personal professional portfolio website.' },
