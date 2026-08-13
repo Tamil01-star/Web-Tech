@@ -818,7 +818,8 @@ var TECH_LINKS = [
       { name: 'Elicit AI', url: 'https://elicit.com/', desc: 'Analyze research papers at superhuman speed using AI.' },
       { name: 'Opencode AI', url: 'https://opencode.ai/', desc: 'AI-powered coding platform.' },
       { name: 'Kiro Dev', url: 'https://kiro.dev/', desc: 'Developer platform and AI resources.' },
-      { name: 'AI Video Generate Tool', url: 'https://labs.google/fx/tools/flow', desc: 'Google Labs Flow AI video generation tool.' }
+      { name: 'AI Video Generate Tool', url: 'https://labs.google/fx/tools/flow', desc: 'Google Labs Flow AI video generation tool.' },
+      { name: 'Job Application AI', url: 'https://lazyapply.com/', desc: 'Automate your job applications using AI.' }
     ]
   },
   {
