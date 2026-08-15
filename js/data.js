@@ -819,7 +819,11 @@ var TECH_LINKS = [
       { name: 'Opencode AI', url: 'https://opencode.ai/', desc: 'AI-powered coding platform.' },
       { name: 'Kiro Dev', url: 'https://kiro.dev/', desc: 'Developer platform and AI resources.' },
       { name: 'AI Video Generate Tool', url: 'https://labs.google/fx/tools/flow', desc: 'Google Labs Flow AI video generation tool.' },
-      { name: 'Job Application AI', url: 'https://lazyapply.com/', desc: 'Automate your job applications using AI.' }
+      { name: 'Lazyapply (Job application with ai)', url: 'https://lazyapply.com/', desc: 'Automate your job applications using AI.' },
+      { name: 'Groq API Console', url: 'https://console.groq.com/home', desc: 'Fast AI inference API generation site.' },
+      { name: 'Promptly AI Prompt Enhancer', url: 'https://chromewebstore.google.com/detail/promptly-%E2%80%93-ai-prompt-enha/jjfoaldlbbcfgkhbfmadjjelphbgmngg', desc: 'Chrome extension to enhance and manage AI prompts.' },
+      { name: 'Manus: Hands On AI', url: 'https://share.google/uO24hVkHWOU38iImO', desc: 'Interactive AI hands-on environment.' },
+      { name: 'Tickbig', url: 'https://tickbig.com/', desc: 'Professional networking and job board platform.' }
     ]
   },
   {
