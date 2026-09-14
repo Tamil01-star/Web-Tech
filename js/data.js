@@ -879,7 +879,9 @@ var TECH_LINKS = [
       { name: 'Jarvis AI', url: 'https://jarvis-ai-nine-lac.vercel.app/', desc: 'Custom AI conversational agent platform.' },
       { name: 'Students Test Portal', url: 'https://students-test-portal.vercel.app/', desc: 'Online testing and portal platform for students.' },
       { name: 'Personal Vault', url: 'https://personal-vault-fawn-five.vercel.app/', desc: 'Secure cloud vault application.' },
-      { name: 'Engineering Notes Library', url: 'https://engineering-notes-library-85mv-km7tbdj61-tamil01-stars-projects.vercel.app/', desc: 'Access academic notes, libraries, and resources.' }
+      { name: 'Engineering Notes Library', url: 'https://engineering-notes-library-85mv-km7tbdj61-tamil01-stars-projects.vercel.app/', desc: 'Access academic notes, libraries, and resources.' },
+      { name: 'Bus Booking Project', url: 'https://smart-rfid-booking-system-tawny.vercel.app/', desc: 'Smart RFID-based bus booking system project.' },
+      { name: 'C Programming Assessment', url: 'https://tamil01-star.github.io/Cprogramming/#q=1', desc: 'Online C programming assessment platform.' }
     ]
   },
   {
