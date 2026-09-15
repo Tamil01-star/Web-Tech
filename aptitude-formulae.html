@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quant Readiness Test — 400 Questions | 20 Topics</title>
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --surface-2:#f8fafc;
+  --ink:#0f2547;
+  --ink-2:#3c4f6d;
+  --muted:#7488a6;
+  --line:#e2e9f2;
+  --brand:#1d4ed8;
+  --brand-soft:#e8efff;
+  --brand-ink:#1e40af;
+  --green:#0f9d58;
+  --green-soft:#e4f6ec;
+  --orange:#e08706;
+  --orange-soft:#fdf1dc;
+  --red:#d93a3a;
+  --red-soft:#fbe9e9;
+  --gray-soft:#eef2f7;
+  --shadow:0 1px 2px rgba(15,37,71,.05), 0 8px 24px rgba(15,37,71,.07);
+  --shadow-lg:0 12px 40px rgba(15,37,71,.14);
+  --r:16px;
+  --r-sm:10px;
+  --maxw:1120px;
+}
+html[data-theme="dark"]{
+  --bg:#0b1220;
+  --surface:#141d2e;
+  --surface-2:#1a2436;
+  --ink:#e8eefb;
+  --ink-2:#c2cee2;
+  --muted:#8ea0bd;
+  --line:#25324a;
+  --brand:#5b8cff;
+  --brand-soft:#1c2b4c;
+  --brand-ink:#a8c3ff;
+  --green:#43c880;
+  --green-soft:#15321f;
+  --orange:#f0a93b;
+  --orange-soft:#3a2a12;
+  --red:#f0736f;
+  --red-soft:#3a1a1a;
+  --gray-soft:#1e293b;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Segoe UI",Roboto,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  transition:background .25s ease,color .25s ease;
+}
+h1,h2,h3,h4{margin:0 0 .4em;line-height:1.2;letter-spacing:-.02em}
+p{margin:0 0 .8em}
+button{font-family:inherit}
+a{color:var(--brand)}
+.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+.hidden{display:none !important}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px;border-radius:6px}
+
+/* ============ TOP BAR ============ */
+.topbar{
+  position:sticky;top:0;z-index:50;background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:17px}
+.brand .mark{
+  width:32px;height:32px;border-radius:9px;background:var(--brand);color:#fff;
+  display:grid;place-items:center;font-size:14px;font-weight:800
+}
+.spacer{flex:1}
+.prep-tag{font-size:12px;font-weight:700;color:var(--muted);border-left:1px solid var(--line);padding-left:12px}
+@media (max-width:720px){.prep-tag{display:none}}
+.icon-btn{
+  border:1px solid var(--line);background:var(--surface-2);color:var(--ink-2);
+  border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s
+}
+.icon-btn:hover{border-color:var(--brand);color:var(--brand)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  border:1px solid transparent;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;
+  cursor:pointer;transition:transform .12s ease,box-shadow .15s ease,background .15s ease;
+  min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(29,78,216,.25)}
+.btn-primary:hover{background:var(--brand-ink)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-danger{background:var(--red);color:#fff}
+.btn-lg{font-size:17px;padding:16px 32px;min-height:56px;border-radius:14px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* ============ CARDS ============ */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.pad{padding:26px}
+.eyebrow{
+  text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800;color:var(--brand);
+}
+
+/* ============ WELCOME ============ */
+.hero{text-align:center;padding:46px 0 10px}
+.hero h1{font-size:clamp(30px,6vw,48px);font-weight:800}
+.hero .lead{color:var(--ink-2);max-width:620px;margin:8px auto 0;font-size:17px}
+.chipline{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chip{
+  background:var(--brand-soft);color:var(--brand-ink);border-radius:999px;
+  padding:6px 14px;font-size:13px;font-weight:700
+}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;text-align:center;box-shadow:var(--shadow)}
+.stat .n{font-size:26px;font-weight:800;color:var(--brand)}
+.stat .l{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.formrow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label.fl{display:block;font-size:13px;font-weight:700;color:var(--ink-2);margin-bottom:6px}
+input.fi,select.fi{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);
+  background:var(--surface-2);color:var(--ink);font-size:15px;min-height:48px
+}
+.note{background:var(--surface-2);border:1px dashed var(--line);border-radius:var(--r-sm);padding:12px 14px;color:var(--ink-2);font-size:14px}
+.resume-bar{
+  background:var(--orange-soft);border:1px solid var(--orange);border-radius:var(--r);
+  padding:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px
+}
+.resume-bar b{color:var(--ink)}
+
+/* ============ INSTRUCTIONS ============ */
+ol.rules{margin:0;padding-left:22px;color:var(--ink-2)}
+ol.rules li{margin-bottom:9px}
+
+/* ============ TEST HEADER ============ */
+.testbar{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 18px;box-shadow:var(--shadow)
+}
+.qcount{font-weight:800;font-size:15px}
+.qcount span{color:var(--muted);font-weight:600}
+.topic-pill{
+  background:var(--brand-soft);color:var(--brand-ink);border-radius:999px;padding:6px 16px;
+  font-weight:700;font-size:13px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%
+}
+.timer{
+  justify-self:end;font-weight:800;font-size:19px;letter-spacing:.02em;
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 16px
+}
+.timer small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;line-height:1}
+.timer.warn{background:var(--orange-soft);border-color:var(--orange);color:var(--orange)}
+.timer.urgent{background:var(--red-soft);border-color:var(--red);color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}
+.progress{height:8px;background:var(--gray-soft);border-radius:999px;overflow:hidden;margin:14px 0 4px}
+.progress > i{display:block;height:100%;width:0;background:var(--brand);border-radius:999px;transition:width .35s ease}
+.progress-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:600}
+
+/* ============ TEST LAYOUT ============ */
+.testgrid{display:grid;grid-template-columns:1fr 288px;gap:18px;margin-top:18px;align-items:start}
+
+/* ============ FLIP CARD ============ */
+.flip{perspective:1600px}
+.flip-inner{
+  position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,.2,.2,1);
+  min-height:340px
+}
+.flip.flipped .flip-inner{transform:rotateY(180deg)}
+.face{
+  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:24px;overflow:auto
+}
+.face.back{transform:rotateY(180deg);background:var(--surface)}
+.qnum{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.badge{
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;background:var(--gray-soft);color:var(--ink-2)
+}
+.badge.brand{background:var(--brand-soft);color:var(--brand-ink)}
+.badge.easy{background:var(--green-soft);color:var(--green)}
+.badge.medium{background:var(--orange-soft);color:var(--orange)}
+.badge.challenging{background:var(--red-soft);color:var(--red)}
+.qtext{font-size:20px;font-weight:700;line-height:1.4;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  min-height:52px;padding:12px 16px;border-radius:12px;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);
+  font-size:15px;font-weight:600;transition:.14s
+}
+.opt:hover{border-color:var(--brand);background:var(--brand-soft)}
+.opt .key{
+  flex:0 0 30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--line);font-weight:800;font-size:13px
+}
+.opt.selected{border-color:var(--brand);background:var(--brand-soft);color:var(--brand-ink)}
+.opt.selected .key{background:var(--brand);color:#fff;border-color:var(--brand)}
+.opt.correct{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+.opt.correct .key{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+.opt.wrong .key{background:var(--red);color:#fff;border-color:var(--red)}
+.hint-line{margin-top:16px;font-size:12.5px;color:var(--muted);font-weight:600;text-align:center}
+.ansblock{margin-bottom:14px}
+.ansblock h4{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:800
+}
+.ansblock .val{font-size:17px;font-weight:700}
+.ansblock .val.ok{color:var(--green)}
+.formula-box{
+  background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--brand);
+  border-radius:var(--r-sm);padding:12px 14px;font-size:15px;font-weight:600
+}
+.controls{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.controls .btn{flex:1;min-width:120px}
+
+/* ============ NAVIGATOR ============ */
+.navpanel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);position:sticky;top:74px}
+.navpanel h3{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}
+.navgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin:12px 0;max-height:290px;overflow:auto}
+.navbtn{
+  aspect-ratio:1;border-radius:9px;border:1.5px solid var(--line);background:var(--surface-2);
+  color:var(--ink-2);font-weight:700;font-size:12.5px;cursor:pointer;transition:.12s;min-width:0;padding:0
+}
+.navbtn:hover{border-color:var(--brand)}
+.navbtn.answered{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.navbtn.marked{background:var(--orange-soft);border-color:var(--orange);color:var(--orange)}
+.navbtn.current{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 0 0 3px var(--brand-soft)}
+.legend{display:grid;gap:6px;font-size:12px;color:var(--ink-2);margin-bottom:14px}
+.legend div{display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:4px;border:1.5px solid var(--line);background:var(--surface-2);flex:none}
+.dot.g{background:var(--green-soft);border-color:var(--green)}
+.dot.o{background:var(--orange-soft);border-color:var(--orange)}
+.dot.b{background:var(--brand);border-color:var(--brand)}
+
+/* ============ MODAL ============ */
+.overlay{
+  position:fixed;inset:0;background:rgba(8,17,33,.55);backdrop-filter:blur(3px);
+  display:grid;place-items:center;z-index:100;padding:18px
+}
+.modal{
+  background:var(--surface);border-radius:18px;box-shadow:var(--shadow-lg);
+  max-width:440px;width:100%;padding:26px;border:1px solid var(--line);
+  animation:pop .18s ease
+}
+@keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+.modal .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.modal .kv b{font-weight:800}
+
+/* ============ RESULT ============ */
+.result-head{text-align:center;padding:34px 0 10px}
+.ring-wrap{display:grid;place-items:center;margin:10px 0 6px}
+.ring{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:14;stroke-linecap:round}
+.ring .track{stroke:var(--gray-soft)}
+.ring .bar{stroke:var(--brand);transition:stroke-dashoffset 1.1s cubic-bezier(.2,.7,.3,1)}
+.ring-text{position:absolute;text-align:center}
+.ring-holder{position:relative;display:grid;place-items:center}
+.ring-holder .pct{font-size:42px;font-weight:800;line-height:1}
+.ring-holder .sc{font-size:13px;color:var(--muted);font-weight:700}
+.band{display:inline-block;padding:8px 20px;border-radius:999px;font-weight:800;font-size:15px;margin-top:8px}
+.band.l1{background:var(--green-soft);color:var(--green)}
+.band.l2{background:var(--brand-soft);color:var(--brand-ink)}
+.band.l3{background:var(--orange-soft);color:var(--orange)}
+.band.l4{background:var(--orange-soft);color:var(--orange)}
+.band.l5{background:var(--red-soft);color:var(--red)}
+.res-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.res-stats .stat .n.g{color:var(--green)}
+.res-stats .stat .n.r{color:var(--red)}
+.res-stats .stat .n.m{color:var(--muted)}
+table.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+table.tbl th{
+  text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  padding:10px 12px;border-bottom:1px solid var(--line)
+}
+table.tbl td{padding:11px 12px;border-bottom:1px solid var(--line)}
+table.tbl tr:last-child td{border-bottom:0}
+.tag{padding:3px 10px;border-radius:999px;font-size:12px;font-weight:800;display:inline-block}
+.tag.strong{background:var(--green-soft);color:var(--green)}
+.tag.mod{background:var(--orange-soft);color:var(--orange)}
+.tag.weak{background:var(--red-soft);color:var(--red)}
+.minibar{height:6px;border-radius:999px;background:var(--gray-soft);overflow:hidden;min-width:70px}
+.minibar > i{display:block;height:100%;border-radius:999px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rank{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-weight:600}
+.rank:last-child{border-bottom:0}
+.rank .i{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--gray-soft);color:var(--ink-2);flex:none}
+.rank .sc{margin-left:auto;color:var(--muted);font-weight:700;font-size:13px}
+
+/* ============ REVIEW ============ */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.fchip{
+  border:1.5px solid var(--line);background:var(--surface);color:var(--ink-2);
+  border-radius:999px;padding:9px 16px;font-size:13.5px;font-weight:700;cursor:pointer;min-height:42px
+}
+.fchip.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.reviewgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.rcard{perspective:1600px}
+.rcard .flip-inner{min-height:300px}
+.rcard .face{padding:20px;font-size:14.5px}
+.rcard .qtext{font-size:16px;margin-bottom:14px}
+.rcard.correct .face{border-left:4px solid var(--green)}
+.rcard.wrong .face{border-left:4px solid var(--red)}
+.rcard.blank .face{border-left:4px solid var(--muted)}
+.empty{text-align:center;padding:50px 20px;color:var(--muted);font-weight:600}
+
+/* ============ FORMULA SHEET ============ */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow)}
+.fcard h3{font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.fcard h3 .n{width:26px;height:26px;border-radius:8px;background:var(--brand-soft);color:var(--brand-ink);display:grid;place-items:center;font-size:11px;font-weight:800;flex:none}
+.frow{padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.frow:last-child{border-bottom:0}
+.frow b{display:block;font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.frow span{font-weight:700}
+
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:30px 0 14px}
+.section-head h2{font-size:22px;margin:0}
+footer.foot{text-align:center;color:var(--muted);font-size:13px;padding:36px 18px}
+.credit-line{text-align:center;color:var(--muted);font-size:13.5px;margin:0}
+.credit-line b{color:var(--ink-2)}
+.byline{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:7px 18px;font-size:13px;color:var(--ink-2);box-shadow:var(--shadow)
+}
+.byline b{color:var(--ink);font-weight:800}
+.byline .sep{color:var(--line)}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;left:50%;transform:translateX(-50%);bottom:26px;z-index:200;
+  background:var(--ink);color:var(--surface);padding:12px 22px;border-radius:999px;
+  font-weight:700;font-size:14px;box-shadow:var(--shadow-lg)
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:960px){
+  .testgrid{grid-template-columns:1fr}
+  .navpanel{position:static}
+  .navgrid{grid-template-columns:repeat(10,1fr);max-height:none}
+  .two-col{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .statgrid,.res-stats{grid-template-columns:repeat(2,1fr)}
+  .formrow{grid-template-columns:1fr}
+  .testbar{grid-template-columns:1fr auto;row-gap:10px}
+  .topic-pill{grid-column:1/-1;order:3;justify-self:start}
+  .timer{font-size:17px}
+  .qtext{font-size:17px}
+  .face{padding:18px}
+  .flip-inner{min-height:400px}
+  .navgrid{grid-template-columns:repeat(6,1fr)}
+  .controls .btn{flex:1 1 100%}
+  .reviewgrid{grid-template-columns:1fr}
+  .hero{padding:30px 0 6px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+@media print{
+  .topbar,.controls,.navpanel,.filters,.section-head button,#formulaCount{display:none}
+  body{background:#fff}
+  .fcard{break-inside:avoid;box-shadow:none;border:1px solid #ccc}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand"><span class="mark">Q</span> Quant Readiness Test</div>
+    <span class="prep-tag">Department of Training</span>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="btnFormulaTop" type="button">Formula bank</button>
+    <button class="icon-btn" id="btnTheme" type="button" aria-live="polite">🌙 Dark</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= WELCOME ================= -->
+<section id="screen-welcome" class="wrap">
+  <div class="hero">
+    <div class="eyebrow">Pre-training diagnostic</div>
+    <h1>Quant Readiness Test</h1>
+    <div class="chipline">
+      <span class="chip">400 Questions</span>
+      <span class="chip">20 Topics</span>
+      <span class="chip">120 Minutes</span>
+      <span class="chip">20 Questions / Topic</span>
+    </div>
+    <p class="lead">Test your fundamental mathematical calculation and formula knowledge before starting coding.</p>
+    <div class="byline">Prepared by <b>Balaji Ravichandran</b> <span class="sep">|</span> Department of Training</div>
+  </div>
+
+  <div id="resumeBar" class="resume-bar hidden">
+    <div style="flex:1;min-width:220px">
+      <b>You have a test in progress.</b>
+      <div id="resumeMeta" style="font-size:13.5px;color:var(--ink-2)"></div>
+    </div>
+    <button class="btn btn-primary" id="btnResume" type="button">Resume test</button>
+    <button class="btn btn-ghost" id="btnDiscard" type="button">Start new test</button>
+  </div>
+
+  <div class="statgrid">
+    <div class="stat"><div class="n">400</div><div class="l">Total questions</div></div>
+    <div class="stat"><div class="n">20</div><div class="l">Topics</div></div>
+    <div class="stat"><div class="n">120</div><div class="l">Minutes</div></div>
+    <div class="stat"><div class="n">20</div><div class="l">Per topic</div></div>
+  </div>
+
+  <div class="card pad">
+    <div class="eyebrow">Ready when you are</div>
+    <h2 style="font-size:20px">Start the readiness test</h2>
+    <p style="color:var(--ink-2);font-size:15px;max-width:620px">400 questions across 20 fundamental topics, 20 minutes short of two hours on the clock. Nothing to fill in — press start and begin.</p>
+    <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-primary btn-lg" id="btnStart" type="button">Start test</button>
+      <button class="btn btn-ghost btn-lg" id="btnFormulaWelcome" type="button">Browse formula bank</button>
+    </div>
+    <div class="note" style="margin-top:18px">This test focuses on basic formulas, calculations, number concepts, and aptitude fundamentals — not advanced competitive-exam mathematics.</div>
+  </div>
+
+  <div class="section-head"><h2>What gets tested</h2></div>
+  <div class="fgrid" id="topicPreview"></div>
+</section>
+
+<!-- ================= INSTRUCTIONS ================= -->
+<section id="screen-instructions" class="wrap hidden">
+  <div class="hero" style="padding-bottom:0">
+    <div class="eyebrow">Before you begin</div>
+    <h1 style="font-size:clamp(26px,5vw,38px)">Test instructions</h1>
+  </div>
+  <div class="card pad" style="margin-top:20px">
+    <ol class="rules">
+      <li>Total questions: <b>400</b> — twenty questions from each of the 20 topics.</li>
+      <li>Duration: <b>120 minutes</b>. The timer starts as soon as you begin.</li>
+      <li>All questions are multiple choice with exactly one correct option.</li>
+      <li>Select the best answer. There is no negative marking.</li>
+      <li>Questions cover fundamental mathematics and aptitude — formulas, mental calculation, and basic application.</li>
+      <li>Use the question navigator to move between questions, and “Mark for review” to flag anything you want to revisit.</li>
+      <li>The test submits automatically when the timer reaches zero.</li>
+      <li>Answers, formulas, and explanations become available only after you submit.</li>
+      <li>Aim for both speed and accuracy — about 18 seconds per question.</li>
+    </ol>
+    <div class="note" style="margin:18px 0">Your progress is saved in this browser. If the page refreshes by accident, you can resume where you left off.</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <button class="btn btn-primary btn-lg" id="btnBegin" type="button">I'm ready — start test</button>
+      <button class="btn btn-ghost" id="btnBackWelcome" type="button">Back</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEST ================= -->
+<section id="screen-test" class="wrap hidden" style="padding-top:18px;padding-bottom:40px">
+  <div class="testbar">
+    <div class="qcount">Question <span id="qNow">1</span> <span>/ <span id="qTotal">400</span></span></div>
+    <div class="topic-pill" id="qTopic">Number System</div>
+    <div class="timer" id="timer"><small>Time left</small>120:00</div>
+  </div>
+  <div class="progress"><i id="progFill"></i></div>
+  <div class="progress-meta"><span id="progText">Question 1 of 400</span><span id="answeredText">0 answered</span></div>
+
+  <div class="testgrid">
+    <div>
+      <div class="flip" id="qCard">
+        <div class="flip-inner">
+          <div class="face front" id="qFront"></div>
+          <div class="face back" id="qBack"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn btn-ghost" id="btnPrev" type="button">← Previous</button>
+        <button class="btn btn-ghost" id="btnMark" type="button">Mark for review</button>
+        <button class="btn btn-ghost" id="btnClear" type="button">Clear answer</button>
+        <button class="btn btn-primary" id="btnNext" type="button">Next →</button>
+      </div>
+    </div>
+
+    <aside class="navpanel">
+      <h3>Question navigator</h3>
+      <div class="navgrid" id="navGrid"></div>
+      <div class="legend">
+        <div><span class="dot b"></span> Current question</div>
+        <div><span class="dot g"></span> Answered</div>
+        <div><span class="dot o"></span> Marked for review</div>
+        <div><span class="dot"></span> Not answered</div>
+      </div>
+      <button class="btn btn-primary" style="width:100%" id="btnSubmit" type="button">Submit test</button>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= RESULT ================= -->
+<section id="screen-result" class="wrap hidden" style="padding-bottom:40px">
+  <div class="result-head">
+    <div class="eyebrow">Test completed</div>
+    <h1 style="font-size:clamp(26px,5vw,38px)" id="resultName">Here's how you did</h1>
+    <div class="ring-wrap">
+      <div class="ring-holder">
+        <svg class="ring" width="190" height="190" viewBox="0 0 190 190" aria-hidden="true">
+          <circle class="track" cx="95" cy="95" r="82"></circle>
+          <circle class="bar" id="ringBar" cx="95" cy="95" r="82" stroke-dasharray="515" stroke-dashoffset="515"></circle>
+        </svg>
+        <div class="ring-text">
+          <div class="pct" id="resPct">0%</div>
+          <div class="sc" id="resScore">0 / 400</div>
+        </div>
+      </div>
+    </div>
+    <div class="band l3" id="resBand">Average</div>
+    <p style="color:var(--ink-2);max-width:560px;margin:10px auto 0" id="resAdvice"></p>
+  </div>
+
+  <div class="res-stats">
+    <div class="stat"><div class="n g" id="resCorrect">0</div><div class="l">Correct</div></div>
+    <div class="stat"><div class="n r" id="resWrong">0</div><div class="l">Wrong</div></div>
+    <div class="stat"><div class="n m" id="resBlank">0</div><div class="l">Unattempted</div></div>
+    <div class="stat"><div class="n" id="resTime">00:00</div><div class="l">Time taken</div></div>
+  </div>
+
+  <div class="two-col">
+    <div class="card pad">
+      <div class="eyebrow">Your best areas</div>
+      <h2 style="font-size:18px">Strongest topics</h2>
+      <div id="bestList"></div>
+    </div>
+    <div class="card pad">
+      <div class="eyebrow">Priority revision</div>
+      <h2 style="font-size:18px">Topics to revise</h2>
+      <div id="worstList"></div>
+    </div>
+  </div>
+
+  <div class="section-head"><h2>Topic-wise performance</h2></div>
+  <div class="card" style="overflow:auto">
+    <table class="tbl">
+      <thead><tr><th>Topic</th><th style="width:90px">Score</th><th style="width:130px">Accuracy</th><th style="width:140px">Status</th></tr></thead>
+      <tbody id="topicTable"></tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+    <button class="btn btn-primary btn-lg" id="btnReview" type="button">Review answers</button>
+    <button class="btn btn-ghost btn-lg" id="btnFormulaResult" type="button">Formula revision</button>
+    <button class="btn btn-ghost btn-lg" id="btnRestart" type="button">Start new test</button>
+  </div>
+  <p class="credit-line" style="margin-top:26px">Prepared by <b>Balaji Ravichandran</b> · Department of Training</p>
+</section>
+
+<!-- ================= REVIEW ================= -->
+<section id="screen-review" class="wrap hidden" style="padding-bottom:40px">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Review mode</div>
+      <h2>All 400 questions</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-ghost" id="btnFlipAll" type="button">Flip all cards</button>
+      <button class="btn btn-ghost" id="btnBackResult" type="button">Back to result</button>
+    </div>
+  </div>
+  <p style="color:var(--muted);font-size:14px;margin-top:-6px">Tap any card to flip it and see the correct answer, formula, and explanation.</p>
+
+  <div class="filters">
+    <button class="fchip active" data-status="all" type="button">All</button>
+    <button class="fchip" data-status="correct" type="button">Correct</button>
+    <button class="fchip" data-status="wrong" type="button">Wrong</button>
+    <button class="fchip" data-status="blank" type="button">Unanswered</button>
+    <select class="fi" id="topicFilter" style="max-width:250px;min-height:42px"></select>
+    <input class="fi" id="searchBox" type="search" placeholder="Search questions…" style="max-width:250px;min-height:42px" />
+  </div>
+  <div id="reviewCount" style="font-size:13px;color:var(--muted);font-weight:700;margin-bottom:12px"></div>
+  <div class="reviewgrid" id="reviewGrid"></div>
+</section>
+
+<!-- ================= FORMULA SHEET ================= -->
+<section id="screen-formula" class="wrap hidden" style="padding-bottom:40px">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Revision</div>
+      <h2>Formula cheat sheet</h2>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn btn-ghost" id="btnFormulaPrint" type="button">Print / save as PDF</button>
+      <button class="btn btn-ghost" id="btnFormulaBack" type="button">Back</button>
+    </div>
+  </div>
+  <p style="color:var(--muted);font-size:14px;margin-top:-6px">Complete placement-aptitude formula bank — <b id="fCount">0</b> formulas across <b id="fSections">0</b> topics, covering every quants area asked in campus tests.</p>
+  <div class="filters">
+    <input class="fi" id="formulaSearch" type="search" placeholder="Search a formula, topic, or keyword…" style="max-width:340px;min-height:44px" />
+    <select class="fi" id="formulaTopicFilter" style="max-width:280px;min-height:44px"></select>
+    <button class="fchip" id="btnFormulaClear" type="button">Clear</button>
+  </div>
+  <div id="formulaCount" style="font-size:13px;color:var(--muted);font-weight:700;margin-bottom:12px"></div>
+  <div class="fgrid" id="formulaGrid"></div>
+  <p class="credit-line" style="margin-top:26px">Prepared by <b>Balaji Ravichandran</b> · Department of Training</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div style="font-weight:700;color:var(--ink-2)">Prepared by Balaji Ravichandran · Department of Training</div>
+  <div style="margin-top:6px">Quant Readiness Test — 400 questions, 20 topics, complete formula bank. Runs fully offline in your browser; progress is stored locally on this device.</div>
+</footer>
+
+<div id="modalHost"></div>
+
+<script>
+/* =========================================================
+   DEVELOPER CONFIGURATION
+   ========================================================= */
+const CONFIG = {
+  testDurationMinutes: 120,
+  randomizeQuestions: true,
+  showDeveloperAnswerDuringTest: false
+};
+
+const TOPICS = [
+  "Number System","Factors & Multiples","LCM & HCF","Fractions & Decimals","Divisibility Rules",
+  "Unit Digit & Cyclicity","Ratio & Proportion","Combined Ratio","Percentage","Average",
+  "Profit, Loss & Discount","Simple & Compound Interest","Time, Speed & Distance","Time & Work",
+  "Mixtures & Alligation","Ages","Geometry","Mensuration","Permutation, Combination & Probability",
+  "Basic Algebra"
+];
+
+/* =========================================================
+   QUESTION BANK — 100 questions, 5 per topic
+   answer: 0=A, 1=B, 2=C, 3=D
+   ========================================================= */
+const questions = [
+/* ---------- NUMBER SYSTEM ---------- */
+{id:1,topic:"Number System",difficulty:"Easy",question:"What is the remainder when 47 is divided by 5?",options:["4", "3", "1", "2"],answer:3,formula:"Dividend = Divisor × Quotient + Remainder",explanation:"47 = 5 × 9 + 2, so the remainder is 2."},
+{id:2,topic:"Number System",difficulty:"Easy",question:"What is the sum of the first 10 natural numbers?",options:["55", "45", "50", "60"],answer:0,formula:"Sum of first n natural numbers = n(n+1)/2",explanation:"10 × 11 / 2 = 55."},
+{id:3,topic:"Number System",difficulty:"Easy",question:"Which of these is the smallest whole number?",options:["−1", "0", "2", "1"],answer:1,formula:"Whole numbers = 0, 1, 2, 3, …",explanation:"Whole numbers begin at 0; −1 is an integer but not a whole number."},
+{id:4,topic:"Number System",difficulty:"Medium",question:"The product of any two consecutive integers is always:",options:["Even", "A perfect square", "Odd", "Prime"],answer:0,formula:"One of any two consecutive integers is even",explanation:"Even × anything = even, so the product is always even."},
+{id:5,topic:"Number System",difficulty:"Medium",question:"What is the sum of the first 8 odd numbers?",options:["72", "81", "64", "56"],answer:2,formula:"Sum of first n odd numbers = n²",explanation:"8² = 64 (1+3+5+7+9+11+13+15)."},
+{id:6,topic:"Number System",difficulty:"Easy",question:"What is the sum of the first 20 natural numbers?",options:["220", "210", "190", "200"],answer:1,formula:"Sum = n(n+1)/2",explanation:"20 × 21 / 2 = 210."},
+{id:7,topic:"Number System",difficulty:"Medium",question:"What is the sum of the first 10 even numbers?",options:["110", "90", "100", "120"],answer:0,formula:"Sum of first n even numbers = n(n+1)",explanation:"10 × 11 = 110."},
+{id:8,topic:"Number System",difficulty:"Easy",question:"What is the remainder when 100 is divided by 7?",options:["3", "2", "4", "1"],answer:1,formula:"Dividend = Divisor × Quotient + Remainder",explanation:"7 × 14 = 98, so 100 − 98 = 2."},
+{id:9,topic:"Number System",difficulty:"Easy",question:"Which of these is NOT a natural number?",options:["1", "5", "0", "9"],answer:2,formula:"Natural numbers = 1, 2, 3, …",explanation:"Counting starts at 1, so 0 is a whole number but not a natural number."},
+{id:10,topic:"Number System",difficulty:"Easy",question:"What is the predecessor of −5?",options:["0", "5", "−4", "−6"],answer:3,formula:"Predecessor = number − 1",explanation:"−5 − 1 = −6."},
+{id:11,topic:"Number System",difficulty:"Easy",question:"What is the successor of the largest two-digit number?",options:["98", "100", "101", "99"],answer:1,formula:"Successor = number + 1",explanation:"The largest two-digit number is 99, so the successor is 100."},
+{id:12,topic:"Number System",difficulty:"Easy",question:"What is the smallest three-digit number?",options:["99", "101", "110", "100"],answer:3,formula:"Three-digit numbers run from 100 to 999",explanation:"100 is the first number that needs three digits."},
+{id:13,topic:"Number System",difficulty:"Easy",question:"What is the largest three-digit number?",options:["990", "999", "1000", "998"],answer:1,formula:"Three-digit numbers run from 100 to 999",explanation:"999 is the last three-digit number; 1000 has four digits."},
+{id:14,topic:"Number System",difficulty:"Challenging",question:"What is the sum of the squares of the first 5 natural numbers?",options:["50", "65", "60", "55"],answer:3,formula:"Sum of squares = n(n+1)(2n+1)/6",explanation:"1+4+9+16+25 = 55, which matches 5 × 6 × 11 / 6."},
+{id:15,topic:"Number System",difficulty:"Medium",question:"Evaluate: 0 × 25 + 25 ÷ 25",options:["0", "1", "25", "26"],answer:1,formula:"BODMAS: do division and multiplication before addition",explanation:"0 + 1 = 1."},
+{id:16,topic:"Number System",difficulty:"Easy",question:"Evaluate: 12 + 4 × 3",options:["24", "16", "20", "48"],answer:0,formula:"BODMAS: multiplication before addition",explanation:"12 + 12 = 24."},
+{id:17,topic:"Number System",difficulty:"Easy",question:"The product of an even number and an odd number is always:",options:["Prime", "Even", "Odd", "Zero"],answer:1,formula:"Even × any integer = even",explanation:"The even factor keeps the product divisible by 2."},
+{id:18,topic:"Number System",difficulty:"Medium",question:"How many integers lie strictly between −3 and 3?",options:["7", "3", "4", "5"],answer:3,formula:"Count the integers in between, excluding the end values",explanation:"−2, −1, 0, 1, 2 → 5 integers."},
+{id:19,topic:"Number System",difficulty:"Medium",question:"A number divided by 9 gives quotient 12 and remainder 5. What is the number?",options:["107", "120", "117", "113"],answer:3,formula:"Number = Divisor × Quotient + Remainder",explanation:"9 × 12 + 5 = 108 + 5 = 113."},
+{id:20,topic:"Number System",difficulty:"Easy",question:"What is the place value of 7 in 4,738?",options:["7000", "7", "700", "70"],answer:2,formula:"Place value = digit × its position value",explanation:"7 is in the hundreds place → 7 × 100 = 700."},
+
+/* ---------- FACTORS & MULTIPLES ---------- */
+{id:21,topic:"Factors & Multiples",difficulty:"Medium",question:"How many factors does 24 have?",options:["8", "6", "10", "12"],answer:0,formula:"If N = a^p × b^q, number of factors = (p+1)(q+1)",explanation:"24 = 2³ × 3 → 4 × 2 = 8 factors."},
+{id:22,topic:"Factors & Multiples",difficulty:"Easy",question:"What is the smallest prime number?",options:["3", "1", "2", "0"],answer:2,formula:"A prime has exactly two factors: 1 and itself",explanation:"1 has only one factor, so 2 is the smallest prime."},
+{id:23,topic:"Factors & Multiples",difficulty:"Easy",question:"Which of the following is a composite number?",options:["33", "29", "31", "37"],answer:0,formula:"A composite number has more than two factors",explanation:"33 = 3 × 11, so it is composite."},
+{id:24,topic:"Factors & Multiples",difficulty:"Easy",question:"Which of these is a multiple of 6?",options:["26", "32", "52", "42"],answer:3,formula:"A multiple of 6 is divisible by both 2 and 3",explanation:"42 is even and 4+2 = 6 is divisible by 3."},
+{id:25,topic:"Factors & Multiples",difficulty:"Easy",question:"What is the sum of all factors of 12?",options:["30", "28", "16", "26"],answer:1,formula:"List every factor and add",explanation:"1+2+3+4+6+12 = 28."},
+{id:26,topic:"Factors & Multiples",difficulty:"Medium",question:"How many factors does 36 have?",options:["9", "12", "8", "6"],answer:0,formula:"36 = 2² × 3² → (2+1)(2+1)",explanation:"3 × 3 = 9 factors."},
+{id:27,topic:"Factors & Multiples",difficulty:"Medium",question:"Which of these is a prime number?",options:["61", "51", "63", "57"],answer:0,formula:"Test divisibility by primes up to √n",explanation:"51 = 3×17, 57 = 3×19, 63 = 7×9, but 61 has no factor other than 1 and 61."},
+{id:28,topic:"Factors & Multiples",difficulty:"Easy",question:"What is the smallest multiple of 7 that is greater than 50?",options:["56", "54", "63", "49"],answer:0,formula:"Multiples of 7: 7, 14, 21, …",explanation:"7 × 8 = 56 is the first multiple above 50."},
+{id:29,topic:"Factors & Multiples",difficulty:"Medium",question:"How many prime numbers are there between 1 and 20?",options:["6", "9", "8", "7"],answer:2,formula:"Primes have exactly two factors",explanation:"2, 3, 5, 7, 11, 13, 17, 19 → 8 primes."},
+{id:30,topic:"Factors & Multiples",difficulty:"Challenging",question:"How many even factors does 12 have?",options:["6", "3", "2", "4"],answer:3,formula:"List the factors and keep the even ones",explanation:"Factors: 1, 2, 3, 4, 6, 12 → even ones are 2, 4, 6, 12."},
+{id:31,topic:"Factors & Multiples",difficulty:"Easy",question:"The number 1 is:",options:["Both prime and composite", "Composite", "Neither prime nor composite", "Prime"],answer:2,formula:"Prime = exactly 2 factors; composite = more than 2",explanation:"1 has only one factor, so it belongs to neither group."},
+{id:32,topic:"Factors & Multiples",difficulty:"Easy",question:"What is the largest two-digit multiple of 9?",options:["90", "96", "99", "81"],answer:2,formula:"Divide 99 by 9 and check",explanation:"9 × 11 = 99, which is still a two-digit number."},
+{id:33,topic:"Factors & Multiples",difficulty:"Medium",question:"How many common factors do 12 and 18 have?",options:["2", "3", "4", "6"],answer:2,formula:"Common factors are the factors of the HCF",explanation:"HCF = 6, whose factors are 1, 2, 3, 6 → 4 common factors."},
+{id:34,topic:"Factors & Multiples",difficulty:"Challenging",question:"Which number has exactly three factors?",options:["12", "30", "15", "25"],answer:3,formula:"Only the square of a prime has exactly 3 factors",explanation:"25 = 5² → factors 1, 5, 25."},
+{id:35,topic:"Factors & Multiples",difficulty:"Medium",question:"How many factors does 100 have?",options:["6", "12", "8", "9"],answer:3,formula:"100 = 2² × 5² → (2+1)(2+1)",explanation:"3 × 3 = 9 factors."},
+{id:36,topic:"Factors & Multiples",difficulty:"Easy",question:"What is the first multiple of 12 greater than 100?",options:["120", "110", "108", "102"],answer:2,formula:"Multiples of 12: 96, 108, 120, …",explanation:"12 × 9 = 108."},
+{id:37,topic:"Factors & Multiples",difficulty:"Medium",question:"What is the sum of the first 5 prime numbers?",options:["28", "32", "30", "26"],answer:0,formula:"First five primes: 2, 3, 5, 7, 11",explanation:"2+3+5+7+11 = 28."},
+{id:38,topic:"Factors & Multiples",difficulty:"Medium",question:"Which of these is a composite number?",options:["89", "83", "97", "91"],answer:3,formula:"Check divisibility by small primes",explanation:"91 = 7 × 13, so it is composite."},
+{id:39,topic:"Factors & Multiples",difficulty:"Medium",question:"How many factors does 2⁵ have?",options:["5", "10", "7", "6"],answer:3,formula:"Number of factors of a^p = p + 1",explanation:"5 + 1 = 6 (1, 2, 4, 8, 16, 32)."},
+{id:40,topic:"Factors & Multiples",difficulty:"Medium",question:"How many multiples of 4 are there from 1 to 40 inclusive?",options:["9", "10", "8", "11"],answer:1,formula:"Count = last multiple ÷ 4",explanation:"40 ÷ 4 = 10."},
+
+/* ---------- LCM & HCF ---------- */
+{id:41,topic:"LCM & HCF",difficulty:"Easy",question:"Find the LCM of 12 and 18.",options:["24", "36", "54", "72"],answer:1,formula:"LCM = product of the highest powers of all prime factors",explanation:"12 = 2²×3, 18 = 2×3² → LCM = 2²×3² = 36."},
+{id:42,topic:"LCM & HCF",difficulty:"Easy",question:"Find the HCF of 24 and 36.",options:["6", "12", "8", "18"],answer:1,formula:"HCF = product of the lowest powers of common primes",explanation:"24 = 2³×3, 36 = 2²×3² → HCF = 2²×3 = 12."},
+{id:43,topic:"LCM & HCF",difficulty:"Medium",question:"The HCF of two numbers is 6 and their LCM is 60. If one number is 12, find the other.",options:["36", "24", "20", "30"],answer:3,formula:"HCF × LCM = product of the two numbers",explanation:"6 × 60 = 12 × x → x = 30."},
+{id:44,topic:"LCM & HCF",difficulty:"Medium",question:"What is the smallest number exactly divisible by 4, 6 and 8?",options:["12", "24", "48", "96"],answer:1,formula:"Smallest common multiple = LCM",explanation:"LCM(4, 6, 8) = 24."},
+{id:45,topic:"LCM & HCF",difficulty:"Medium",question:"Two bells ring at intervals of 6 s and 8 s. After how many seconds do they ring together again?",options:["12 seconds", "14 seconds", "24 seconds", "48 seconds"],answer:2,formula:"Time to coincide = LCM of the intervals",explanation:"LCM(6, 8) = 24 seconds."},
+{id:46,topic:"LCM & HCF",difficulty:"Easy",question:"Find the LCM of 4 and 5.",options:["9", "20", "40", "10"],answer:1,formula:"For co-prime numbers, LCM = their product",explanation:"4 × 5 = 20."},
+{id:47,topic:"LCM & HCF",difficulty:"Easy",question:"Find the HCF of 18 and 27.",options:["9", "27", "3", "6"],answer:0,formula:"HCF = largest number dividing both",explanation:"18 = 2×3², 27 = 3³ → HCF = 9."},
+{id:48,topic:"LCM & HCF",difficulty:"Easy",question:"Find the LCM of 3, 4 and 5.",options:["30", "60", "120", "12"],answer:1,formula:"LCM of pairwise co-prime numbers = product",explanation:"3 × 4 × 5 = 60."},
+{id:49,topic:"LCM & HCF",difficulty:"Medium",question:"What is the HCF of two co-prime numbers?",options:["2", "0", "Their product", "1"],answer:3,formula:"Co-prime numbers share no common factor except 1",explanation:"By definition their HCF is 1."},
+{id:50,topic:"LCM & HCF",difficulty:"Easy",question:"Find the LCM of 9 and 12.",options:["36", "54", "18", "108"],answer:0,formula:"LCM = 2² × 3²",explanation:"9 = 3², 12 = 2²×3 → LCM = 36."},
+{id:51,topic:"LCM & HCF",difficulty:"Medium",question:"Find the HCF of 12, 15 and 21.",options:["5", "7", "3", "1"],answer:2,formula:"HCF = common factor of all three",explanation:"Each number is divisible by 3 and by nothing larger in common."},
+{id:52,topic:"LCM & HCF",difficulty:"Easy",question:"What is the largest number that divides both 24 and 60 exactly?",options:["6", "12", "24", "4"],answer:1,formula:"Largest common divisor = HCF",explanation:"HCF(24, 60) = 12."},
+{id:53,topic:"LCM & HCF",difficulty:"Easy",question:"What is the smallest number that is exactly divisible by both 5 and 6?",options:["60", "30", "15", "11"],answer:1,formula:"Smallest common multiple = LCM",explanation:"LCM(5, 6) = 30."},
+{id:54,topic:"LCM & HCF",difficulty:"Medium",question:"What is the product of the HCF and LCM of 8 and 12?",options:["96", "48", "192", "24"],answer:0,formula:"HCF × LCM = product of the numbers",explanation:"HCF = 4, LCM = 24 → 96, which equals 8 × 12."},
+{id:55,topic:"LCM & HCF",difficulty:"Medium",question:"The LCM of two numbers is 48 and their HCF is 4. If one number is 16, find the other.",options:["12", "24", "48", "8"],answer:0,formula:"HCF × LCM = product of the numbers",explanation:"4 × 48 = 16 × x → x = 12."},
+{id:56,topic:"LCM & HCF",difficulty:"Medium",question:"Three lights blink every 12, 18 and 24 minutes. After how many minutes do they blink together?",options:["144 minutes", "36 minutes", "48 minutes", "72 minutes"],answer:3,formula:"Coincidence time = LCM",explanation:"LCM(12, 18, 24) = 72."},
+{id:57,topic:"LCM & HCF",difficulty:"Challenging",question:"What is the smallest number which, when divided by 4 and 6, leaves remainder 1 in each case?",options:["12", "7", "13", "25"],answer:2,formula:"Required number = LCM + remainder",explanation:"LCM(4, 6) = 12 → 12 + 1 = 13."},
+{id:58,topic:"LCM & HCF",difficulty:"Easy",question:"Find the HCF of 100 and 75.",options:["50", "5", "25", "15"],answer:2,formula:"HCF = product of common prime factors",explanation:"100 = 2²×5², 75 = 3×5² → HCF = 25."},
+{id:59,topic:"LCM & HCF",difficulty:"Easy",question:"Find the LCM of 10 and 15.",options:["30", "60", "150", "5"],answer:0,formula:"LCM = 2 × 3 × 5",explanation:"10 = 2×5, 15 = 3×5 → LCM = 30."},
+{id:60,topic:"LCM & HCF",difficulty:"Medium",question:"For the numbers 15 and 20, what is HCF × LCM?",options:["600", "150", "300", "60"],answer:2,formula:"HCF × LCM = product of the two numbers",explanation:"HCF = 5, LCM = 60 → 300 = 15 × 20."},
+
+/* ---------- FRACTIONS & DECIMALS ---------- */
+{id:61,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 1/2 + 1/3?",options:["2/5", "3/5", "5/6", "2/3"],answer:2,formula:"a/b + c/d = (ad + bc)/bd",explanation:"3/6 + 2/6 = 5/6."},
+{id:62,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 3/4 + 1/8?",options:["5/8", "7/8", "4/12", "1/2"],answer:1,formula:"Convert to a common denominator, then add",explanation:"3/4 = 6/8 → 6/8 + 1/8 = 7/8."},
+{id:63,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 2/3 × 3/5?",options:["1/5", "3/5", "6/8", "2/5"],answer:3,formula:"a/b × c/d = ac/bd",explanation:"6/15 = 2/5."},
+{id:64,topic:"Fractions & Decimals",difficulty:"Medium",question:"What is 3/4 ÷ 1/2?",options:["4/3", "3/8", "2/3", "3/2"],answer:3,formula:"a/b ÷ c/d = a/b × d/c",explanation:"3/4 × 2/1 = 3/2."},
+{id:65,topic:"Fractions & Decimals",difficulty:"Medium",question:"Which of the following is the largest value?",options:["0.6", "0.58", "3/5", "5/8"],answer:3,formula:"Convert every fraction to a decimal before comparing",explanation:"5/8 = 0.625, which beats 0.6, 3/5 (= 0.6) and 0.58."},
+{id:66,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 5/6 − 1/3?",options:["4/3", "1/2", "2/3", "1/3"],answer:1,formula:"Use a common denominator, then subtract",explanation:"5/6 − 2/6 = 3/6 = 1/2."},
+{id:67,topic:"Fractions & Decimals",difficulty:"Easy",question:"Write 0.25 as a fraction in lowest terms.",options:["1/2", "1/4", "2/5", "1/5"],answer:1,formula:"0.25 = 25/100, then simplify",explanation:"25/100 = 1/4."},
+{id:68,topic:"Fractions & Decimals",difficulty:"Easy",question:"Write 3/5 as a decimal.",options:["0.35", "0.6", "0.65", "0.53"],answer:1,formula:"Divide the numerator by the denominator",explanation:"3 ÷ 5 = 0.6."},
+{id:69,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 1/4 of 200?",options:["25", "80", "40", "50"],answer:3,formula:"Fraction of a number = fraction × number",explanation:"200 ÷ 4 = 50."},
+{id:70,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 2/3 of 90?",options:["30", "60", "45", "75"],answer:1,formula:"Fraction of a number = fraction × number",explanation:"90 ÷ 3 = 30 → 30 × 2 = 60."},
+{id:71,topic:"Fractions & Decimals",difficulty:"Medium",question:"What is 0.2 × 0.3?",options:["0.5", "0.06", "0.6", "0.006"],answer:1,formula:"Multiply as whole numbers, then place the decimal point",explanation:"2 × 3 = 6 with two decimal places → 0.06."},
+{id:72,topic:"Fractions & Decimals",difficulty:"Medium",question:"What is 1/2 + 1/4 + 1/8?",options:["1/2", "5/8", "7/8", "3/14"],answer:2,formula:"Use the LCD of 8",explanation:"4/8 + 2/8 + 1/8 = 7/8."},
+{id:73,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is the reciprocal of 4/7?",options:["−4/7", "4/7", "1/4", "7/4"],answer:3,formula:"Reciprocal of a/b = b/a",explanation:"Flip the fraction to get 7/4."},
+{id:74,topic:"Fractions & Decimals",difficulty:"Easy",question:"Which of these fractions is the smallest?",options:["1/5", "1/2", "1/3", "1/4"],answer:0,formula:"With equal numerators, the larger denominator gives the smaller value",explanation:"1/5 = 0.2, the smallest of the four."},
+{id:75,topic:"Fractions & Decimals",difficulty:"Medium",question:"Write 7/8 as a decimal.",options:["0.87", "0.78", "0.885", "0.875"],answer:3,formula:"Divide the numerator by the denominator",explanation:"7 ÷ 8 = 0.875."},
+{id:76,topic:"Fractions & Decimals",difficulty:"Medium",question:"Simplify 18/24 to its lowest terms.",options:["3/4", "1/2", "4/3", "2/3"],answer:0,formula:"Divide numerator and denominator by their HCF",explanation:"HCF(18, 24) = 6 → 3/4."},
+{id:77,topic:"Fractions & Decimals",difficulty:"Easy",question:"Write 1.5 as an improper fraction.",options:["1/5", "15/2", "3/2", "5/1"],answer:2,formula:"1.5 = 15/10, then simplify",explanation:"15/10 = 3/2."},
+{id:78,topic:"Fractions & Decimals",difficulty:"Medium",question:"Write 0.125 as a fraction in lowest terms.",options:["1/5", "1/8", "1/4", "1/12"],answer:1,formula:"0.125 = 125/1000, then simplify",explanation:"125/1000 = 1/8."},
+{id:79,topic:"Fractions & Decimals",difficulty:"Easy",question:"What is 2½ + ½?",options:["3.5", "3", "2", "2.5"],answer:1,formula:"Convert to improper fractions, then add",explanation:"5/2 + 1/2 = 6/2 = 3."},
+{id:80,topic:"Fractions & Decimals",difficulty:"Medium",question:"What is 5/8 of 64?",options:["45", "32", "48", "40"],answer:3,formula:"Fraction of a number = fraction × number",explanation:"64 ÷ 8 = 8 → 8 × 5 = 40."},
+
+/* ---------- DIVISIBILITY RULES ---------- */
+{id:81,topic:"Divisibility Rules",difficulty:"Easy",question:"Which number is divisible by 3?",options:["1234", "2345", "4567", "3456"],answer:3,formula:"Divisible by 3 if the digit sum is divisible by 3",explanation:"3+4+5+6 = 18, a multiple of 3."},
+{id:82,topic:"Divisibility Rules",difficulty:"Easy",question:"Which number is divisible by 4?",options:["4518", "7532", "3126", "1234"],answer:1,formula:"Divisible by 4 if the last two digits form a multiple of 4",explanation:"32 ÷ 4 = 8."},
+{id:83,topic:"Divisibility Rules",difficulty:"Challenging",question:"Which number is divisible by 11?",options:["1331", "4321", "2345", "1234"],answer:0,formula:"Divisible by 11 if (odd-place sum − even-place sum) is 0 or a multiple of 11",explanation:"(1+3) − (3+1) = 0, and 1331 = 11 × 121."},
+{id:84,topic:"Divisibility Rules",difficulty:"Challenging",question:"What is the smallest digit x that makes 34x divisible by 6?",options:["0", "4", "2", "6"],answer:2,formula:"Divisible by 6 = divisible by 2 AND 3",explanation:"x must be even and 3+4+x a multiple of 3 → 342 works."},
+{id:85,topic:"Divisibility Rules",difficulty:"Medium",question:"Which number is divisible by 8?",options:["1234", "4512", "3620", "7318"],answer:1,formula:"Divisible by 8 if the last three digits form a multiple of 8",explanation:"4512 ÷ 8 = 564."},
+{id:86,topic:"Divisibility Rules",difficulty:"Medium",question:"Which number is divisible by 9?",options:["2345", "4567", "4518", "1234"],answer:2,formula:"Divisible by 9 if the digit sum is divisible by 9",explanation:"4+5+1+8 = 18, a multiple of 9."},
+{id:87,topic:"Divisibility Rules",difficulty:"Easy",question:"A number is divisible by 5 if it ends in:",options:["0 only", "5 only", "Any even digit", "0 or 5"],answer:3,formula:"Divisibility rule for 5",explanation:"Only last digits 0 and 5 give an exact division by 5."},
+{id:88,topic:"Divisibility Rules",difficulty:"Easy",question:"A number is divisible by 2 if:",options:["Its last digit is even", "Its digit sum is even", "It has an even number of digits", "It ends in 5"],answer:0,formula:"Divisibility rule for 2",explanation:"Last digits 0, 2, 4, 6 or 8 make a number even."},
+{id:89,topic:"Divisibility Rules",difficulty:"Easy",question:"A number is divisible by 10 if:",options:["It ends in 0", "It is even", "It ends in 5", "Its digit sum is divisible by 10"],answer:0,formula:"Divisibility rule for 10",explanation:"Only numbers ending in 0 are exact multiples of 10."},
+{id:90,topic:"Divisibility Rules",difficulty:"Medium",question:"Is 1234 divisible by 6?",options:["Yes, because it is even", "No — it is not divisible by 2", "No — it is not divisible by 3", "Yes"],answer:2,formula:"Divisible by 6 = divisible by 2 AND 3",explanation:"1234 is even, but 1+2+3+4 = 10 is not a multiple of 3."},
+{id:91,topic:"Divisibility Rules",difficulty:"Medium",question:"Which number is divisible by both 2 and 3?",options:["121", "115", "114", "116"],answer:2,formula:"Divisible by 6 = divisible by 2 and 3",explanation:"114 is even and 1+1+4 = 6 is a multiple of 3."},
+{id:92,topic:"Divisibility Rules",difficulty:"Medium",question:"Which of these numbers is a multiple of 9?",options:["2222", "5346", "6112", "4321"],answer:1,formula:"Digit sum must be divisible by 9",explanation:"5+3+4+6 = 18, so 5346 = 9 × 594."},
+{id:93,topic:"Divisibility Rules",difficulty:"Easy",question:"A number is divisible by 3 if:",options:["Its last digit is 3", "Its last digit is odd", "The sum of its digits is divisible by 3", "Its last two digits are divisible by 3"],answer:2,formula:"Divisibility rule for 3",explanation:"Only the digit sum matters."},
+{id:94,topic:"Divisibility Rules",difficulty:"Medium",question:"What is the smallest digit x that makes 51x divisible by 3?",options:["1", "3", "2", "0"],answer:3,formula:"Digit sum must be divisible by 3",explanation:"5+1+x = 6+x, and x = 0 already gives 6."},
+{id:95,topic:"Divisibility Rules",difficulty:"Medium",question:"Which number is divisible by 7?",options:["234", "456", "123", "343"],answer:3,formula:"Divide directly by 7 to check",explanation:"343 = 7 × 49."},
+{id:96,topic:"Divisibility Rules",difficulty:"Challenging",question:"Which number is divisible by 12?",options:["132", "142", "152", "122"],answer:0,formula:"Divisible by 12 = divisible by 3 AND 4",explanation:"132: digit sum 6 (÷3) and 32 (÷4)."},
+{id:97,topic:"Divisibility Rules",difficulty:"Challenging",question:"Which number is divisible by 25?",options:["1460", "1375", "1340", "1220"],answer:1,formula:"Divisible by 25 if the last two digits are 00, 25, 50 or 75",explanation:"1375 ends in 75 → 1375 = 25 × 55."},
+{id:98,topic:"Divisibility Rules",difficulty:"Challenging",question:"Which number is divisible by both 4 and 9?",options:["124", "148", "144", "132"],answer:2,formula:"Check the last two digits for 4 and the digit sum for 9",explanation:"144: 44 ÷ 4 = 11 and 1+4+4 = 9."},
+{id:99,topic:"Divisibility Rules",difficulty:"Easy",question:"A number divisible by 15 must be divisible by:",options:["3 and 4", "5 and 6", "3 and 5", "2 and 5"],answer:2,formula:"15 = 3 × 5",explanation:"Both prime factors must divide the number."},
+{id:100,topic:"Divisibility Rules",difficulty:"Medium",question:"Which three-digit number is divisible by 11?",options:["151", "141", "121", "131"],answer:2,formula:"(Odd-place sum − even-place sum) must be 0 or a multiple of 11",explanation:"(1+1) − 2 = 0, and 121 = 11 × 11."},
+
+/* ---------- UNIT DIGIT & CYCLICITY ---------- */
+{id:101,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 7²³?",options:["7", "3", "1", "9"],answer:1,formula:"Cyclicity of 7 is 4: 7, 9, 3, 1",explanation:"23 ÷ 4 leaves remainder 3 → third term of the cycle."},
+{id:102,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 3¹⁵?",options:["3", "1", "7", "9"],answer:2,formula:"Cyclicity of 3 is 4: 3, 9, 7, 1",explanation:"15 ÷ 4 leaves remainder 3 → third term."},
+{id:103,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 2¹⁰?",options:["8", "6", "4", "2"],answer:2,formula:"Cyclicity of 2 is 4: 2, 4, 8, 6",explanation:"10 ÷ 4 leaves remainder 2 → 4 (2¹⁰ = 1024)."},
+{id:104,topic:"Unit Digit & Cyclicity",difficulty:"Challenging",question:"What is the unit digit of 4⁷ × 6³?",options:["6", "8", "2", "4"],answer:3,formula:"4^odd ends in 4; every power of 6 ends in 6",explanation:"4 × 6 = 24 → unit digit 4."},
+{id:105,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 13 × 27 × 41?",options:["1", "3", "9", "7"],answer:0,formula:"Multiply only the unit digits",explanation:"3 × 7 = 21 → 1, then 1 × 1 = 1."},
+{id:106,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 9⁵?",options:["8", "9", "3", "1"],answer:1,formula:"Cyclicity of 9 is 2: 9, 1",explanation:"Odd powers of 9 end in 9."},
+{id:107,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 6¹⁰?",options:["4", "6", "2", "1"],answer:1,formula:"Every power of 6 ends in 6",explanation:"6 × 6 = 36, and the pattern never changes."},
+{id:108,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 5⁷?",options:["0", "1", "7", "5"],answer:3,formula:"Every power of 5 ends in 5",explanation:"5 × 5 = 25, 5³ = 125, and so on."},
+{id:109,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 2⁸?",options:["4", "6", "8", "2"],answer:1,formula:"Cyclicity of 2 is 4: 2, 4, 8, 6",explanation:"8 ÷ 4 leaves remainder 0 → last term 6 (2⁸ = 256)."},
+{id:110,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 3⁴?",options:["7", "9", "3", "1"],answer:3,formula:"Cyclicity of 3 is 4: 3, 9, 7, 1",explanation:"3⁴ = 81 → unit digit 1."},
+{id:111,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 8³?",options:["8", "6", "2", "4"],answer:2,formula:"Cyclicity of 8 is 4: 8, 4, 2, 6",explanation:"8³ = 512 → unit digit 2."},
+{id:112,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 7⁴?",options:["3", "9", "7", "1"],answer:3,formula:"Cyclicity of 7 is 4: 7, 9, 3, 1",explanation:"4 ÷ 4 leaves remainder 0 → last term of the cycle, 1."},
+{id:113,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 12⁵?",options:["4", "6", "8", "2"],answer:3,formula:"Only the unit digit 2 matters; cycle 2, 4, 8, 6",explanation:"5 ÷ 4 leaves remainder 1 → first term, 2."},
+{id:114,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 4¹⁰?",options:["4", "2", "8", "6"],answer:3,formula:"4^even ends in 6, 4^odd ends in 4",explanation:"10 is even → unit digit 6."},
+{id:115,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 2¹⁵?",options:["4", "2", "8", "6"],answer:2,formula:"Cyclicity of 2 is 4: 2, 4, 8, 6",explanation:"15 ÷ 4 leaves remainder 3 → third term, 8."},
+{id:116,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 3²⁰?",options:["1", "9", "7", "3"],answer:0,formula:"Cyclicity of 3 is 4: 3, 9, 7, 1",explanation:"20 ÷ 4 leaves remainder 0 → last term, 1."},
+{id:117,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 17³?",options:["3", "7", "9", "1"],answer:0,formula:"Use only the unit digit 7; 7³ = 343",explanation:"The unit digit of 17³ is the unit digit of 7³ → 3."},
+{id:118,topic:"Unit Digit & Cyclicity",difficulty:"Easy",question:"What is the unit digit of 11¹⁰⁰?",options:["9", "1", "0", "2"],answer:1,formula:"Every power of a number ending in 1 ends in 1",explanation:"The unit digit stays 1 for any power."},
+{id:119,topic:"Unit Digit & Cyclicity",difficulty:"Challenging",question:"What is the unit digit of 25 × 36 × 47?",options:["5", "7", "0", "2"],answer:2,formula:"Multiply the unit digits step by step",explanation:"5 × 6 = 30 → 0, then 0 × 7 = 0."},
+{id:120,topic:"Unit Digit & Cyclicity",difficulty:"Medium",question:"What is the unit digit of 7¹²?",options:["7", "3", "9", "1"],answer:3,formula:"Cyclicity of 7 is 4: 7, 9, 3, 1",explanation:"12 ÷ 4 leaves remainder 0 → last term, 1."},
+
+/* ---------- RATIO & PROPORTION ---------- */
+{id:121,topic:"Ratio & Proportion",difficulty:"Easy",question:"The ratio of boys to girls is 3 : 2. If there are 30 students, how many are boys?",options:["15", "18", "12", "20"],answer:1,formula:"Share = (ratio part / total parts) × total",explanation:"Total parts = 5 → one part = 6 → boys = 18."},
+{id:122,topic:"Ratio & Proportion",difficulty:"Easy",question:"Simplify the ratio 36 : 48.",options:["2 : 3", "5 : 6", "4 : 3", "3 : 4"],answer:3,formula:"Divide both terms by their HCF",explanation:"HCF = 12 → 3 : 4."},
+{id:123,topic:"Ratio & Proportion",difficulty:"Easy",question:"If 3 : 5 = x : 20, what is x?",options:["12", "8", "10", "15"],answer:0,formula:"In a : b = c : d, ad = bc",explanation:"3 × 20 = 5x → x = 12."},
+{id:124,topic:"Ratio & Proportion",difficulty:"Medium",question:"₹500 is divided in the ratio 2 : 3. What is the larger share?",options:["₹350", "₹250", "₹200", "₹300"],answer:3,formula:"Share = (ratio part / total parts) × amount",explanation:"One part = ₹100 → larger share = 3 × 100."},
+{id:125,topic:"Ratio & Proportion",difficulty:"Medium",question:"Two numbers are in the ratio 5 : 7 and differ by 10. What is the smaller number?",options:["15", "20", "35", "25"],answer:3,formula:"Take the numbers as 5x and 7x",explanation:"2x = 10 → x = 5 → smaller = 25."},
+{id:126,topic:"Ratio & Proportion",difficulty:"Easy",question:"Simplify the ratio 15 : 25.",options:["5 : 3", "1 : 2", "3 : 5", "3 : 4"],answer:2,formula:"Divide both terms by their HCF",explanation:"HCF = 5 → 3 : 5."},
+{id:127,topic:"Ratio & Proportion",difficulty:"Medium",question:"Two numbers are in the ratio 3 : 4 and their sum is 28. What is the larger number?",options:["14", "12", "16", "20"],answer:2,formula:"Take them as 3x and 4x",explanation:"7x = 28 → x = 4 → larger = 16."},
+{id:128,topic:"Ratio & Proportion",difficulty:"Medium",question:"60 is divided in the ratio 1 : 2 : 3. What is the largest part?",options:["25", "10", "20", "30"],answer:3,formula:"Share = (part / total parts) × total",explanation:"Total parts = 6 → one part = 10 → largest = 30."},
+{id:129,topic:"Ratio & Proportion",difficulty:"Easy",question:"If a : b = 4 : 5 and a = 20, what is b?",options:["30", "16", "24", "25"],answer:3,formula:"Set up the proportion a/b = 4/5",explanation:"20/b = 4/5 → b = 25."},
+{id:130,topic:"Ratio & Proportion",difficulty:"Challenging",question:"What is the mean proportional between 4 and 9?",options:["5", "13", "6", "36"],answer:2,formula:"Mean proportional between a and b = √(ab)",explanation:"√36 = 6."},
+{id:131,topic:"Ratio & Proportion",difficulty:"Medium",question:"In a 50 kg mixture, sugar and salt are in the ratio 7 : 3. How much sugar is there?",options:["30 kg", "40 kg", "15 kg", "35 kg"],answer:3,formula:"Share = (part / total parts) × total",explanation:"One part = 5 kg → sugar = 7 × 5 = 35 kg."},
+{id:132,topic:"Ratio & Proportion",difficulty:"Medium",question:"What is the ratio of 2 hours to 30 minutes?",options:["2 : 1", "4 : 1", "3 : 1", "1 : 4"],answer:1,formula:"Convert both quantities to the same unit first",explanation:"120 min : 30 min = 4 : 1."},
+{id:133,topic:"Ratio & Proportion",difficulty:"Medium",question:"What is the ratio of 500 g to 1 kg?",options:["1 : 2", "2 : 1", "5 : 1", "1 : 5"],answer:0,formula:"Convert to the same unit before comparing",explanation:"500 g : 1000 g = 1 : 2."},
+{id:134,topic:"Ratio & Proportion",difficulty:"Challenging",question:"If x : y = 2 : 5, what is (x + y) : y?",options:["7 : 2", "5 : 7", "2 : 7", "7 : 5"],answer:3,formula:"Take x = 2k and y = 5k",explanation:"(2k + 5k) : 5k = 7 : 5."},
+{id:135,topic:"Ratio & Proportion",difficulty:"Medium",question:"₹1000 is shared among A, B and C in the ratio 2 : 3 : 5. How much does C get?",options:["₹400", "₹200", "₹500", "₹300"],answer:2,formula:"Share = (part / total parts) × total",explanation:"Total parts = 10 → one part = ₹100 → C gets ₹500."},
+{id:136,topic:"Ratio & Proportion",difficulty:"Challenging",question:"What is the third proportional to 4 and 8?",options:["32", "20", "16", "12"],answer:2,formula:"Third proportional x satisfies a : b = b : x",explanation:"4 : 8 = 8 : x → x = 64/4 = 16."},
+{id:137,topic:"Ratio & Proportion",difficulty:"Easy",question:"Simplify the ratio 9 : 12.",options:["2 : 3", "3 : 4", "4 : 3", "9 : 4"],answer:1,formula:"Divide both terms by their HCF",explanation:"HCF = 3 → 3 : 4."},
+{id:138,topic:"Ratio & Proportion",difficulty:"Medium",question:"If 5 pens cost ₹75, what do 8 pens cost?",options:["₹100", "₹110", "₹120", "₹150"],answer:2,formula:"Use direct proportion",explanation:"One pen = ₹15 → 8 pens = ₹120."},
+{id:139,topic:"Ratio & Proportion",difficulty:"Easy",question:"The ages of two people are in the ratio 2 : 3. If the younger is 20, how old is the elder?",options:["30", "28", "32", "25"],answer:0,formula:"Set up the proportion 2/3 = 20/x",explanation:"x = 20 × 3/2 = 30."},
+{id:140,topic:"Ratio & Proportion",difficulty:"Easy",question:"If A : B = 3 : 5 and A = 27, what is B?",options:["15", "35", "45", "54"],answer:2,formula:"Use the proportion A/B = 3/5",explanation:"27/B = 3/5 → B = 45."},
+
+/* ---------- COMBINED RATIO ---------- */
+{id:141,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 2 : 3 and B : C = 4 : 5, find A : B : C.",options:["2 : 3 : 5", "6 : 12 : 15", "8 : 12 : 15", "8 : 12 : 10"],answer:2,formula:"Make the common term B equal in both ratios",explanation:"Scale to A:B = 8:12 and B:C = 12:15."},
+{id:142,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 3 : 4 and B : C = 2 : 5, find A : B : C.",options:["6 : 8 : 5", "3 : 4 : 10", "3 : 8 : 10", "3 : 4 : 5"],answer:1,formula:"Scale both ratios so the common term matches",explanation:"B:C = 2:5 becomes 4:10 → A:B:C = 3:4:10."},
+{id:143,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 1 : 2 and B : C = 3 : 4, find A : C.",options:["3 : 4", "3 : 8", "1 : 2", "2 : 3"],answer:1,formula:"A : C = (A/B) × (B/C)",explanation:"A:B:C = 3:6:8 → A : C = 3 : 8."},
+{id:144,topic:"Combined Ratio",difficulty:"Challenging",question:"A : B = 2 : 3, B : C = 4 : 5 and C = 30. What is A?",options:["18", "20", "16", "12"],answer:2,formula:"Combine to A : B : C, then value one part",explanation:"A:B:C = 8:12:15; 15 parts = 30 → A = 8 × 2 = 16."},
+{id:145,topic:"Combined Ratio",difficulty:"Medium",question:"If x : y = 5 : 6 and y : z = 3 : 4, find x : y : z.",options:["15 : 18 : 20", "5 : 3 : 4", "5 : 6 : 4", "5 : 6 : 8"],answer:3,formula:"Equalise the common term y",explanation:"x:y = 15:18 and y:z = 18:24 → 15:18:24 = 5:6:8."},
+{id:146,topic:"Combined Ratio",difficulty:"Easy",question:"If A : B = 1 : 2 and B : C = 2 : 3, find A : B : C.",options:["2 : 3 : 6", "1 : 3 : 2", "1 : 2 : 3", "1 : 2 : 6"],answer:2,formula:"The common term B already matches",explanation:"No scaling is needed → 1 : 2 : 3."},
+{id:147,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 2 : 5 and B : C = 3 : 4, find A : B : C.",options:["2 : 5 : 4", "6 : 15 : 20", "2 : 15 : 20", "6 : 15 : 12"],answer:1,formula:"Make B equal to the LCM of 5 and 3",explanation:"A:B = 6:15 and B:C = 15:20."},
+{id:148,topic:"Combined Ratio",difficulty:"Medium",question:"If P : Q = 3 : 2 and Q : R = 4 : 3, find P : Q : R.",options:["6 : 4 : 6", "6 : 4 : 3", "3 : 2 : 3", "12 : 8 : 3"],answer:1,formula:"Make Q the LCM of 2 and 4",explanation:"P:Q = 6:4 and Q:R = 4:3."},
+{id:149,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 4 : 5 and B : C = 2 : 3, find A : B : C.",options:["4 : 10 : 15", "8 : 10 : 12", "4 : 5 : 3", "8 : 10 : 15"],answer:3,formula:"Make B the LCM of 5 and 2",explanation:"A:B = 8:10 and B:C = 10:15."},
+{id:150,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 2 : 3 and B : C = 4 : 5, find A : C.",options:["4 : 5", "3 : 4", "2 : 5", "8 : 15"],answer:3,formula:"A : C = (A/B) × (B/C)",explanation:"(2/3) × (4/5) = 8/15."},
+{id:151,topic:"Combined Ratio",difficulty:"Easy",question:"If A : B = 1 : 3 and B : C = 1 : 2, find A : B : C.",options:["1 : 1 : 2", "1 : 3 : 2", "2 : 3 : 6", "1 : 3 : 6"],answer:3,formula:"Scale B to match in both ratios",explanation:"B:C = 1:2 becomes 3:6 → A:B:C = 1:3:6."},
+{id:152,topic:"Combined Ratio",difficulty:"Challenging",question:"If m : n = 3 : 5 and n : p = 10 : 7, find m : n : p.",options:["3 : 10 : 7", "3 : 5 : 7", "6 : 10 : 14", "6 : 10 : 7"],answer:3,formula:"Make n the LCM of 5 and 10",explanation:"m:n = 6:10 and n:p = 10:7."},
+{id:153,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 5 : 6 and B : C = 2 : 3, find A : B : C.",options:["10 : 12 : 9", "5 : 6 : 3", "5 : 3 : 6", "5 : 6 : 9"],answer:3,formula:"Make B the LCM of 6 and 2",explanation:"A:B = 5:6 and B:C = 6:9."},
+{id:154,topic:"Combined Ratio",difficulty:"Easy",question:"If A : B : C = 2 : 3 : 4, what is B : C?",options:["2 : 3", "3 : 4", "2 : 4", "4 : 3"],answer:1,formula:"Read the required terms directly from the combined ratio",explanation:"B corresponds to 3 and C to 4."},
+{id:155,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B : C = 3 : 4 : 5 and the total is 60, what is B?",options:["30", "20", "25", "15"],answer:1,formula:"One part = total / sum of parts",explanation:"Sum of parts = 12 → one part = 5 → B = 20."},
+{id:156,topic:"Combined Ratio",difficulty:"Challenging",question:"A : B = 2 : 3, B : C = 3 : 4 and A + B + C = 90. What is C?",options:["36", "20", "40", "30"],answer:2,formula:"Combine to A : B : C, then value one part",explanation:"A:B:C = 2:3:4 → 9 parts = 90 → one part = 10 → C = 40."},
+{id:157,topic:"Combined Ratio",difficulty:"Challenging",question:"If A : B = 1 : 2 and B : C = 3 : 5, find C : A.",options:["5 : 3", "10 : 3", "5 : 1", "3 : 10"],answer:1,formula:"Combine first, then reverse the required pair",explanation:"A:B:C = 3:6:10 → C : A = 10 : 3."},
+{id:158,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 7 : 9 and B : C = 3 : 5, find A : B : C.",options:["7 : 9 : 5", "9 : 7 : 15", "7 : 3 : 5", "7 : 9 : 15"],answer:3,formula:"Scale B : C so that B becomes 9",explanation:"B:C = 3:5 becomes 9:15."},
+{id:159,topic:"Combined Ratio",difficulty:"Easy",question:"If A : B = 4 : 7 and B : C = 7 : 9, find A : B : C.",options:["4 : 9 : 7", "4 : 7 : 7", "4 : 7 : 9", "7 : 4 : 9"],answer:2,formula:"The common term B already matches",explanation:"No scaling needed → 4 : 7 : 9."},
+{id:160,topic:"Combined Ratio",difficulty:"Medium",question:"If A : B = 5 : 8 and B : C = 4 : 5, find A : B : C.",options:["20 : 32 : 25", "5 : 4 : 5", "5 : 8 : 5", "5 : 8 : 10"],answer:3,formula:"Make B the LCM of 8 and 4",explanation:"B:C = 4:5 becomes 8:10 → A:B:C = 5:8:10."},
+
+/* ---------- PERCENTAGE ---------- */
+{id:161,topic:"Percentage",difficulty:"Easy",question:"What is 20% of 250?",options:["25", "40", "60", "50"],answer:3,formula:"x% of N = (x/100) × N",explanation:"(20/100) × 250 = 50."},
+{id:162,topic:"Percentage",difficulty:"Easy",question:"A number rises from 200 to 250. What is the percentage increase?",options:["30%", "20%", "25%", "50%"],answer:2,formula:"Increase % = (Increase / Original) × 100",explanation:"(50/200) × 100 = 25%."},
+{id:163,topic:"Percentage",difficulty:"Medium",question:"A value falls from 80 to 60. What is the percentage decrease?",options:["20%", "33.3%", "25%", "30%"],answer:2,formula:"Decrease % = (Decrease / Original) × 100",explanation:"(20/80) × 100 = 25%."},
+{id:164,topic:"Percentage",difficulty:"Medium",question:"15 is 25% of which number?",options:["60", "50", "45", "75"],answer:0,formula:"Whole = Part × 100 / Percentage",explanation:"15 × 100 / 25 = 60."},
+{id:165,topic:"Percentage",difficulty:"Challenging",question:"A price rises by 10% and then falls by 10%. What is the net effect?",options:["No change", "1% increase", "1% decrease", "2% decrease"],answer:2,formula:"Net change % = a + b + ab/100",explanation:"10 − 10 − 1 = −1 → a 1% decrease."},
+{id:166,topic:"Percentage",difficulty:"Easy",question:"What is 25% of 80?",options:["40", "30", "15", "20"],answer:3,formula:"25% = 1/4",explanation:"80 ÷ 4 = 20."},
+{id:167,topic:"Percentage",difficulty:"Easy",question:"Write 0.35 as a percentage.",options:["0.35%", "3.5%", "35%", "350%"],answer:2,formula:"Percentage = decimal × 100",explanation:"0.35 × 100 = 35%."},
+{id:168,topic:"Percentage",difficulty:"Easy",question:"Write 3/5 as a percentage.",options:["35%", "60%", "53%", "65%"],answer:1,formula:"Percentage = (Part / Whole) × 100",explanation:"(3/5) × 100 = 60%."},
+{id:169,topic:"Percentage",difficulty:"Easy",question:"What is 40% of 150?",options:["60", "55", "50", "75"],answer:0,formula:"x% of N = (x/100) × N",explanation:"0.4 × 150 = 60."},
+{id:170,topic:"Percentage",difficulty:"Medium",question:"If 30% of x is 60, what is x?",options:["200", "180", "220", "150"],answer:0,formula:"x = Part × 100 / Percentage",explanation:"60 × 100 / 30 = 200."},
+{id:171,topic:"Percentage",difficulty:"Medium",question:"A student scores 45 out of 60. What is the percentage?",options:["75%", "80%", "70%", "65%"],answer:0,formula:"Percentage = (Marks obtained / Total) × 100",explanation:"(45/60) × 100 = 75%."},
+{id:172,topic:"Percentage",difficulty:"Medium",question:"A price of ₹500 is increased by 20%. What is the new price?",options:["₹520", "₹600", "₹620", "₹550"],answer:1,formula:"New value = Original × (100 + x)/100",explanation:"500 × 1.2 = ₹600."},
+{id:173,topic:"Percentage",difficulty:"Medium",question:"A price of ₹800 is reduced by 25%. What is the new price?",options:["₹550", "₹650", "₹700", "₹600"],answer:3,formula:"New value = Original × (100 − x)/100",explanation:"800 × 0.75 = ₹600."},
+{id:174,topic:"Percentage",difficulty:"Easy",question:"What is 12% of 500?",options:["50", "55", "60", "72"],answer:2,formula:"x% of N = (x/100) × N",explanation:"0.12 × 500 = 60."},
+{id:175,topic:"Percentage",difficulty:"Medium",question:"What percentage of 200 is 50?",options:["40%", "20%", "30%", "25%"],answer:3,formula:"Percentage = (Part / Whole) × 100",explanation:"(50/200) × 100 = 25%."},
+{id:176,topic:"Percentage",difficulty:"Challenging",question:"A population of 1000 grows 10% each year. What is it after 2 years?",options:["1220", "1200", "1210", "1100"],answer:2,formula:"Value = P(1 + r/100)^n",explanation:"1000 × 1.1 × 1.1 = 1210."},
+{id:177,topic:"Percentage",difficulty:"Medium",question:"A salary rises from ₹20,000 to ₹24,000. What is the percentage increase?",options:["25%", "15%", "18%", "20%"],answer:3,formula:"Increase % = (Increase / Original) × 100",explanation:"(4000/20000) × 100 = 20%."},
+{id:178,topic:"Percentage",difficulty:"Medium",question:"What is 150% of 40?",options:["55", "60", "45", "50"],answer:1,formula:"x% of N = (x/100) × N",explanation:"1.5 × 40 = 60."},
+{id:179,topic:"Percentage",difficulty:"Challenging",question:"A number decreased by 20% becomes 80. What was the original number?",options:["100", "120", "96", "60"],answer:0,formula:"Original = New value × 100 / (100 − x)",explanation:"80 × 100 / 80 = 100."},
+{id:180,topic:"Percentage",difficulty:"Easy",question:"The pass mark is 40% of a 300-mark paper. What is the pass mark?",options:["150", "100", "110", "120"],answer:3,formula:"x% of N = (x/100) × N",explanation:"0.4 × 300 = 120."},
+
+/* ---------- AVERAGE ---------- */
+{id:181,topic:"Average",difficulty:"Easy",question:"What is the average of 10, 20, 30, 40 and 50?",options:["35", "40", "30", "25"],answer:2,formula:"Average = Sum / Number of values",explanation:"150 ÷ 5 = 30."},
+{id:182,topic:"Average",difficulty:"Easy",question:"The average of 5 numbers is 18. What is their sum?",options:["72", "95", "85", "90"],answer:3,formula:"Sum = Average × Count",explanation:"18 × 5 = 90."},
+{id:183,topic:"Average",difficulty:"Challenging",question:"The average of 4 numbers is 25. A fifth number makes the average 26. What is the new number?",options:["30", "32", "26", "28"],answer:0,formula:"New number = New sum − Old sum",explanation:"130 − 100 = 30."},
+{id:184,topic:"Average",difficulty:"Easy",question:"What is the average of the first 5 even natural numbers?",options:["6", "7", "8", "5"],answer:0,formula:"Average = Sum / Count",explanation:"(2+4+6+8+10) ÷ 5 = 6."},
+{id:185,topic:"Average",difficulty:"Medium",question:"The average of 6 numbers is 20. If the number 15 is removed, what is the new average?",options:["19", "21", "20", "22"],answer:1,formula:"New average = (Old sum − removed) / New count",explanation:"(120 − 15) ÷ 5 = 21."},
+{id:186,topic:"Average",difficulty:"Easy",question:"What is the average of 2, 4, 6 and 8?",options:["5", "6", "4", "20"],answer:0,formula:"Average = Sum / Count",explanation:"20 ÷ 4 = 5."},
+{id:187,topic:"Average",difficulty:"Medium",question:"What is the average of the first 10 natural numbers?",options:["5", "6", "5.5", "10"],answer:2,formula:"Average of first n natural numbers = (n+1)/2",explanation:"(10+1)/2 = 5.5."},
+{id:188,topic:"Average",difficulty:"Medium",question:"The average of 3 numbers is 12. Two of them are 10 and 14. What is the third?",options:["11", "14", "12", "10"],answer:2,formula:"Third = Total sum − sum of the others",explanation:"36 − 24 = 12."},
+{id:189,topic:"Average",difficulty:"Easy",question:"What is the average of 8 and 12?",options:["20", "9", "11", "10"],answer:3,formula:"Average = Sum / Count",explanation:"20 ÷ 2 = 10."},
+{id:190,topic:"Average",difficulty:"Easy",question:"The average mark of 4 students is 80. What is the total?",options:["240", "360", "300", "320"],answer:3,formula:"Sum = Average × Count",explanation:"80 × 4 = 320."},
+{id:191,topic:"Average",difficulty:"Easy",question:"What is the average of 5, 10, 15, 20 and 25?",options:["15", "20", "14", "12"],answer:0,formula:"Average = Sum / Count",explanation:"75 ÷ 5 = 15."},
+{id:192,topic:"Average",difficulty:"Easy",question:"If the average of a and b is 10, what is a + b?",options:["5", "40", "10", "20"],answer:3,formula:"Sum = Average × Count",explanation:"10 × 2 = 20."},
+{id:193,topic:"Average",difficulty:"Easy",question:"What is the average of the first 5 odd numbers?",options:["4", "6", "5", "3"],answer:2,formula:"Average = Sum / Count",explanation:"(1+3+5+7+9) ÷ 5 = 5."},
+{id:194,topic:"Average",difficulty:"Challenging",question:"The average of 10 numbers is 15. If every number is increased by 2, what is the new average?",options:["17", "25", "15", "30"],answer:0,formula:"Adding k to each value adds k to the average",explanation:"15 + 2 = 17."},
+{id:195,topic:"Average",difficulty:"Medium",question:"The total temperature over 7 days is 245°. What is the average?",options:["30°", "40°", "32°", "35°"],answer:3,formula:"Average = Sum / Count",explanation:"245 ÷ 7 = 35."},
+{id:196,topic:"Average",difficulty:"Easy",question:"What is the average of 20, 30 and 40?",options:["45", "30", "35", "25"],answer:1,formula:"Average = Sum / Count",explanation:"90 ÷ 3 = 30."},
+{id:197,topic:"Average",difficulty:"Medium",question:"A class of 30 students has an average of 60 marks. What is the total?",options:["900", "1200", "2400", "1800"],answer:3,formula:"Sum = Average × Count",explanation:"60 × 30 = 1800."},
+{id:198,topic:"Average",difficulty:"Challenging",question:"The average of 6 numbers is 12. Five of them add up to 55. What is the sixth?",options:["12", "20", "17", "15"],answer:2,formula:"Sixth = Total sum − sum of the other five",explanation:"72 − 55 = 17."},
+{id:199,topic:"Average",difficulty:"Medium",question:"The average of two numbers is 25 and one of them is 20. What is the other?",options:["28", "35", "25", "30"],answer:3,formula:"Sum = Average × Count",explanation:"Sum = 50 → 50 − 20 = 30."},
+{id:200,topic:"Average",difficulty:"Easy",question:"A batsman scores 40, 50 and 60 in three innings. What is his average?",options:["48", "45", "55", "50"],answer:3,formula:"Average = Total runs / Number of innings",explanation:"150 ÷ 3 = 50."},
+
+/* ---------- PROFIT, LOSS & DISCOUNT ---------- */
+{id:201,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"A product is bought for ₹500 and sold for ₹600. What is the profit percentage?",options:["25%", "10%", "20%", "16.67%"],answer:2,formula:"Profit% = (SP − CP)/CP × 100",explanation:"(100/500) × 100 = 20%."},
+{id:202,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"An item costing ₹800 is sold for ₹720. What is the loss percentage?",options:["12%", "10%", "8%", "20%"],answer:1,formula:"Loss% = (CP − SP)/CP × 100",explanation:"(80/800) × 100 = 10%."},
+{id:203,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"The marked price is ₹1000 and the discount is 15%. What is the selling price?",options:["₹870", "₹850", "₹900", "₹800"],answer:1,formula:"SP = MP − Discount",explanation:"Discount = ₹150 → SP = ₹850."},
+{id:204,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"An article is sold for ₹240 at a profit of 20%. What is the cost price?",options:["₹220", "₹210", "₹200", "₹192"],answer:2,formula:"CP = SP × 100 / (100 + Profit%)",explanation:"240 × 100/120 = ₹200."},
+{id:205,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"An article bought for ₹400 is sold at 25% profit. What is the selling price?",options:["₹450", "₹425", "₹525", "₹500"],answer:3,formula:"SP = CP × (100 + Profit%)/100",explanation:"400 × 1.25 = ₹500."},
+{id:206,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"CP is ₹250 and SP is ₹300. What is the profit?",options:["₹25", "₹75", "₹100", "₹50"],answer:3,formula:"Profit = SP − CP",explanation:"300 − 250 = ₹50."},
+{id:207,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"CP is ₹1200 and SP is ₹1000. What is the loss?",options:["₹200", "₹150", "₹100", "₹250"],answer:0,formula:"Loss = CP − SP",explanation:"1200 − 1000 = ₹200."},
+{id:208,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"An article costing ₹200 is sold at 10% profit. What is the selling price?",options:["₹250", "₹220", "₹210", "₹240"],answer:1,formula:"SP = CP × (100 + Profit%)/100",explanation:"200 × 1.1 = ₹220."},
+{id:209,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"An article is sold for ₹450 at a loss of 10%. What is the cost price?",options:["₹405", "₹495", "₹500", "₹420"],answer:2,formula:"CP = SP × 100 / (100 − Loss%)",explanation:"450 × 100/90 = ₹500."},
+{id:210,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"The marked price is ₹500 and the selling price is ₹400. What is the discount percentage?",options:["30%", "25%", "20%", "10%"],answer:2,formula:"Discount% = (MP − SP)/MP × 100",explanation:"(100/500) × 100 = 20%."},
+{id:211,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"CP is ₹600 and SP is ₹750. What is the profit percentage?",options:["20%", "15%", "30%", "25%"],answer:3,formula:"Profit% = Profit/CP × 100",explanation:"(150/600) × 100 = 25%."},
+{id:212,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"A loss of ₹50 is made on a cost price of ₹500. What is the loss percentage?",options:["5%", "15%", "20%", "10%"],answer:3,formula:"Loss% = Loss/CP × 100",explanation:"(50/500) × 100 = 10%."},
+{id:213,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"The marked price is ₹800 with a 25% discount. What is the selling price?",options:["₹700", "₹650", "₹600", "₹575"],answer:2,formula:"SP = MP × (100 − Discount%)/100",explanation:"800 × 0.75 = ₹600."},
+{id:214,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"The cost price is ₹1500 and the profit is 20%. What is the profit amount?",options:["₹350", "₹300", "₹200", "₹250"],answer:1,formula:"Profit = CP × Profit%/100",explanation:"1500 × 0.2 = ₹300."},
+{id:215,topic:"Profit, Loss & Discount",difficulty:"Challenging",question:"10 pens are bought for ₹100 and sold at ₹12 each. What is the profit?",options:["₹120", "₹20", "₹10", "₹12"],answer:1,formula:"Profit = Total SP − Total CP",explanation:"SP = ₹120, CP = ₹100 → profit ₹20."},
+{id:216,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"If the selling price equals the cost price, the result is:",options:["100% loss", "50% profit", "100% profit", "No profit and no loss"],answer:3,formula:"Profit = SP − CP",explanation:"When SP = CP the difference is zero."},
+{id:217,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"CP is ₹900 and SP is ₹990. What is the profit percentage?",options:["11%", "10%", "20%", "9%"],answer:1,formula:"Profit% = Profit/CP × 100",explanation:"(90/900) × 100 = 10%."},
+{id:218,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"An item marked at ₹1200 is sold at a 10% discount. What is the selling price?",options:["₹1000", "₹1100", "₹1080", "₹1120"],answer:2,formula:"SP = MP × (100 − Discount%)/100",explanation:"1200 × 0.9 = ₹1080."},
+{id:219,topic:"Profit, Loss & Discount",difficulty:"Easy",question:"Profit percentage is always calculated on the:",options:["Cost price", "Marked price", "Discount", "Selling price"],answer:0,formula:"Profit% = Profit/CP × 100",explanation:"The cost price is the base for profit and loss percentages."},
+{id:220,topic:"Profit, Loss & Discount",difficulty:"Medium",question:"CP is ₹80 and SP is ₹100. What is the profit percentage?",options:["25%", "22.5%", "30%", "20%"],answer:0,formula:"Profit% = Profit/CP × 100",explanation:"(20/80) × 100 = 25%."},
+
+/* ---------- SIMPLE & COMPOUND INTEREST ---------- */
+{id:221,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Find the simple interest on ₹5000 at 10% per annum for 2 years.",options:["₹1000", "₹1100", "₹500", "₹1200"],answer:0,formula:"SI = P × R × T / 100",explanation:"5000 × 10 × 2 / 100 = ₹1000."},
+{id:222,topic:"Simple & Compound Interest",difficulty:"Easy",question:"What amount is repaid on ₹2000 at 5% simple interest for 3 years?",options:["₹2600", "₹2300", "₹2500", "₹2150"],answer:1,formula:"A = P + SI",explanation:"SI = ₹300 → A = ₹2300."},
+{id:223,topic:"Simple & Compound Interest",difficulty:"Medium",question:"Find the compound interest on ₹1000 at 10% per annum for 2 years.",options:["₹200", "₹220", "₹240", "₹210"],answer:3,formula:"A = P(1 + R/100)^T ; CI = A − P",explanation:"A = ₹1210 → CI = ₹210."},
+{id:224,topic:"Simple & Compound Interest",difficulty:"Challenging",question:"What is the difference between CI and SI on ₹1000 at 10% for 2 years?",options:["₹21", "₹20", "₹10", "₹0"],answer:2,formula:"Difference for 2 years = P(R/100)²",explanation:"CI ₹210 − SI ₹200 = ₹10."},
+{id:225,topic:"Simple & Compound Interest",difficulty:"Medium",question:"In how many years will ₹4000 earn ₹600 as simple interest at 5% per annum?",options:["4 years", "2 years", "5 years", "3 years"],answer:3,formula:"T = SI × 100 / (P × R)",explanation:"600 × 100 / 20000 = 3 years."},
+{id:226,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Find the simple interest on ₹1000 at 5% for 1 year.",options:["₹150", "₹50", "₹500", "₹100"],answer:1,formula:"SI = PRT/100",explanation:"1000 × 5 × 1 / 100 = ₹50."},
+{id:227,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Find the simple interest on ₹2000 at 10% for 4 years.",options:["₹1000", "₹800", "₹200", "₹400"],answer:1,formula:"SI = PRT/100",explanation:"2000 × 10 × 4 / 100 = ₹800."},
+{id:228,topic:"Simple & Compound Interest",difficulty:"Medium",question:"₹1000 earns ₹200 simple interest in 2 years. What is the rate?",options:["20%", "5%", "10%", "15%"],answer:2,formula:"R = SI × 100 / (P × T)",explanation:"200 × 100 / 2000 = 10%."},
+{id:229,topic:"Simple & Compound Interest",difficulty:"Medium",question:"What principal earns ₹300 simple interest at 5% in 2 years?",options:["₹2000", "₹1500", "₹3000", "₹6000"],answer:2,formula:"P = SI × 100 / (R × T)",explanation:"300 × 100 / 10 = ₹3000."},
+{id:230,topic:"Simple & Compound Interest",difficulty:"Medium",question:"Find the compound interest on ₹2000 at 10% for 1 year.",options:["₹400", "₹100", "₹200", "₹210"],answer:2,formula:"For 1 year, CI = SI",explanation:"2000 × 10 × 1/100 = ₹200."},
+{id:231,topic:"Simple & Compound Interest",difficulty:"Medium",question:"What is the amount on ₹1000 at 10% compound interest for 2 years?",options:["₹1200", "₹1240", "₹1210", "₹1100"],answer:2,formula:"A = P(1 + R/100)^T",explanation:"1000 × 1.1 × 1.1 = ₹1210."},
+{id:232,topic:"Simple & Compound Interest",difficulty:"Medium",question:"Find the simple interest on ₹800 at 12.5% for 2 years.",options:["₹200", "₹100", "₹250", "₹160"],answer:0,formula:"SI = PRT/100",explanation:"800 × 12.5 × 2 / 100 = ₹200."},
+{id:233,topic:"Simple & Compound Interest",difficulty:"Challenging",question:"At 10% simple interest, in how many years does money double?",options:["20 years", "5 years", "10 years", "15 years"],answer:2,formula:"Money doubles when SI = P, so T = 100/R",explanation:"100 / 10 = 10 years."},
+{id:234,topic:"Simple & Compound Interest",difficulty:"Medium",question:"Find the compound interest on ₹5000 at 10% for 2 years.",options:["₹500", "₹1000", "₹1100", "₹1050"],answer:3,formula:"CI = P[(1 + R/100)^T − 1]",explanation:"5000 × 1.21 = ₹6050 → CI = ₹1050."},
+{id:235,topic:"Simple & Compound Interest",difficulty:"Medium",question:"What amount is repaid on ₹1500 at 8% simple interest for 5 years?",options:["₹2200", "₹1900", "₹1800", "₹2100"],answer:3,formula:"A = P + SI",explanation:"SI = ₹600 → A = ₹2100."},
+{id:236,topic:"Simple & Compound Interest",difficulty:"Medium",question:"For 1 year compounded annually, how do CI and SI compare?",options:["They are equal", "CI is greater", "SI is greater", "CI is double SI"],answer:0,formula:"Compounding only matters from the second period onwards",explanation:"With one period there is no interest on interest."},
+{id:237,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Find the simple interest on ₹10,000 at 6% for 3 years.",options:["₹1800", "₹600", "₹2400", "₹1200"],answer:0,formula:"SI = PRT/100",explanation:"10000 × 6 × 3 / 100 = ₹1800."},
+{id:238,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Find the simple interest on ₹2500 at 4% for 2 years.",options:["₹200", "₹100", "₹250", "₹150"],answer:0,formula:"SI = PRT/100",explanation:"2500 × 4 × 2 / 100 = ₹200."},
+{id:239,topic:"Simple & Compound Interest",difficulty:"Challenging",question:"Find the compound interest on ₹8000 at 5% for 2 years.",options:["₹800", "₹840", "₹810", "₹820"],answer:3,formula:"CI = P[(1 + R/100)^T − 1]",explanation:"8000 × 1.1025 = ₹8820 → CI = ₹820."},
+{id:240,topic:"Simple & Compound Interest",difficulty:"Easy",question:"Simple interest is always calculated on the:",options:["Principal plus interest", "Interest earned", "Original principal", "Amount"],answer:2,formula:"SI = PRT/100",explanation:"The principal never changes in simple interest."},
+
+/* ---------- TIME, SPEED & DISTANCE ---------- */
+{id:241,topic:"Time, Speed & Distance",difficulty:"Easy",question:"A car travels 120 km in 3 hours. What is its speed?",options:["60 km/h", "30 km/h", "40 km/h", "45 km/h"],answer:2,formula:"Speed = Distance / Time",explanation:"120 ÷ 3 = 40 km/h."},
+{id:242,topic:"Time, Speed & Distance",difficulty:"Easy",question:"Convert 72 km/h into m/s.",options:["18 m/s", "15 m/s", "25 m/s", "20 m/s"],answer:3,formula:"1 km/h = 5/18 m/s",explanation:"72 × 5/18 = 20 m/s."},
+{id:243,topic:"Time, Speed & Distance",difficulty:"Easy",question:"Convert 10 m/s into km/h.",options:["36 km/h", "30 km/h", "40 km/h", "45 km/h"],answer:0,formula:"1 m/s = 18/5 km/h",explanation:"10 × 18/5 = 36 km/h."},
+{id:244,topic:"Time, Speed & Distance",difficulty:"Medium",question:"How far does a bus travel in 2.5 hours at 60 km/h?",options:["180 km", "150 km", "120 km", "140 km"],answer:1,formula:"Distance = Speed × Time",explanation:"60 × 2.5 = 150 km."},
+{id:245,topic:"Time, Speed & Distance",difficulty:"Challenging",question:"A train 200 m long runs at 36 km/h. How long does it take to cross a pole?",options:["10 seconds", "15 seconds", "25 seconds", "20 seconds"],answer:3,formula:"Time = Length of train / Speed in m/s",explanation:"36 km/h = 10 m/s → 200/10 = 20 s."},
+{id:246,topic:"Time, Speed & Distance",difficulty:"Easy",question:"Convert 90 km/h into m/s.",options:["30 m/s", "25 m/s", "45 m/s", "20 m/s"],answer:1,formula:"1 km/h = 5/18 m/s",explanation:"90 × 5/18 = 25 m/s."},
+{id:247,topic:"Time, Speed & Distance",difficulty:"Easy",question:"Convert 5 m/s into km/h.",options:["18 km/h", "15 km/h", "25 km/h", "20 km/h"],answer:0,formula:"1 m/s = 18/5 km/h",explanation:"5 × 18/5 = 18 km/h."},
+{id:248,topic:"Time, Speed & Distance",difficulty:"Easy",question:"How long does it take to cover 300 km at 60 km/h?",options:["6 hours", "8 hours", "4 hours", "5 hours"],answer:3,formula:"Time = Distance / Speed",explanation:"300 ÷ 60 = 5 hours."},
+{id:249,topic:"Time, Speed & Distance",difficulty:"Medium",question:"A man walks 6 km in 1.5 hours. What is his speed?",options:["4.5 km/h", "4 km/h", "5 km/h", "3 km/h"],answer:1,formula:"Speed = Distance / Time",explanation:"6 ÷ 1.5 = 4 km/h."},
+{id:250,topic:"Time, Speed & Distance",difficulty:"Medium",question:"How far does a car travel at 80 km/h in 45 minutes?",options:["75 km", "50 km", "60 km", "40 km"],answer:2,formula:"Convert minutes to hours first",explanation:"45 min = 0.75 h → 80 × 0.75 = 60 km."},
+{id:251,topic:"Time, Speed & Distance",difficulty:"Easy",question:"How long does it take to cover 150 km at 50 km/h?",options:["2.5 hours", "4 hours", "2 hours", "3 hours"],answer:3,formula:"Time = Distance / Speed",explanation:"150 ÷ 50 = 3 hours."},
+{id:252,topic:"Time, Speed & Distance",difficulty:"Medium",question:"A train 150 m long moves at 20 m/s. How long does it take to pass a pole?",options:["15 seconds", "10 seconds", "7.5 seconds", "5 seconds"],answer:2,formula:"Time = Length / Speed",explanation:"150 ÷ 20 = 7.5 seconds."},
+{id:253,topic:"Time, Speed & Distance",difficulty:"Medium",question:"How far does a vehicle travel at 40 km/h in 30 minutes?",options:["20 km", "25 km", "15 km", "80 km"],answer:0,formula:"Distance = Speed × Time",explanation:"40 × 0.5 = 20 km."},
+{id:254,topic:"Time, Speed & Distance",difficulty:"Medium",question:"Convert 108 km/h into m/s.",options:["25 m/s", "36 m/s", "30 m/s", "40 m/s"],answer:2,formula:"1 km/h = 5/18 m/s",explanation:"108 × 5/18 = 30 m/s."},
+{id:255,topic:"Time, Speed & Distance",difficulty:"Medium",question:"If the speed doubles, the time taken for the same distance:",options:["Stays the same", "Becomes half", "Becomes four times", "Doubles"],answer:1,formula:"Time = Distance / Speed (inverse relationship)",explanation:"Doubling the denominator halves the time."},
+{id:256,topic:"Time, Speed & Distance",difficulty:"Challenging",question:"A 240 m train at 72 km/h crosses a 160 m platform. How long does it take?",options:["20 seconds", "12 seconds", "24 seconds", "15 seconds"],answer:0,formula:"Time = (Train length + Platform length) / Speed",explanation:"72 km/h = 20 m/s → 400/20 = 20 s."},
+{id:257,topic:"Time, Speed & Distance",difficulty:"Easy",question:"How long does it take to walk 20 km at 5 km/h?",options:["2 hours", "3 hours", "5 hours", "4 hours"],answer:3,formula:"Time = Distance / Speed",explanation:"20 ÷ 5 = 4 hours."},
+{id:258,topic:"Time, Speed & Distance",difficulty:"Medium",question:"A journey of 100 km takes 2.5 hours. What is the average speed?",options:["45 km/h", "40 km/h", "50 km/h", "25 km/h"],answer:1,formula:"Average speed = Total distance / Total time",explanation:"100 ÷ 2.5 = 40 km/h."},
+{id:259,topic:"Time, Speed & Distance",difficulty:"Easy",question:"Convert 36 km/h into m/s.",options:["10 m/s", "12 m/s", "6 m/s", "20 m/s"],answer:0,formula:"1 km/h = 5/18 m/s",explanation:"36 × 5/18 = 10 m/s."},
+{id:260,topic:"Time, Speed & Distance",difficulty:"Easy",question:"A cyclist covers 45 km in 3 hours. What is the speed?",options:["18 km/h", "12 km/h", "15 km/h", "9 km/h"],answer:2,formula:"Speed = Distance / Time",explanation:"45 ÷ 3 = 15 km/h."},
+
+/* ---------- TIME & WORK ---------- */
+{id:261,topic:"Time & Work",difficulty:"Easy",question:"A person completes a job in 10 days. What fraction of the work is done in one day?",options:["1/5", "1/10", "10", "1/20"],answer:1,formula:"One day's work = 1 / Number of days",explanation:"10 days for 1 job → 1/10 per day."},
+{id:262,topic:"Time & Work",difficulty:"Medium",question:"A finishes a job in 10 days and B in 15 days. Working together, how long do they take?",options:["25 days", "6 days", "5 days", "12 days"],answer:1,formula:"Combined one day's work = 1/a + 1/b",explanation:"1/10 + 1/15 = 1/6 → 6 days."},
+{id:263,topic:"Time & Work",difficulty:"Easy",question:"A completes a task in 12 days. What fraction is done in 4 days?",options:["2/3", "1/3", "1/2", "1/4"],answer:1,formula:"Work done = Days × One day's work",explanation:"4 × 1/12 = 1/3."},
+{id:264,topic:"Time & Work",difficulty:"Medium",question:"A is twice as efficient as B. If B takes 18 days, how long does A take?",options:["9 days", "12 days", "6 days", "36 days"],answer:0,formula:"Time is inversely proportional to efficiency",explanation:"18 ÷ 2 = 9 days."},
+{id:265,topic:"Time & Work",difficulty:"Medium",question:"6 workers finish a job in 10 days. How long will 12 workers take?",options:["10 days", "20 days", "5 days", "15 days"],answer:2,formula:"M₁ × D₁ = M₂ × D₂",explanation:"6 × 10 = 12 × D → D = 5."},
+{id:266,topic:"Time & Work",difficulty:"Easy",question:"A completes a job in 20 days. What is one day's work?",options:["1/10", "1/20", "20", "1/40"],answer:1,formula:"One day's work = 1 / Number of days",explanation:"One twentieth of the job per day."},
+{id:267,topic:"Time & Work",difficulty:"Medium",question:"A takes 6 days and B takes 12 days. How long do they take together?",options:["9 days", "6 days", "3 days", "4 days"],answer:3,formula:"Days together = ab/(a + b)",explanation:"(6 × 12)/18 = 4 days."},
+{id:268,topic:"Time & Work",difficulty:"Easy",question:"A and B each take 8 days alone. How long do they take together?",options:["16 days", "2 days", "4 days", "8 days"],answer:2,formula:"Days together = ab/(a + b)",explanation:"(8 × 8)/16 = 4 days."},
+{id:269,topic:"Time & Work",difficulty:"Easy",question:"If one day's work is 1/15, how many days does the whole job take?",options:["15 days", "5 days", "10 days", "30 days"],answer:0,formula:"Days = 1 / One day's work",explanation:"The reciprocal of 1/15 is 15."},
+{id:270,topic:"Time & Work",difficulty:"Medium",question:"A does 1/4 of a job in 3 days. How long does the whole job take?",options:["9 days", "16 days", "12 days", "6 days"],answer:2,formula:"Total days = Days taken × (1 / fraction done)",explanation:"3 × 4 = 12 days."},
+{id:271,topic:"Time & Work",difficulty:"Medium",question:"4 men build a wall in 12 days. How long will 6 men take?",options:["18 days", "6 days", "9 days", "8 days"],answer:3,formula:"M₁ × D₁ = M₂ × D₂",explanation:"4 × 12 = 6 × D → D = 8."},
+{id:272,topic:"Time & Work",difficulty:"Medium",question:"A can finish a job in 10 days. After working 4 days, what fraction is left?",options:["1/2", "2/5", "1/5", "3/5"],answer:3,formula:"Work left = 1 − (Days worked × One day's work)",explanation:"1 − 4/10 = 6/10 = 3/5."},
+{id:273,topic:"Time & Work",difficulty:"Challenging",question:"A and B together finish a job in 12 days. A alone takes 20 days. How long does B take alone?",options:["24 days", "30 days", "15 days", "32 days"],answer:1,formula:"1/B = 1/(Together) − 1/A",explanation:"1/12 − 1/20 = 1/30 → 30 days."},
+{id:274,topic:"Time & Work",difficulty:"Challenging",question:"A takes 5 days and B takes 10 days. How long do they take together?",options:["3⅓ days", "2 days", "5 days", "7.5 days"],answer:0,formula:"Days together = ab/(a + b)",explanation:"(5 × 10)/15 = 10/3 = 3⅓ days."},
+{id:275,topic:"Time & Work",difficulty:"Easy",question:"A pipe fills a tank in 6 hours. What fraction is filled in 2 hours?",options:["1/3", "2/3", "1/6", "1/2"],answer:0,formula:"Work done = Time × Rate",explanation:"2 × 1/6 = 1/3."},
+{id:276,topic:"Time & Work",difficulty:"Medium",question:"12 men finish a job in 8 days. How long will 8 men take?",options:["12 days", "6 days", "16 days", "10 days"],answer:0,formula:"M₁ × D₁ = M₂ × D₂",explanation:"12 × 8 = 8 × D → D = 12."},
+{id:277,topic:"Time & Work",difficulty:"Medium",question:"A's one day work is 1/9 and B's is 1/18. How long do they take together?",options:["6 days", "12 days", "27 days", "9 days"],answer:0,formula:"Add the rates, then take the reciprocal",explanation:"1/9 + 1/18 = 3/18 = 1/6 → 6 days."},
+{id:278,topic:"Time & Work",difficulty:"Medium",question:"A works three times as fast as B. If B takes 30 days, how long does A take?",options:["90 days", "15 days", "20 days", "10 days"],answer:3,formula:"Time is inversely proportional to speed of work",explanation:"30 ÷ 3 = 10 days."},
+{id:279,topic:"Time & Work",difficulty:"Medium",question:"5 machines finish a batch in 10 hours. How long will 10 machines take?",options:["20 hours", "5 hours", "15 hours", "10 hours"],answer:1,formula:"M₁ × T₁ = M₂ × T₂",explanation:"5 × 10 = 10 × T → T = 5."},
+{id:280,topic:"Time & Work",difficulty:"Medium",question:"A alone takes 15 days and B alone takes 30 days. How long do they take together?",options:["20 days", "45 days", "12 days", "10 days"],answer:3,formula:"Days together = ab/(a + b)",explanation:"(15 × 30)/45 = 10 days."},
+
+/* ---------- MIXTURES & ALLIGATION ---------- */
+{id:281,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 20 litre mixture has milk and water in the ratio 3 : 1. How much milk is there?",options:["15 L", "5 L", "18 L", "10 L"],answer:0,formula:"Quantity = (part / total parts) × total",explanation:"One part = 5 L → milk = 15 L."},
+{id:282,topic:"Mixtures & Alligation",difficulty:"Easy",question:"10 kg of rice at ₹20/kg is mixed with 10 kg at ₹30/kg. What is the average price?",options:["₹25/kg", "₹22/kg", "₹26/kg", "₹24/kg"],answer:0,formula:"Average price = Total cost / Total quantity",explanation:"500 ÷ 20 = ₹25 per kg."},
+{id:283,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 40 litre solution is 25% acid. How much acid does it contain?",options:["15 L", "10 L", "8 L", "12 L"],answer:1,formula:"Component = Concentration% × Total / 100",explanation:"0.25 × 40 = 10 L."},
+{id:284,topic:"Mixtures & Alligation",difficulty:"Challenging",question:"An 18 L mixture has milk and water in the ratio 5 : 1. After adding 3 L of water, what is the new ratio?",options:["5 : 3", "5 : 2", "3 : 1", "2 : 1"],answer:1,formula:"Only the added component changes",explanation:"Milk 15 L, water 3 + 3 = 6 L → 15 : 6 = 5 : 2."},
+{id:285,topic:"Mixtures & Alligation",difficulty:"Medium",question:"5 kg of tea at ₹40/kg is mixed with 15 kg at ₹60/kg. What is the price of the mixture?",options:["₹58/kg", "₹50/kg", "₹52/kg", "₹55/kg"],answer:3,formula:"Average price = Total cost / Total quantity",explanation:"(200 + 900)/20 = ₹55 per kg."},
+{id:286,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 30 L mixture has milk and water in the ratio 2 : 1. How much water is there?",options:["10 L", "20 L", "5 L", "15 L"],answer:0,formula:"Quantity = (part / total parts) × total",explanation:"One part = 10 L → water = 10 L."},
+{id:287,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 50 L solution is 20% alcohol. How much alcohol is present?",options:["10 L", "5 L", "20 L", "12 L"],answer:0,formula:"Component = Concentration% × Total / 100",explanation:"0.2 × 50 = 10 L."},
+{id:288,topic:"Mixtures & Alligation",difficulty:"Medium",question:"4 kg at ₹30/kg is mixed with 6 kg at ₹20/kg. What is the average price?",options:["₹22/kg", "₹24/kg", "₹25/kg", "₹26/kg"],answer:1,formula:"Average price = Total cost / Total quantity",explanation:"(120 + 120)/10 = ₹24 per kg."},
+{id:289,topic:"Mixtures & Alligation",difficulty:"Medium",question:"A 24 L mixture has milk and water in the ratio 5 : 3. How much milk is there?",options:["15 L", "9 L", "18 L", "12 L"],answer:0,formula:"Quantity = (part / total parts) × total",explanation:"One part = 3 L → milk = 15 L."},
+{id:290,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 100 L solution contains 10% sugar. How much water does it contain?",options:["95 L", "10 L", "90 L", "80 L"],answer:2,formula:"Water = Total − Solute",explanation:"100 − 10 = 90 L."},
+{id:291,topic:"Mixtures & Alligation",difficulty:"Easy",question:"12 L of milk is mixed with 4 L of water. What is the ratio of milk to water?",options:["2 : 1", "1 : 3", "4 : 1", "3 : 1"],answer:3,formula:"Divide both quantities by their HCF",explanation:"12 : 4 = 3 : 1."},
+{id:292,topic:"Mixtures & Alligation",difficulty:"Medium",question:"How much water must be added to 10 L of milk to make the ratio 1 : 1?",options:["20 L", "15 L", "10 L", "5 L"],answer:2,formula:"Equal ratio means equal quantities",explanation:"Water must equal the 10 L of milk."},
+{id:293,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 20 kg mixture is 40% sand. How much sand is there?",options:["10 kg", "12 kg", "8 kg", "4 kg"],answer:2,formula:"Component = Percentage × Total / 100",explanation:"0.4 × 20 = 8 kg."},
+{id:294,topic:"Mixtures & Alligation",difficulty:"Medium",question:"2 L of water is added to 8 L of juice. What percentage of the new mixture is juice?",options:["85%", "20%", "75%", "80%"],answer:3,formula:"Percentage = (Component / Total) × 100",explanation:"(8/10) × 100 = 80%."},
+{id:295,topic:"Mixtures & Alligation",difficulty:"Medium",question:"3 kg at ₹50/kg is mixed with 2 kg at ₹100/kg. What is the average price?",options:["₹65/kg", "₹60/kg", "₹70/kg", "₹75/kg"],answer:2,formula:"Average price = Total cost / Total quantity",explanation:"(150 + 200)/5 = ₹70 per kg."},
+{id:296,topic:"Mixtures & Alligation",difficulty:"Medium",question:"In a 60 L mixture, milk and water are in the ratio 7 : 5. How much water is there?",options:["20 L", "25 L", "30 L", "35 L"],answer:1,formula:"Quantity = (part / total parts) × total",explanation:"One part = 5 L → water = 25 L."},
+{id:297,topic:"Mixtures & Alligation",difficulty:"Medium",question:"A 60 L solution contains 30% water. How much water is there?",options:["24 L", "18 L", "12 L", "20 L"],answer:1,formula:"Component = Percentage × Total / 100",explanation:"0.3 × 60 = 18 L."},
+{id:298,topic:"Mixtures & Alligation",difficulty:"Easy",question:"5 L of a 20% salt solution contains how much salt?",options:["2 L", "2.5 L", "0.5 L", "1 L"],answer:3,formula:"Salt = Concentration × Volume",explanation:"0.2 × 5 = 1 L."},
+{id:299,topic:"Mixtures & Alligation",difficulty:"Challenging",question:"1 L of a 10% solution is mixed with 1 L of a 30% solution. What is the new concentration?",options:["40%", "20%", "25%", "15%"],answer:1,formula:"New concentration = Total solute / Total volume",explanation:"(0.1 + 0.3)/2 = 0.2 → 20%."},
+{id:300,topic:"Mixtures & Alligation",difficulty:"Easy",question:"A 25 L mixture has milk and water in the ratio 4 : 1. How much water is there?",options:["6 L", "10 L", "5 L", "4 L"],answer:2,formula:"Quantity = (part / total parts) × total",explanation:"One part = 5 L → water = 5 L."},
+
+/* ---------- AGES ---------- */
+{id:301,topic:"Ages",difficulty:"Easy",question:"A father is 3 times as old as his son. If the son is 10, how old is the father?",options:["13", "20", "30", "33"],answer:2,formula:"Father's age = k × Son's age",explanation:"3 × 10 = 30 years."},
+{id:302,topic:"Ages",difficulty:"Medium",question:"A is 5 years older than B and their ages add up to 35. How old is A?",options:["15", "18", "20", "25"],answer:2,formula:"Let B = x, then A = x + 5",explanation:"2x + 5 = 35 → x = 15 → A = 20."},
+{id:303,topic:"Ages",difficulty:"Easy",question:"A student is 24 today. What was the age 6 years ago?",options:["20", "18", "30", "16"],answer:1,formula:"Past age = Present age − n",explanation:"24 − 6 = 18."},
+{id:304,topic:"Ages",difficulty:"Medium",question:"Two brothers' ages are in the ratio 4 : 3 and add up to 42. How old is the elder?",options:["21", "18", "24", "28"],answer:2,formula:"Take the ages as 4x and 3x",explanation:"7x = 42 → x = 6 → elder = 24."},
+{id:305,topic:"Ages",difficulty:"Challenging",question:"A father is 40 and his son is 10. In how many years will the father be twice as old?",options:["20 years", "10 years", "25 years", "15 years"],answer:0,formula:"Form an equation with the future ages",explanation:"40 + x = 2(10 + x) → x = 20."},
+{id:306,topic:"Ages",difficulty:"Easy",question:"A person is 15 now. What will the age be after 5 years?",options:["18", "25", "20", "10"],answer:2,formula:"Future age = Present age + n",explanation:"15 + 5 = 20."},
+{id:307,topic:"Ages",difficulty:"Easy",question:"A mother is 30 and her daughter is 5. What is the age difference?",options:["25", "6", "35", "20"],answer:0,formula:"Difference = Elder age − Younger age",explanation:"30 − 5 = 25 years."},
+{id:308,topic:"Ages",difficulty:"Easy",question:"The ages of two people add up to 50 and one is 30. How old is the other?",options:["15", "20", "80", "25"],answer:1,formula:"Other age = Sum − Known age",explanation:"50 − 30 = 20."},
+{id:309,topic:"Ages",difficulty:"Medium",question:"Two ages are in the ratio 3 : 5 and the younger is 18. How old is the elder?",options:["30", "24", "36", "27"],answer:0,formula:"Use the proportion 3/5 = 18/x",explanation:"x = 18 × 5/3 = 30."},
+{id:310,topic:"Ages",difficulty:"Easy",question:"A is 4 times as old as B. If B is 7, how old is A?",options:["32", "21", "11", "28"],answer:3,formula:"A = 4 × B",explanation:"4 × 7 = 28."},
+{id:311,topic:"Ages",difficulty:"Easy",question:"Five years ago a person was 12. What is the present age?",options:["7", "20", "17", "15"],answer:2,formula:"Present age = Past age + n",explanation:"12 + 5 = 17."},
+{id:312,topic:"Ages",difficulty:"Medium",question:"A father is 45 and his son is 15. What is the ratio of their ages?",options:["2 : 1", "1 : 3", "3 : 1", "4 : 1"],answer:2,formula:"Ratio = Father's age : Son's age, simplified",explanation:"45 : 15 = 3 : 1."},
+{id:313,topic:"Ages",difficulty:"Easy",question:"After 10 years a boy will be 25. What is his present age?",options:["15", "20", "35", "10"],answer:0,formula:"Present age = Future age − n",explanation:"25 − 10 = 15."},
+{id:314,topic:"Ages",difficulty:"Easy",question:"The ages of three friends add up to 60. What is the average age?",options:["30", "20", "18", "15"],answer:1,formula:"Average = Sum / Count",explanation:"60 ÷ 3 = 20."},
+{id:315,topic:"Ages",difficulty:"Medium",question:"A is twice as old as B and their ages add up to 36. How old is A?",options:["24", "18", "20", "12"],answer:0,formula:"Let B = x, then A = 2x",explanation:"3x = 36 → x = 12 → A = 24."},
+{id:316,topic:"Ages",difficulty:"Medium",question:"As years pass, the difference between two people's ages:",options:["Halves", "Increases every year", "Doubles", "Remains the same"],answer:3,formula:"Both ages increase by the same amount each year",explanation:"The gap between them never changes."},
+{id:317,topic:"Ages",difficulty:"Easy",question:"A father is twice as old as his son, who is 20. How old is the father?",options:["30", "60", "22", "40"],answer:3,formula:"Father = 2 × Son",explanation:"2 × 20 = 40."},
+{id:318,topic:"Ages",difficulty:"Challenging",question:"Six years from now a person will be 30. What was the age 4 years ago?",options:["26", "20", "24", "18"],answer:1,formula:"Find the present age first, then subtract",explanation:"Present = 30 − 6 = 24 → 24 − 4 = 20."},
+{id:319,topic:"Ages",difficulty:"Medium",question:"Two ages are in the ratio 5 : 7 and differ by 10 years. How old is the younger?",options:["35", "20", "30", "25"],answer:3,formula:"Take the ages as 5x and 7x",explanation:"2x = 10 → x = 5 → younger = 25."},
+{id:320,topic:"Ages",difficulty:"Medium",question:"A grandfather is 60 and his grandson's age is one-fifth of his. How old is the grandson?",options:["20", "10", "15", "12"],answer:3,formula:"Grandson = (1/5) × Grandfather's age",explanation:"60 ÷ 5 = 12."},
+
+/* ---------- GEOMETRY ---------- */
+{id:321,topic:"Geometry",difficulty:"Easy",question:"Find the area of a triangle with base 10 cm and height 6 cm.",options:["25 cm²", "30 cm²", "60 cm²", "15 cm²"],answer:1,formula:"Area of a triangle = 1/2 × base × height",explanation:"1/2 × 10 × 6 = 30 cm²."},
+{id:322,topic:"Geometry",difficulty:"Medium",question:"Find the area of an equilateral triangle of side 4 cm.",options:["4√3 cm²", "8√3 cm²", "16√3 cm²", "2√3 cm²"],answer:0,formula:"Area = (√3/4) × a²",explanation:"(√3/4) × 16 = 4√3 cm²."},
+{id:323,topic:"Geometry",difficulty:"Easy",question:"A rectangle is 12 cm by 5 cm. What is its perimeter?",options:["17 cm", "60 cm", "34 cm", "30 cm"],answer:2,formula:"Perimeter = 2(l + b)",explanation:"2 × 17 = 34 cm."},
+{id:324,topic:"Geometry",difficulty:"Easy",question:"A right triangle has legs of 3 cm and 4 cm. What is the hypotenuse?",options:["7 cm", "5 cm", "6 cm", "12 cm"],answer:1,formula:"Pythagoras: a² + b² = c²",explanation:"9 + 16 = 25 → c = 5 cm."},
+{id:325,topic:"Geometry",difficulty:"Medium",question:"Find the circumference of a circle of radius 7 cm (π = 22/7).",options:["49 cm", "154 cm", "44 cm", "22 cm"],answer:2,formula:"Circumference = 2πr",explanation:"2 × 22/7 × 7 = 44 cm."},
+{id:326,topic:"Geometry",difficulty:"Easy",question:"Find the area of a square of side 6 cm.",options:["12 cm²", "36 cm²", "24 cm²", "144 cm²"],answer:1,formula:"Area of a square = a²",explanation:"6 × 6 = 36 cm²."},
+{id:327,topic:"Geometry",difficulty:"Easy",question:"Find the perimeter of a square of side 5 cm.",options:["20 cm", "50 cm", "25 cm", "10 cm"],answer:0,formula:"Perimeter of a square = 4a",explanation:"4 × 5 = 20 cm."},
+{id:328,topic:"Geometry",difficulty:"Easy",question:"Find the area of a rectangle 8 cm by 3 cm.",options:["48 cm²", "11 cm²", "24 cm²", "22 cm²"],answer:2,formula:"Area = length × breadth",explanation:"8 × 3 = 24 cm²."},
+{id:329,topic:"Geometry",difficulty:"Medium",question:"Find the area of a circle of radius 7 cm (π = 22/7).",options:["44 cm²", "308 cm²", "49 cm²", "154 cm²"],answer:3,formula:"Area = πr²",explanation:"22/7 × 49 = 154 cm²."},
+{id:330,topic:"Geometry",difficulty:"Easy",question:"What is the sum of the angles of a triangle?",options:["270°", "180°", "90°", "360°"],answer:1,formula:"Angle sum property of a triangle",explanation:"The three interior angles always total 180°."},
+{id:331,topic:"Geometry",difficulty:"Medium",question:"A right triangle has hypotenuse 13 cm and one leg 5 cm. What is the other leg?",options:["9 cm", "11 cm", "8 cm", "12 cm"],answer:3,formula:"Pythagoras: a² = c² − b²",explanation:"169 − 25 = 144 → 12 cm."},
+{id:332,topic:"Geometry",difficulty:"Easy",question:"Each angle of an equilateral triangle measures:",options:["120°", "60°", "90°", "45°"],answer:1,formula:"All three angles are equal and add to 180°",explanation:"180 ÷ 3 = 60°."},
+{id:333,topic:"Geometry",difficulty:"Easy",question:"What is the formula for the area of a circle?",options:["πr", "πr²", "πd", "2πr"],answer:1,formula:"Area of a circle = πr²",explanation:"2πr is the circumference, not the area."},
+{id:334,topic:"Geometry",difficulty:"Easy",question:"A circle has a diameter of 14 cm. What is its radius?",options:["28 cm", "7 cm", "3.5 cm", "14 cm"],answer:1,formula:"Radius = Diameter / 2",explanation:"14 ÷ 2 = 7 cm."},
+{id:335,topic:"Geometry",difficulty:"Easy",question:"A right triangle has legs of 6 cm and 8 cm. What is the hypotenuse?",options:["10 cm", "12 cm", "9 cm", "14 cm"],answer:0,formula:"Pythagoras: a² + b² = c²",explanation:"36 + 64 = 100 → 10 cm."},
+{id:336,topic:"Geometry",difficulty:"Easy",question:"The perimeter of a square is 36 cm. What is its side?",options:["6 cm", "18 cm", "12 cm", "9 cm"],answer:3,formula:"Side = Perimeter / 4",explanation:"36 ÷ 4 = 9 cm."},
+{id:337,topic:"Geometry",difficulty:"Easy",question:"Find the area of a triangle with base 12 cm and height 5 cm.",options:["60 cm²", "17 cm²", "34 cm²", "30 cm²"],answer:3,formula:"Area = 1/2 × base × height",explanation:"1/2 × 12 × 5 = 30 cm²."},
+{id:338,topic:"Geometry",difficulty:"Medium",question:"A rectangle has area 48 cm² and length 8 cm. What is its breadth?",options:["6 cm", "12 cm", "5 cm", "4 cm"],answer:0,formula:"Breadth = Area / Length",explanation:"48 ÷ 8 = 6 cm."},
+{id:339,topic:"Geometry",difficulty:"Medium",question:"A circle has diameter 10 cm. What is its circumference?",options:["5π cm", "20π cm", "25π cm", "10π cm"],answer:3,formula:"Circumference = πd",explanation:"π × 10 = 10π cm."},
+{id:340,topic:"Geometry",difficulty:"Challenging",question:"What is the length of the diagonal of a square of side 4 cm?",options:["4√2 cm", "16 cm", "4 cm", "8 cm"],answer:0,formula:"Diagonal of a square = a√2",explanation:"4√2 cm ≈ 5.66 cm."},
+
+/* ---------- MENSURATION ---------- */
+{id:341,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cube of side 5 cm.",options:["150 cm³", "125 cm³", "25 cm³", "75 cm³"],answer:1,formula:"Volume of a cube = a³",explanation:"5 × 5 × 5 = 125 cm³."},
+{id:342,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cuboid 5 cm × 4 cm × 3 cm.",options:["12 cm³", "120 cm³", "30 cm³", "60 cm³"],answer:3,formula:"Volume of a cuboid = l × b × h",explanation:"5 × 4 × 3 = 60 cm³."},
+{id:343,topic:"Mensuration",difficulty:"Medium",question:"Find the volume of a cylinder with r = 7 cm and h = 10 cm (π = 22/7).",options:["2200 cm³", "154 cm³", "1540 cm³", "440 cm³"],answer:2,formula:"Volume of a cylinder = πr²h",explanation:"22/7 × 49 × 10 = 1540 cm³."},
+{id:344,topic:"Mensuration",difficulty:"Medium",question:"Find the volume of a sphere of radius 3 cm.",options:["36π cm³", "108π cm³", "12π cm³", "27π cm³"],answer:0,formula:"Volume of a sphere = (4/3)πr³",explanation:"(4/3) × π × 27 = 36π cm³."},
+{id:345,topic:"Mensuration",difficulty:"Medium",question:"Find the total surface area of a cube of side 4 cm.",options:["96 cm²", "64 cm²", "16 cm²", "144 cm²"],answer:0,formula:"TSA of a cube = 6a²",explanation:"6 × 16 = 96 cm²."},
+{id:346,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cube of side 3 cm.",options:["18 cm³", "81 cm³", "9 cm³", "27 cm³"],answer:3,formula:"Volume of a cube = a³",explanation:"3³ = 27 cm³."},
+{id:347,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cuboid 10 cm × 5 cm × 2 cm.",options:["17 cm³", "100 cm³", "200 cm³", "50 cm³"],answer:1,formula:"Volume = l × b × h",explanation:"10 × 5 × 2 = 100 cm³."},
+{id:348,topic:"Mensuration",difficulty:"Medium",question:"A cube has volume 64 cm³. What is its side?",options:["4 cm", "8 cm", "16 cm", "32 cm"],answer:0,formula:"Side = ∛Volume",explanation:"∛64 = 4 cm."},
+{id:349,topic:"Mensuration",difficulty:"Medium",question:"Find the volume of a cylinder with r = 7 cm and h = 1 cm (π = 22/7).",options:["154 cm³", "44 cm³", "49 cm³", "308 cm³"],answer:0,formula:"Volume = πr²h",explanation:"22/7 × 49 × 1 = 154 cm³."},
+{id:350,topic:"Mensuration",difficulty:"Easy",question:"What is the formula for the volume of a cone?",options:["(1/3)πr²h", "πr²h", "2πrh", "(4/3)πr³"],answer:0,formula:"Volume of a cone = one third of the cylinder",explanation:"A cone is a third of a cylinder with the same base and height."},
+{id:351,topic:"Mensuration",difficulty:"Challenging",question:"Find the surface area of a sphere of radius 7 cm (π = 22/7).",options:["308 cm²", "616 cm²", "1232 cm²", "154 cm²"],answer:1,formula:"Surface area of a sphere = 4πr²",explanation:"4 × 22/7 × 49 = 616 cm²."},
+{id:352,topic:"Mensuration",difficulty:"Easy",question:"Find the total surface area of a cube of side 2 cm.",options:["24 cm²", "16 cm²", "12 cm²", "8 cm²"],answer:0,formula:"TSA = 6a²",explanation:"6 × 4 = 24 cm²."},
+{id:353,topic:"Mensuration",difficulty:"Easy",question:"What is the formula for the total surface area of a cuboid?",options:["2(lb + bh + hl)", "2(l + b)", "6a²", "lbh"],answer:0,formula:"TSA of a cuboid = 2(lb + bh + hl)",explanation:"Add the areas of all six rectangular faces."},
+{id:354,topic:"Mensuration",difficulty:"Medium",question:"Find the curved surface area of a cylinder with r = 7 cm and h = 10 cm (π = 22/7).",options:["1540 cm²", "154 cm²", "220 cm²", "440 cm²"],answer:3,formula:"CSA of a cylinder = 2πrh",explanation:"2 × 22/7 × 7 × 10 = 440 cm²."},
+{id:355,topic:"Mensuration",difficulty:"Medium",question:"Find the volume of a cone with r = 3 cm and h = 4 cm.",options:["12π cm³", "4π cm³", "16π cm³", "36π cm³"],answer:0,formula:"Volume = (1/3)πr²h",explanation:"(1/3) × π × 9 × 4 = 12π cm³."},
+{id:356,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cube of side 10 cm.",options:["600 cm³", "100 cm³", "300 cm³", "1000 cm³"],answer:3,formula:"Volume of a cube = a³",explanation:"10³ = 1000 cm³."},
+{id:357,topic:"Mensuration",difficulty:"Easy",question:"Find the volume of a cuboid 2 cm × 3 cm × 4 cm.",options:["26 cm³", "24 cm³", "12 cm³", "9 cm³"],answer:1,formula:"Volume = l × b × h",explanation:"2 × 3 × 4 = 24 cm³."},
+{id:358,topic:"Mensuration",difficulty:"Easy",question:"What is the formula for the volume of a sphere?",options:["πr²h", "4πr²", "(1/3)πr²h", "(4/3)πr³"],answer:3,formula:"Volume of a sphere = (4/3)πr³",explanation:"4πr² is the surface area, not the volume."},
+{id:359,topic:"Mensuration",difficulty:"Challenging",question:"A cubical tank has side 1 m. What is its capacity in litres?",options:["1000 litres", "100 litres", "10 litres", "1 litre"],answer:0,formula:"1 m³ = 1000 litres",explanation:"Volume = 1 m³ = 1000 L."},
+{id:360,topic:"Mensuration",difficulty:"Medium",question:"Find the volume of a cylinder with r = 1 cm and h = 7 cm (π = 22/7).",options:["14 cm³", "44 cm³", "7 cm³", "22 cm³"],answer:3,formula:"Volume = πr²h",explanation:"22/7 × 1 × 7 = 22 cm³."},
+
+/* ---------- PERMUTATION, COMBINATION & PROBABILITY ---------- */
+{id:361,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"In how many ways can 3 different books be arranged on a shelf?",options:["9", "27", "3", "6"],answer:3,formula:"Arrangements of n distinct items = n!",explanation:"3! = 6 ways."},
+{id:362,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"Find the value of 5C2.",options:["10", "20", "5", "60"],answer:0,formula:"nCr = n!/[r!(n − r)!]",explanation:"(5 × 4)/(2 × 1) = 10."},
+{id:363,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the probability of getting a head when a fair coin is tossed once?",options:["1/4", "1", "1/3", "1/2"],answer:3,formula:"P(E) = Favourable / Total",explanation:"1 favourable out of 2 outcomes."},
+{id:364,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"If 8 people shake hands with each other exactly once, how many handshakes occur?",options:["64", "28", "36", "16"],answer:1,formula:"Handshakes = n(n − 1)/2",explanation:"8 × 7 / 2 = 28."},
+{id:365,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"A fair die is rolled once. What is the probability of a number greater than 4?",options:["1/2", "1/6", "2/3", "1/3"],answer:3,formula:"P(E) = Favourable / Total",explanation:"Outcomes 5 and 6 → 2/6 = 1/3."},
+{id:366,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the value of 4!?",options:["20", "12", "16", "24"],answer:3,formula:"n! = n × (n−1) × … × 1",explanation:"4 × 3 × 2 × 1 = 24."},
+{id:367,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"Find the value of 6C2.",options:["12", "30", "20", "15"],answer:3,formula:"nCr = n!/[r!(n − r)!]",explanation:"(6 × 5)/(2 × 1) = 15."},
+{id:368,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the probability of getting an even number on a fair die?",options:["2/3", "1/2", "1/3", "1/6"],answer:1,formula:"P(E) = Favourable / Total",explanation:"Outcomes 2, 4, 6 → 3/6 = 1/2."},
+{id:369,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"If 10 people shake hands with each other exactly once, how many handshakes occur?",options:["45", "100", "50", "90"],answer:0,formula:"Handshakes = n(n − 1)/2",explanation:"10 × 9 / 2 = 45."},
+{id:370,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"Two fair coins are tossed. What is the probability of getting two heads?",options:["3/4", "1/4", "1/3", "1/2"],answer:1,formula:"P(E) = Favourable / Total",explanation:"HH is 1 of the 4 outcomes HH, HT, TH, TT."},
+{id:371,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"Find the value of 5P2.",options:["25", "60", "10", "20"],answer:3,formula:"nPr = n!/(n − r)!",explanation:"5 × 4 = 20."},
+{id:372,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"In how many ways can 4 people stand in a row?",options:["24", "4", "12", "16"],answer:0,formula:"Arrangements = n!",explanation:"4! = 24."},
+{id:373,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"A card is drawn from a standard pack of 52. What is the probability that it is red?",options:["1/26", "1/13", "1/2", "1/4"],answer:2,formula:"P(E) = Favourable / Total",explanation:"26 red cards out of 52 → 1/2."},
+{id:374,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"A card is drawn from a pack of 52. What is the probability that it is an ace?",options:["1/52", "1/13", "1/4", "1/26"],answer:1,formula:"P(E) = Favourable / Total",explanation:"4 aces out of 52 → 1/13."},
+{id:375,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the value of 0!?",options:["10", "Undefined", "1", "0"],answer:2,formula:"By definition, 0! = 1",explanation:"This convention keeps the nCr formula valid."},
+{id:376,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the probability of an impossible event?",options:["Infinity", "1", "0", "0.5"],answer:2,formula:"Probability lies between 0 and 1",explanation:"An impossible event has no favourable outcome."},
+{id:377,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"In how many ways can 2 students be chosen from 4?",options:["4", "6", "12", "8"],answer:1,formula:"Selection uses combinations: nCr",explanation:"4C2 = (4 × 3)/2 = 6."},
+{id:378,topic:"Permutation, Combination & Probability",difficulty:"Easy",question:"What is the probability of rolling a 3 on a fair die?",options:["1/2", "1/3", "1/6", "2/3"],answer:2,formula:"P(E) = Favourable / Total",explanation:"One face out of six."},
+{id:379,topic:"Permutation, Combination & Probability",difficulty:"Challenging",question:"How many two-digit numbers can be formed from the digits 1, 2 and 3 without repetition?",options:["12", "6", "3", "9"],answer:1,formula:"Arrangement of 2 out of 3 = 3P2",explanation:"3 × 2 = 6 numbers."},
+{id:380,topic:"Permutation, Combination & Probability",difficulty:"Medium",question:"A bag has 3 red and 2 blue balls. What is the probability of drawing a red ball?",options:["1/2", "3/5", "3/2", "2/5"],answer:1,formula:"P(E) = Favourable / Total",explanation:"3 red out of 5 balls."},
+
+/* ---------- BASIC ALGEBRA ---------- */
+{id:381,topic:"Basic Algebra",difficulty:"Easy",question:"Solve for x: 2x + 5 = 15.",options:["5", "4", "20", "10"],answer:0,formula:"Isolate the variable on one side",explanation:"2x = 10 → x = 5."},
+{id:382,topic:"Basic Algebra",difficulty:"Easy",question:"Expand (a − b)².",options:["a² − 2ab + b²", "a² − b²", "a² + b²", "a² + 2ab + b²"],answer:0,formula:"(a − b)² = a² − 2ab + b²",explanation:"Squaring a difference gives the middle term −2ab."},
+{id:383,topic:"Basic Algebra",difficulty:"Challenging",question:"Find the value of 51² − 49².",options:["2000", "400", "200", "100"],answer:2,formula:"a² − b² = (a − b)(a + b)",explanation:"2 × 100 = 200."},
+{id:384,topic:"Basic Algebra",difficulty:"Easy",question:"Simplify: 5x + 3x − 2x.",options:["10x", "6x", "7x", "4x"],answer:1,formula:"Combine like terms by adding coefficients",explanation:"5 + 3 − 2 = 6 → 6x."},
+{id:385,topic:"Basic Algebra",difficulty:"Medium",question:"Solve for x: 3x − 7 = 14.",options:["5", "6", "7", "9"],answer:2,formula:"Move constants across, then divide",explanation:"3x = 21 → x = 7."},
+{id:386,topic:"Basic Algebra",difficulty:"Easy",question:"Expand (a + b)².",options:["a² + b²", "a² + ab + b²", "a² + 2ab + b²", "a² − 2ab + b²"],answer:2,formula:"(a + b)² = a² + 2ab + b²",explanation:"The cross term appears twice, giving 2ab."},
+{id:387,topic:"Basic Algebra",difficulty:"Easy",question:"Solve for x: x/3 = 5.",options:["5", "8", "15", "45"],answer:2,formula:"Multiply both sides by the denominator",explanation:"x = 5 × 3 = 15."},
+{id:388,topic:"Basic Algebra",difficulty:"Easy",question:"If x = 2, what is the value of 3x + 4?",options:["10", "14", "9", "6"],answer:0,formula:"Substitute the value and simplify",explanation:"3 × 2 + 4 = 10."},
+{id:389,topic:"Basic Algebra",difficulty:"Easy",question:"Solve for x: 4x = 20.",options:["5", "80", "4", "16"],answer:0,formula:"Divide both sides by the coefficient",explanation:"20 ÷ 4 = 5."},
+{id:390,topic:"Basic Algebra",difficulty:"Easy",question:"Factorise a² − b².",options:["(a + b)²", "(a − b)²", "a(a − b)", "(a − b)(a + b)"],answer:3,formula:"a² − b² = (a − b)(a + b)",explanation:"This is the difference of squares identity."},
+{id:391,topic:"Basic Algebra",difficulty:"Easy",question:"Solve for x: x + 3 = 10.",options:["30", "7", "3", "13"],answer:1,formula:"Subtract the constant from both sides",explanation:"10 − 3 = 7."},
+{id:392,topic:"Basic Algebra",difficulty:"Medium",question:"Solve for x: 2(x + 3) = 14.",options:["5", "11", "4", "7"],answer:2,formula:"Expand the bracket first, then solve",explanation:"2x + 6 = 14 → 2x = 8 → x = 4."},
+{id:393,topic:"Basic Algebra",difficulty:"Medium",question:"Find the value of 5² − 3².",options:["16", "64", "8", "4"],answer:0,formula:"a² − b² = (a − b)(a + b)",explanation:"2 × 8 = 16."},
+{id:394,topic:"Basic Algebra",difficulty:"Easy",question:"Simplify: 2a + 3a.",options:["5a", "6a", "5a²", "a"],answer:0,formula:"Add the coefficients of like terms",explanation:"2 + 3 = 5 → 5a."},
+{id:395,topic:"Basic Algebra",difficulty:"Easy",question:"Solve for x: 5x = 0.",options:["0", "No solution", "5", "1"],answer:0,formula:"Divide both sides by 5",explanation:"0 ÷ 5 = 0."},
+{id:396,topic:"Basic Algebra",difficulty:"Medium",question:"Expand (x + 2)(x − 2).",options:["x² + 4", "x² + 4x − 4", "x² − 4", "x² − 4x"],answer:2,formula:"(a + b)(a − b) = a² − b²",explanation:"x² − 2² = x² − 4."},
+{id:397,topic:"Basic Algebra",difficulty:"Medium",question:"If x = 1 and y = 2, find the value of 2x + 3y.",options:["5", "7", "8", "9"],answer:2,formula:"Substitute both values and simplify",explanation:"2 + 6 = 8."},
+{id:398,topic:"Basic Algebra",difficulty:"Easy",question:"Find the value of 3² + 4².",options:["14", "12", "49", "25"],answer:3,formula:"Square each term, then add",explanation:"9 + 16 = 25."},
+{id:399,topic:"Basic Algebra",difficulty:"Medium",question:"Solve for x: x − 5 = −2.",options:["7", "−3", "3", "−7"],answer:2,formula:"Add 5 to both sides",explanation:"−2 + 5 = 3."},
+{id:400,topic:"Basic Algebra",difficulty:"Medium",question:"If a = 2 and b = 3, find the value of (a + b)².",options:["36", "25", "13", "10"],answer:1,formula:"(a + b)² = a² + 2ab + b²",explanation:"(2 + 3)² = 5² = 25."}
+];
+
+/* =========================================================
+   FORMULA CHEAT SHEET DATA
+   ========================================================= */
+const FORMULAS = [
+{t:"Number System",r:[
+["Sum of first n natural numbers","n(n + 1) / 2"],
+["Sum of first n odd numbers","n²"],
+["Sum of first n even numbers","n(n + 1)"],
+["Sum of squares of first n numbers","n(n + 1)(2n + 1) / 6"],
+["Sum of cubes of first n numbers","[n(n + 1)/2]²"],
+["Division identity","Dividend = Divisor × Quotient + Remainder"],
+["Number of digits in a number N","⌊log₁₀N⌋ + 1"],
+["Even ± Even, Odd ± Odd","Always even"],
+["Even ± Odd","Always odd"],
+["Product of n consecutive integers","Always divisible by n!"]]},
+
+{t:"HCF & LCM",r:[
+["Core relationship","HCF × LCM = Product of the two numbers"],
+["HCF","Product of the lowest powers of common prime factors"],
+["LCM","Product of the highest powers of all prime factors"],
+["HCF of fractions","HCF of numerators / LCM of denominators"],
+["LCM of fractions","LCM of numerators / HCF of denominators"],
+["Co-prime numbers","HCF = 1, LCM = their product"],
+["Least number leaving remainder r","LCM of divisors + r"],
+["Least number leaving remainder x each time","LCM − (Divisor − x), when the gap is constant"],
+["Greatest number dividing a, b, c leaving the same remainder","HCF of the differences (a−b), (b−c), (c−a)"],
+["Bells / lights ringing together","LCM of the individual intervals"]]},
+
+{t:"Divisibility Rules",r:[
+["2","Last digit is 0, 2, 4, 6 or 8"],
+["3","Sum of digits is divisible by 3"],
+["4","Last two digits form a multiple of 4"],
+["5","Last digit is 0 or 5"],
+["6","Divisible by both 2 and 3"],
+["7","Double the last digit, subtract from the rest; result divisible by 7"],
+["8","Last three digits form a multiple of 8"],
+["9","Sum of digits is divisible by 9"],
+["10","Last digit is 0"],
+["11","Odd-place digit sum − even-place digit sum = 0 or a multiple of 11"],
+["12","Divisible by both 3 and 4"],
+["25","Last two digits are 00, 25, 50 or 75"]]},
+
+{t:"Fractions & Decimals",r:[
+["Addition","a/b + c/d = (ad + bc) / bd"],
+["Subtraction","a/b − c/d = (ad − bc) / bd"],
+["Multiplication","a/b × c/d = ac / bd"],
+["Division","a/b ÷ c/d = a/b × d/c"],
+["Comparing fractions","Cross-multiply, or convert each to a decimal"],
+["Fraction to percentage","(a/b) × 100"],
+["Pure recurring decimal 0.abab…","ab / 99 (as many 9s as repeating digits)"],
+["Mixed recurring decimal 0.abcc…","(abc − ab) / 900"],
+["Handy equivalents","1/2 = 50%, 1/3 = 33⅓%, 1/4 = 25%, 1/5 = 20%"],
+["More equivalents","1/6 = 16⅔%, 1/7 = 14²/₇%, 1/8 = 12½%, 1/9 = 11⅑%"]]},
+
+{t:"Surds & Indices",r:[
+["Product of powers","aᵐ × aⁿ = aᵐ⁺ⁿ"],
+["Quotient of powers","aᵐ ÷ aⁿ = aᵐ⁻ⁿ"],
+["Power of a power","(aᵐ)ⁿ = aᵐⁿ"],
+["Zero index","a⁰ = 1 (a ≠ 0)"],
+["Negative index","a⁻ⁿ = 1 / aⁿ"],
+["Fractional index","a^(m/n) = ⁿ√(aᵐ)"],
+["Product of roots","√a × √b = √(ab)"],
+["Quotient of roots","√a ÷ √b = √(a/b)"],
+["Rationalising a denominator","Multiply by the conjugate: 1/(√a + √b) → (√a − √b)/(a − b)"],
+["Comparing surds","Raise both to the LCM of their root orders"]]},
+
+{t:"Unit Digit & Cyclicity",r:[
+["Cycle of 2","2, 4, 8, 6 (length 4)"],
+["Cycle of 3","3, 9, 7, 1 (length 4)"],
+["Cycle of 7","7, 9, 3, 1 (length 4)"],
+["Cycle of 8","8, 4, 2, 6 (length 4)"],
+["Cycle of 4","4, 6 (length 2)"],
+["Cycle of 9","9, 1 (length 2)"],
+["Fixed unit digits","0, 1, 5 and 6 always end in themselves"],
+["Method","Divide the power by the cycle length; the remainder gives the position"],
+["Remainder 0","Take the last term of the cycle"],
+["Products","Multiply only the unit digits, step by step"]]},
+
+{t:"Remainders & Large Powers",r:[
+["Remainder identity","Dividend = Divisor × Quotient + Remainder"],
+["Remainder of a product","Multiply the individual remainders, then reduce"],
+["Remainder of a sum","Add the individual remainders, then reduce"],
+["Negative remainder trick","Remainder of 5 mod 7 can be read as −2 to shorten work"],
+["Fermat's little theorem","a^(p−1) mod p = 1 when p is prime and a is not a multiple of p"],
+["Euler's theorem","a^φ(n) mod n = 1 when a and n are co-prime"],
+["Euler's totient","φ(n) = n(1 − 1/p₁)(1 − 1/p₂)… over distinct primes"],
+["Wilson's theorem","(p − 1)! mod p = p − 1 for prime p"],
+["Cyclic remainders","Powers of a number modulo n repeat in a fixed cycle"]]},
+
+{t:"Ratio & Proportion",r:[
+["Share of a part","(its ratio term / sum of terms) × total"],
+["Proportion","a : b = c : d ⟹ ad = bc"],
+["Mean proportional between a and b","√(ab)"],
+["Third proportional to a and b","b² / a"],
+["Fourth proportional to a, b, c","bc / a"],
+["Componendo & dividendo","If a/b = c/d, then (a+b)/(a−b) = (c+d)/(c−d)"],
+["Duplicate ratio","a² : b²"],
+["Sub-duplicate ratio","√a : √b"],
+["Direct proportion","a ∝ b ⟹ a/b is constant"],
+["Inverse proportion","a ∝ 1/b ⟹ ab is constant"]]},
+
+{t:"Combined Ratio & Partnership",r:[
+["Combining A:B and B:C","Make B equal in both, then write A : B : C"],
+["Shortcut","A:B = a:b and B:C = c:d ⟹ A:B:C = ac : bc : bd"],
+["A : C directly","(A/B) × (B/C)"],
+["Simple partnership","Profit is shared in the ratio of the capitals"],
+["Compound partnership","Profit ratio = capital × time invested"],
+["Working vs sleeping partner","Deduct the salary or commission first, then divide the rest"]]},
+
+{t:"Percentage",r:[
+["Percentage","(Part / Whole) × 100"],
+["x% of N","(x / 100) × N"],
+["Percentage increase","(Increase / Original) × 100"],
+["Percentage decrease","(Decrease / Original) × 100"],
+["Value after an increase of x%","N × (100 + x)/100"],
+["Value after a decrease of x%","N × (100 − x)/100"],
+["Original value from a new value","New × 100 / (100 ± x)"],
+["A is what % of B","(A / B) × 100"],
+["A is what % more than B","((A − B)/B) × 100"],
+["A is what % less than B","((B − A)/B) × 100"]]},
+
+{t:"Successive Changes & Discount",r:[
+["Two successive changes","Net % = a + b + ab/100 (use a minus sign for a decrease)"],
+["Increase then equal decrease of x%","Net = −x²/100, always a loss"],
+["Successive discounts of a% and b%","Effective = a + b − ab/100"],
+["Price rise with fixed spending","Consumption must fall by 100x/(100 + x) %"],
+["Price fall with fixed spending","Consumption can rise by 100x/(100 − x) %"],
+["Population after n years","P(1 + r/100)ⁿ"],
+["Depreciated value after n years","P(1 − r/100)ⁿ"]]},
+
+{t:"Average",r:[
+["Average","Sum of values / Number of values"],
+["Sum","Average × Number of values"],
+["Average of first n natural numbers","(n + 1)/2"],
+["Average of first n even numbers","n + 1"],
+["Average of first n odd numbers","n"],
+["Average of consecutive numbers","(First + Last)/2"],
+["Adding k to every value","Average also increases by k"],
+["Multiplying every value by k","Average also multiplies by k"],
+["Replacement of a member","Change in total = New value − Old value"],
+["Weighted average","(n₁a₁ + n₂a₂) / (n₁ + n₂)"]]},
+
+{t:"Profit, Loss & Discount",r:[
+["Profit","SP − CP"],
+["Loss","CP − SP"],
+["Profit %","(Profit / CP) × 100"],
+["Loss %","(Loss / CP) × 100"],
+["SP from profit %","CP × (100 + P%)/100"],
+["SP from loss %","CP × (100 − L%)/100"],
+["CP from SP","SP × 100 / (100 ± P% or L%)"],
+["Discount","MP − SP"],
+["Discount %","(Discount / MP) × 100"],
+["Selling two items at the same price with equal % gain and loss","Always a net loss of x²/100 %"],
+["Dishonest dealer using a false weight","Gain % = (Error / (True value − Error)) × 100"],
+["Marked price for a desired profit","MP = CP × (100 + P%)/(100 − D%)"]]},
+
+{t:"Simple Interest",r:[
+["Simple interest","SI = P × R × T / 100"],
+["Amount","A = P + SI"],
+["Principal","P = SI × 100 / (R × T)"],
+["Rate","R = SI × 100 / (P × T)"],
+["Time","T = SI × 100 / (P × R)"],
+["Amount in terms of P","A = P(1 + RT/100)"],
+["Time to double at SI","T = 100 / R years"],
+["Time to triple at SI","T = 200 / R years"]]},
+
+{t:"Compound Interest",r:[
+["Amount, compounded annually","A = P(1 + R/100)^T"],
+["Compound interest","CI = A − P"],
+["Half-yearly compounding","A = P(1 + R/200)^(2T)"],
+["Quarterly compounding","A = P(1 + R/400)^(4T)"],
+["Different rates each year","A = P(1 + r₁/100)(1 + r₂/100)…"],
+["CI − SI for 2 years","P(R/100)²"],
+["CI − SI for 3 years","P(R/100)²(300 + R)/100"],
+["CI for 2 years as a percentage","2R + R²/100 of the principal"],
+["Time to double at CI (approx.)","72 / R years — the rule of 72"]]},
+
+{t:"Time, Speed & Distance",r:[
+["Speed","Distance / Time"],
+["Distance","Speed × Time"],
+["Time","Distance / Speed"],
+["km/h to m/s","Multiply by 5/18"],
+["m/s to km/h","Multiply by 18/5"],
+["Average speed","Total distance / Total time"],
+["Equal distances at speeds x and y","Average speed = 2xy/(x + y)"],
+["Same distance, speeds in ratio a : b","Times taken are in ratio b : a"],
+["Relative speed, opposite directions","a + b"],
+["Relative speed, same direction","a − b"]]},
+
+{t:"Trains",r:[
+["Crossing a pole or a man","Time = Length of train / Speed"],
+["Crossing a platform or bridge","Time = (Train + Platform length) / Speed"],
+["Two trains crossing, opposite directions","Time = (L₁ + L₂)/(S₁ + S₂)"],
+["Two trains crossing, same direction","Time = (L₁ + L₂)/(S₁ − S₂)"],
+["Train passing a moving man","Use the relative speed of train and man"],
+["Trains starting together and meeting","Ratio of speeds = √(t₂) : √(t₁), where t is the time after meeting"]]},
+
+{t:"Boats & Streams",r:[
+["Downstream speed","Boat speed + Stream speed"],
+["Upstream speed","Boat speed − Stream speed"],
+["Speed of the boat in still water","(Downstream + Upstream)/2"],
+["Speed of the stream","(Downstream − Upstream)/2"],
+["Same distance both ways","Average speed = 2·D·U/(D + U)"],
+["Round trip time for distance d","d/D + d/U"]]},
+
+{t:"Time & Work",r:[
+["One day's work","1 / Number of days"],
+["Combined one day's work","1/a + 1/b"],
+["Days working together","ab / (a + b)"],
+["Three people together","abc / (ab + bc + ca)"],
+["Men–days rule","M₁ × D₁ × H₁ = M₂ × D₂ × H₂"],
+["Efficiency and time","Inversely proportional"],
+["A is k times as efficient as B","A takes 1/k of B's time"],
+["Work left after d days","1 − d × (one day's work)"],
+["Wages","Divided in the ratio of the work done, i.e. of efficiencies"]]},
+
+{t:"Pipes & Cisterns",r:[
+["Filling pipe","Positive work: +1/a per hour"],
+["Emptying pipe","Negative work: −1/b per hour"],
+["Both pipes open","Net rate = 1/a − 1/b"],
+["Time to fill with both open","ab / (b − a), when b > a"],
+["Two filling pipes together","ab / (a + b)"],
+["Leak emptying a full tank","Compare the filling rate with and without the leak"]]},
+
+{t:"Mixtures & Alligation",r:[
+["Average price","Total cost / Total quantity"],
+["Rule of alligation","(Dearer − Mean) : (Mean − Cheaper) = Cheaper quantity : Dearer quantity"],
+["Component in a solution","Concentration % × Total quantity / 100"],
+["Adding pure solvent","The solute stays the same; only the total changes"],
+["Repeated replacement of x from a vessel of V, n times","Remaining = V(1 − x/V)ⁿ"],
+["New ratio after adding water","Recompute with the unchanged component fixed"]]},
+
+{t:"Ages",r:[
+["Age n years ago","Present age − n"],
+["Age n years hence","Present age + n"],
+["Ratio problems","Take the ages as ax and bx and form an equation"],
+["Age difference","Stays constant for life"],
+["Sum and difference given","Larger = (Sum + Difference)/2"],
+["Ratio now a:b, after n years c:d","Solve (ax + n)/(bx + n) = c/d"]]},
+
+{t:"Arithmetic Progression",r:[
+["nth term","aₙ = a + (n − 1)d"],
+["Sum of n terms","Sₙ = n/2 [2a + (n − 1)d]"],
+["Sum using the last term","Sₙ = n/2 (a + l)"],
+["Number of terms","n = (l − a)/d + 1"],
+["Arithmetic mean of a and b","(a + b)/2"],
+["Middle term of an odd-length AP","Equals the average of the whole AP"]]},
+
+{t:"Geometric & Harmonic Progression",r:[
+["nth term of a GP","aₙ = arⁿ⁻¹"],
+["Sum of n terms of a GP","Sₙ = a(rⁿ − 1)/(r − 1), r ≠ 1"],
+["Sum of an infinite GP","S∞ = a/(1 − r), for |r| < 1"],
+["Geometric mean of a and b","√(ab)"],
+["Harmonic progression","The reciprocals form an AP"],
+["Harmonic mean of a and b","2ab/(a + b)"],
+["Relationship","AM ≥ GM ≥ HM, and GM² = AM × HM"]]},
+
+{t:"Permutation",r:[
+["Arrangements of n distinct items","n!"],
+["Arrangement of r out of n","nPr = n! / (n − r)!"],
+["With repetition allowed","nʳ"],
+["Items not all distinct","n! / (p! q! r!)"],
+["Circular arrangement","(n − 1)!"],
+["Circular, with no distinction between clockwise and anticlockwise","(n − 1)!/2"],
+["Items always together","Treat the group as one unit, then multiply by its internal arrangements"],
+["Items never together","Total arrangements − arrangements with them together"]]},
+
+{t:"Combination",r:[
+["Selection of r out of n","nCr = n! / [r!(n − r)!]"],
+["Symmetry","nCr = nC(n − r)"],
+["Pascal's rule","nCr + nC(r−1) = (n+1)Cr"],
+["Special values","nC0 = nCn = 1 and nC1 = n"],
+["Link with permutation","nPr = nCr × r!"],
+["Total subsets of a set of n","2ⁿ"],
+["Handshakes among n people","n(n − 1)/2"],
+["Diagonals of an n-sided polygon","n(n − 3)/2"],
+["At least one selection from n items","2ⁿ − 1"]]},
+
+{t:"Probability",r:[
+["Probability of an event","P(E) = Favourable outcomes / Total outcomes"],
+["Range","0 ≤ P(E) ≤ 1"],
+["Complement","P(not E) = 1 − P(E)"],
+["Addition rule","P(A ∪ B) = P(A) + P(B) − P(A ∩ B)"],
+["Mutually exclusive events","P(A ∩ B) = 0"],
+["Independent events","P(A ∩ B) = P(A) × P(B)"],
+["Conditional probability","P(A|B) = P(A ∩ B) / P(B)"],
+["Coins","n coins give 2ⁿ outcomes"],
+["Dice","One die gives 6 outcomes; two dice give 36"],
+["Cards","52 cards: 26 red, 26 black, 13 of each suit, 4 of each rank, 12 face cards"]]},
+
+{t:"Geometry — Triangles",r:[
+["Area","1/2 × base × height"],
+["Heron's formula","√[s(s−a)(s−b)(s−c)], where s = (a+b+c)/2"],
+["Equilateral triangle area","(√3/4) × a²"],
+["Height of an equilateral triangle","(√3/2) × a"],
+["Pythagoras theorem","a² + b² = c²"],
+["Angle sum","180°"],
+["Exterior angle","Equals the sum of the two opposite interior angles"],
+["Similar triangles","Sides in proportion; areas in the ratio of the squares of the sides"],
+["Common Pythagorean triples","3-4-5, 5-12-13, 8-15-17, 7-24-25, 9-40-41"],
+["Median to the hypotenuse","Half the hypotenuse in a right triangle"]]},
+
+{t:"Geometry — Quadrilaterals & Circles",r:[
+["Rectangle","Area = l × b ; Perimeter = 2(l + b) ; Diagonal = √(l² + b²)"],
+["Square","Area = a² ; Perimeter = 4a ; Diagonal = a√2"],
+["Parallelogram","Area = base × height"],
+["Rhombus","Area = 1/2 × d₁ × d₂"],
+["Trapezium","Area = 1/2 × (sum of parallel sides) × height"],
+["Circle","Area = πr² ; Circumference = 2πr"],
+["Sector","Area = (θ/360) × πr² ; Arc = (θ/360) × 2πr"],
+["Angle sum of a polygon","(n − 2) × 180°"],
+["Each interior angle of a regular polygon","(n − 2) × 180° / n"],
+["Sum of exterior angles","360° for any polygon"]]},
+
+{t:"Mensuration — Solids",r:[
+["Cube","Volume = a³ ; TSA = 6a² ; Diagonal = a√3"],
+["Cuboid","Volume = lbh ; TSA = 2(lb + bh + hl) ; Diagonal = √(l²+b²+h²)"],
+["Cylinder","Volume = πr²h ; CSA = 2πrh ; TSA = 2πr(r + h)"],
+["Cone","Volume = (1/3)πr²h ; CSA = πrl ; TSA = πr(r + l)"],
+["Slant height of a cone","l = √(r² + h²)"],
+["Sphere","Volume = (4/3)πr³ ; Surface area = 4πr²"],
+["Hemisphere","Volume = (2/3)πr³ ; TSA = 3πr²"],
+["Capacity","1 m³ = 1000 litres ; 1 litre = 1000 cm³"]]},
+
+{t:"Coordinate Geometry",r:[
+["Distance between two points","√[(x₂−x₁)² + (y₂−y₁)²]"],
+["Midpoint","((x₁+x₂)/2, (y₁+y₂)/2)"],
+["Section formula (internal)","((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n))"],
+["Slope","m = (y₂−y₁)/(x₂−x₁)"],
+["Slope–intercept form","y = mx + c"],
+["Point–slope form","y − y₁ = m(x − x₁)"],
+["Parallel lines","Equal slopes"],
+["Perpendicular lines","m₁ × m₂ = −1"],
+["Area of a triangle from vertices","1/2 |x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|"],
+["Centroid","((x₁+x₂+x₃)/3, (y₁+y₂+y₃)/3)"]]},
+
+{t:"Heights & Distances",r:[
+["Basic ratios","sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent"],
+["Standard values of tan","tan 30° = 1/√3, tan 45° = 1, tan 60° = √3"],
+["Standard values of sin","sin 30° = 1/2, sin 45° = 1/√2, sin 60° = √3/2"],
+["Identity","sin²θ + cos²θ = 1"],
+["Angle of elevation","Measured upward from the horizontal"],
+["Angle of depression","Measured downward from the horizontal"],
+["Height at 45°","Height equals the horizontal distance"],
+["Shadow length","Height / tan θ"]]},
+
+{t:"Algebra Identities",r:[
+["Square of a sum","(a + b)² = a² + 2ab + b²"],
+["Square of a difference","(a − b)² = a² − 2ab + b²"],
+["Difference of squares","a² − b² = (a + b)(a − b)"],
+["Cube of a sum","(a + b)³ = a³ + 3a²b + 3ab² + b³"],
+["Cube of a difference","(a − b)³ = a³ − 3a²b + 3ab² − b³"],
+["Sum of cubes","a³ + b³ = (a + b)(a² − ab + b²)"],
+["Difference of cubes","a³ − b³ = (a − b)(a² + ab + b²)"],
+["Three-term square","(a+b+c)² = a² + b² + c² + 2(ab + bc + ca)"],
+["Useful result","a³ + b³ + c³ − 3abc = (a+b+c)(a²+b²+c² − ab − bc − ca)"],
+["Reciprocal identity","x² + 1/x² = (x + 1/x)² − 2"]]},
+
+{t:"Linear & Quadratic Equations",r:[
+["Linear equation","ax + b = 0 ⟹ x = −b/a"],
+["Two variables","Solve by substitution or elimination"],
+["Unique solution","a₁/a₂ ≠ b₁/b₂"],
+["No solution","a₁/a₂ = b₁/b₂ ≠ c₁/c₂"],
+["Infinite solutions","a₁/a₂ = b₁/b₂ = c₁/c₂"],
+["Quadratic formula","x = [−b ± √(b² − 4ac)] / 2a"],
+["Discriminant","D = b² − 4ac"],
+["Nature of roots","D > 0 real and distinct, D = 0 equal, D < 0 imaginary"],
+["Sum of roots","−b/a"],
+["Product of roots","c/a"],
+["Building a quadratic","x² − (sum)x + (product) = 0"]]},
+
+{t:"Logarithms",r:[
+["Definition","log_a N = x ⟺ aˣ = N"],
+["Product rule","log(mn) = log m + log n"],
+["Quotient rule","log(m/n) = log m − log n"],
+["Power rule","log(mⁿ) = n log m"],
+["Base change","log_a N = log_b N / log_b a"],
+["Log of the base","log_a a = 1"],
+["Log of one","log_a 1 = 0"],
+["Reciprocal","log_a b = 1 / log_b a"],
+["Common values","log₁₀2 ≈ 0.3010, log₁₀3 ≈ 0.4771"]]},
+
+{t:"Set Theory & Venn Diagrams",r:[
+["Two sets","n(A ∪ B) = n(A) + n(B) − n(A ∩ B)"],
+["Three sets","n(A∪B∪C) = n(A)+n(B)+n(C) − n(A∩B) − n(B∩C) − n(C∩A) + n(A∩B∩C)"],
+["Only A","n(A) − n(A∩B) − n(A∩C) + n(A∩B∩C)"],
+["Exactly two sets","n(A∩B) + n(B∩C) + n(C∩A) − 3n(A∩B∩C)"],
+["Neither of the sets","Total − n(A ∪ B)"],
+["Number of subsets","2ⁿ"],
+["Number of proper subsets","2ⁿ − 1"]]},
+
+{t:"Clocks",r:[
+["Angle covered by the hour hand","0.5° per minute"],
+["Angle covered by the minute hand","6° per minute"],
+["Angle between the hands","|30H − 5.5M| degrees"],
+["Hands coincide","Every 65 5/11 minutes, 22 times a day"],
+["Hands at right angles","Twice every hour, 44 times a day"],
+["Hands in a straight line, opposite","Every 65 5/11 minutes, 22 times a day"],
+["Gain or loss of a faulty clock","Compare its 24-hour movement with the correct clock"]]},
+
+{t:"Calendars",r:[
+["Odd days","Remainder when the number of days is divided by 7"],
+["Ordinary year","365 days = 52 weeks + 1 odd day"],
+["Leap year","366 days = 52 weeks + 2 odd days"],
+["Leap year rule","Divisible by 4; century years must be divisible by 400"],
+["100 years","5 odd days"],
+["200 / 300 / 400 years","3 / 1 / 0 odd days"],
+["Day codes","0 = Sunday, 1 = Monday, … 6 = Saturday"],
+["Same calendar repeats","After 6, 11 or 28 years, depending on leap years"]]},
+
+{t:"Data Interpretation",r:[
+["Percentage share","(Part / Total) × 100"],
+["Percentage change","((New − Old)/Old) × 100"],
+["Ratio comparison","Convert to decimals before ranking"],
+["Average across a table","Total of the row or column / number of entries"],
+["Pie chart","Total = 360° ; each 1% = 3.6°"],
+["Value from a pie chart","(Sector angle / 360) × Total value"],
+["Compound growth over n periods","Final = Initial × (1 + r)ⁿ"]]},
+
+{t:"Calculation Shortcuts",r:[
+["Squares to memorise","1 to 30, and 25² = 625, 35² = 1225, 45² = 2025"],
+["Square of a number ending in 5","n5² = n(n+1) followed by 25"],
+["Multiply by 11","Add adjacent digits and place between the outer digits"],
+["Multiply by 5","Halve the number, then multiply by 10"],
+["Multiply by 25","Divide by 4, then multiply by 100"],
+["Numbers near 100","(100−a)(100−b) = (100 − a − b) then append ab"],
+["Percentage swap","x% of y = y% of x"],
+["Fraction to percentage speed","Learn 1/2 to 1/12 as percentages"],
+["Cubes to memorise","1 to 15"],
+["Approximation","Round to convenient figures first, refine only if the options are close"]]}
+];
+
+/* =========================================================
+   STATE & STORAGE
+   ========================================================= */
+const LS_STATE = "qrt_state_v3";
+const LS_THEME = "qrt_theme";
+const $  = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+let state = null;
+let timerId = null;
+let results = null;
+let reviewFilters = { status: "all", topic: "all", search: "" };
+
+function freshState(){
+  return {
+    order:[], answers:{}, marked:{}, current:0,
+    remaining: CONFIG.testDurationMinutes * 60,
+    startedAt: null, submitted:false, finishedAt:null
+  };
+}
+function saveState(){
+  try{ localStorage.setItem(LS_STATE, JSON.stringify(state)); }catch(e){}
+}
+function loadSaved(){
+  try{ const raw = localStorage.getItem(LS_STATE); return raw ? JSON.parse(raw) : null; }catch(e){ return null; }
+}
+function clearSaved(){ try{ localStorage.removeItem(LS_STATE); }catch(e){} }
+
+/* =========================================================
+   THEME
+   ========================================================= */
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  $("#btnTheme").textContent = t === "dark" ? "☀ Light" : "🌙 Dark";
+  try{ localStorage.setItem(LS_THEME, t); }catch(e){}
+}
+$("#btnTheme").addEventListener("click", () => {
+  applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+});
+
+/* =========================================================
+   SCREENS
+   ========================================================= */
+const SCREENS = ["welcome","instructions","test","result","review","formula"];
+let lastScreen = "welcome";
+function show(name){
+  const cur = SCREENS.find(s => !$("#screen-" + s).classList.contains("hidden"));
+  if(cur && cur !== "formula") lastScreen = cur;
+  SCREENS.forEach(s => $("#screen-" + s).classList.toggle("hidden", s !== name));
+  window.scrollTo({top:0, behavior:"instant" in window ? "auto" : "auto"});
+}
+
+function toast(msg, ms){
+  const t = document.createElement("div");
+  t.className = "toast"; t.textContent = msg; t.setAttribute("role","status");
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), ms || 2200);
+}
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+const LETTERS = ["A","B","C","D"];
+const byId = {};
+questions.forEach(q => byId[q.id] = q);
+
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function buildOrder(){
+  const ids = questions.map(q => q.id);
+  return CONFIG.randomizeQuestions ? shuffle(ids) : ids;
+}
+function fmtTime(sec){
+  sec = Math.max(0, Math.floor(sec));
+  const m = String(Math.floor(sec / 60)).padStart(2,"0");
+  const s = String(sec % 60).padStart(2,"0");
+  return m + ":" + s;
+}
+function esc(str){
+  return String(str).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function answeredCount(){ return Object.keys(state.answers).length; }
+
+/* =========================================================
+   TOPIC PREVIEW (welcome) + FORMULA SHEET
+   ========================================================= */
+function renderTopicPreview(){
+  $("#topicPreview").innerHTML = TOPICS.map((t, i) => {
+    const q = questions.filter(x => x.topic === t)[0];
+    return '<div class="fcard"><h3><span class="n">' + String(i+1).padStart(2,"0") + '</span>' + esc(t) + '</h3>' +
+           '<div class="frow"><b>Sample idea</b><span style="font-weight:600">' + esc(q.formula) + '</span></div>' +
+           '<div class="frow" style="color:var(--muted);font-size:13px">' + questions.filter(x => x.topic === t).length + ' questions</div></div>';
+  }).join("");
+}
+function formulaTotal(){ return FORMULAS.reduce((n, f) => n + f.r.length, 0); }
+
+function renderFormulaSheet(){
+  const q = ($("#formulaSearch") ? $("#formulaSearch").value : "").toLowerCase().trim();
+  const topic = $("#formulaTopicFilter") ? $("#formulaTopicFilter").value : "all";
+  let shown = 0, cards = 0;
+  const html = FORMULAS.map((f, i) => {
+    if(topic !== "all" && f.t !== topic) return "";
+    const rows = f.r.filter(row =>
+      !q || (f.t + " " + row[0] + " " + row[1]).toLowerCase().includes(q));
+    if(!rows.length) return "";
+    shown += rows.length; cards++;
+    return '<div class="fcard"><h3><span class="n">' + String(i+1).padStart(2,"0") + '</span>' + esc(f.t) + '</h3>' +
+      rows.map(row => '<div class="frow"><b>' + esc(row[0]) + '</b><span>' + esc(row[1]) + '</span></div>').join("") +
+      '</div>';
+  }).join("");
+  $("#formulaGrid").innerHTML = html || '<div class="empty">No formula matches that search. Try a topic name like “interest”, “train” or “probability”.</div>';
+  $("#formulaCount").textContent = "Showing " + shown + " of " + formulaTotal() + " formulas across " + cards + " topic" + (cards === 1 ? "" : "s");
+}
+
+function buildFormulaFilter(){
+  $("#formulaTopicFilter").innerHTML = '<option value="all">All formula topics</option>' +
+    FORMULAS.map(f => '<option value="' + esc(f.t) + '">' + esc(f.t) + '</option>').join("");
+  $("#fCount").textContent = formulaTotal();
+  $("#fSections").textContent = FORMULAS.length;
+}
+
+/* =========================================================
+   TEST RENDERING
+   ========================================================= */
+function currentQuestion(){ return byId[state.order[state.current]]; }
+
+function renderQuestion(){
+  const q = currentQuestion();
+  const n = state.current + 1;
+  const sel = state.answers[q.id];
+
+  $("#qNow").textContent = n;
+  $("#qTopic").textContent = q.topic;
+  $("#progFill").style.width = (n / questions.length * 100) + "%";
+  $("#progText").textContent = "Question " + n + " of " + questions.length;
+  $("#answeredText").textContent = answeredCount() + " answered";
+
+  $("#qCard").classList.remove("flipped");
+  $("#qFront").innerHTML =
+    '<div class="qnum"><span class="badge brand">Question ' + String(n).padStart(2,"0") + '</span>' +
+    '<span class="badge">' + esc(q.topic) + '</span>' +
+    '<span class="badge ' + q.difficulty.toLowerCase() + '">' + q.difficulty + '</span>' +
+    (state.marked[q.id] ? '<span class="badge medium">Marked</span>' : '') + '</div>' +
+    '<h2 class="qtext">' + esc(q.question) + '</h2>' +
+    '<div class="opts" role="group" aria-label="Answer options">' +
+      q.options.map((o, i) =>
+        '<button class="opt' + (sel === i ? " selected" : "") + '" type="button" data-opt="' + i + '" aria-pressed="' + (sel === i) + '">' +
+        '<span class="key" aria-hidden="true">' + LETTERS[i] + '</span><span>' + esc(o) + '</span></button>').join("") +
+    '</div>' +
+    (CONFIG.showDeveloperAnswerDuringTest ? '<div class="hint-line">Developer mode: tap the card to check the answer</div>' : '');
+
+  if(CONFIG.showDeveloperAnswerDuringTest){
+    $("#qBack").innerHTML = answerFaceHTML(q, sel, true);
+  }else{
+    $("#qBack").innerHTML = '<div class="ansblock"><h4>Locked</h4><div class="val">Answers unlock after you submit.</div></div>';
+  }
+
+  $$("#qFront .opt").forEach(btn => btn.addEventListener("click", () => selectOption(Number(btn.dataset.opt))));
+  $("#btnMark").textContent = state.marked[q.id] ? "Unmark review" : "Mark for review";
+  $("#btnPrev").disabled = state.current === 0;
+  $("#btnNext").textContent = state.current === questions.length - 1 ? "Last question" : "Next →";
+  renderNavigator();
+}
+
+function answerFaceHTML(q, sel, hideStudent){
+  const correct = q.options[q.answer];
+  return '<div class="ansblock"><h4>Correct answer</h4><div class="val ok">' + LETTERS[q.answer] + ') ' + esc(correct) + '</div></div>' +
+    (hideStudent ? "" :
+      '<div class="ansblock"><h4>Your answer</h4><div class="val" style="color:' +
+      (sel === undefined ? "var(--muted)" : (sel === q.answer ? "var(--green)" : "var(--red)")) + '">' +
+      (sel === undefined ? "Not answered" : LETTERS[sel] + ") " + esc(q.options[sel])) + '</div></div>') +
+    '<div class="ansblock"><h4>Formula / concept</h4><div class="formula-box">' + esc(q.formula) + '</div></div>' +
+    '<div class="ansblock"><h4>Quick explanation</h4><div>' + esc(q.explanation) + '</div></div>';
+}
+
+function selectOption(i){
+  const q = currentQuestion();
+  state.answers[q.id] = i;
+  saveState();
+  renderQuestion();
+}
+
+function renderNavigator(){
+  const grid = $("#navGrid");
+  grid.innerHTML = state.order.map((qid, idx) => {
+    const cls = ["navbtn"];
+    if(state.answers[qid] !== undefined) cls.push("answered");
+    if(state.marked[qid]) cls.push("marked");
+    if(idx === state.current) cls.push("current");
+    const status = state.answers[qid] !== undefined ? "answered" : "not answered";
+    return '<button class="' + cls.join(" ") + '" type="button" data-i="' + idx + '" aria-label="Question ' + (idx+1) + ', ' + status + '">' + (idx + 1) + '</button>';
+  }).join("");
+  $$("#navGrid .navbtn").forEach(b => b.addEventListener("click", () => { state.current = Number(b.dataset.i); saveState(); renderQuestion(); }));
+}
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+function tick(){
+  state.remaining--;
+  if(state.remaining <= 0){
+    state.remaining = 0;
+    paintTimer();
+    stopTimer(); saveState();
+    toast("Time's up — submitting your test", 3000);
+    submitTest(true);
+    return;
+  }
+  paintTimer();
+  if(state.remaining % 5 === 0) saveState();
+}
+function paintTimer(){
+  const el = $("#timer");
+  el.innerHTML = '<small>Time left</small>' + fmtTime(state.remaining);
+  el.classList.toggle("warn", state.remaining <= 300 && state.remaining > 60);
+  el.classList.toggle("urgent", state.remaining <= 60);
+  if(state.remaining === 300) toast("5 minutes remaining", 2600);
+  if(state.remaining === 60) toast("1 minute remaining — finish up", 2600);
+}
+function startTimer(){ stopTimer(); paintTimer(); timerId = setInterval(tick, 1000); }
+function stopTimer(){ if(timerId){ clearInterval(timerId); timerId = null; } }
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+function modal(html){
+  const host = $("#modalHost");
+  host.innerHTML = '<div class="overlay" role="dialog" aria-modal="true"><div class="modal">' + html + '</div></div>';
+  const close = () => host.innerHTML = "";
+  host.querySelector(".overlay").addEventListener("click", e => { if(e.target === host.querySelector(".overlay")) close(); });
+  document.addEventListener("keydown", function onEsc(e){
+    if(e.key === "Escape"){ close(); document.removeEventListener("keydown", onEsc); }
+  });
+  const first = host.querySelector("button");
+  if(first) first.focus();
+  return close;
+}
+
+/* =========================================================
+   START / RESUME / SUBMIT
+   ========================================================= */
+function beginTest(){
+  state.order = buildOrder();
+  state.current = 0;
+  state.answers = {};
+  state.marked = {};
+  state.remaining = CONFIG.testDurationMinutes * 60;
+  state.startedAt = Date.now();
+  state.submitted = false;
+  saveState();
+  show("test");
+  renderQuestion();
+  startTimer();
+}
+
+function submitTest(auto){
+  stopTimer();
+  state.submitted = true;
+  state.finishedAt = Date.now();
+  saveState();
+  computeResults();
+  renderResult();
+  show("result");
+  if(!auto) toast("Test submitted", 2000);
+}
+
+function computeResults(){
+  let correct = 0, wrong = 0, blank = 0;
+  const perTopic = {};
+  TOPICS.forEach(t => perTopic[t] = {correct:0, total:0});
+  questions.forEach(q => {
+    perTopic[q.topic].total++;
+    const a = state.answers[q.id];
+    if(a === undefined) blank++;
+    else if(a === q.answer){ correct++; perTopic[q.topic].correct++; }
+    else wrong++;
+  });
+  const pct = Math.round(correct / questions.length * 100);
+  const used = CONFIG.testDurationMinutes * 60 - state.remaining;
+  results = {correct, wrong, blank, pct, perTopic, timeTaken:used};
+}
+
+function bandFor(pct){
+  if(pct >= 90) return {cls:"l1", label:"Excellent", advice:"Your fundamentals are very strong. You are ready to move into coding and advanced aptitude problem solving."};
+  if(pct >= 75) return {cls:"l2", label:"Good", advice:"A good foundation with minor gaps. Patch the weak topics below and you are set."};
+  if(pct >= 60) return {cls:"l3", label:"Average", advice:"Some fundamental concepts need revision. Focus on the low-scoring topics before the coding sessions."};
+  if(pct >= 40) return {cls:"l4", label:"Needs improvement", advice:"Important fundamentals need work. Revise the formula sheet topic by topic and re-take the test."};
+  return {cls:"l5", label:"Foundation required", advice:"Revise basic mathematics thoroughly before moving to advanced aptitude and coding problem solving. Start with the formula sheet."};
+}
+
+function renderResult(){
+  const r = results;
+  $("#resultName").textContent = "Here's how you did";
+  $("#resScore").textContent = r.correct + " / " + questions.length;
+  $("#resCorrect").textContent = r.correct;
+  $("#resWrong").textContent = r.wrong;
+  $("#resBlank").textContent = r.blank;
+  $("#resTime").textContent = fmtTime(r.timeTaken);
+
+  const b = bandFor(r.pct);
+  const badge = $("#resBand");
+  badge.className = "band " + b.cls;
+  badge.textContent = b.label;
+  $("#resAdvice").textContent = b.advice;
+
+  // animate ring + counter
+  const C = 2 * Math.PI * 82;
+  const bar = $("#ringBar");
+  bar.setAttribute("stroke-dasharray", C);
+  bar.setAttribute("stroke-dashoffset", C);
+  requestAnimationFrame(() => bar.setAttribute("stroke-dashoffset", C * (1 - r.pct / 100)));
+  let shown = 0;
+  const step = Math.max(1, Math.round(r.pct / 28));
+  const pctEl = $("#resPct");
+  pctEl.textContent = "0%";
+  const anim = setInterval(() => {
+    shown = Math.min(r.pct, shown + step);
+    pctEl.textContent = shown + "%";
+    if(shown >= r.pct) clearInterval(anim);
+  }, 34);
+
+  // topic table
+  const rows = TOPICS.map(t => {
+    const d = r.perTopic[t];
+    const p = d.correct / d.total * 100;
+    let tag = "weak", label = "Needs practice", col = "var(--red)";
+    if(d.correct >= 4){ tag = "strong"; label = "Strong"; col = "var(--green)"; }
+    else if(d.correct === 3){ tag = "mod"; label = "Moderate"; col = "var(--orange)"; }
+    return {t, d, p, tag, label, col};
+  });
+  $("#topicTable").innerHTML = rows.map(x =>
+    '<tr><td style="font-weight:600">' + esc(x.t) + '</td>' +
+    '<td style="font-weight:800">' + x.d.correct + '/' + x.d.total + '</td>' +
+    '<td><div class="minibar"><i style="width:' + x.p + '%;background:' + x.col + '"></i></div></td>' +
+    '<td><span class="tag ' + x.tag + '">' + x.label + '</span></td></tr>').join("");
+
+  const sorted = rows.slice().sort((a, b2) => b2.d.correct - a.d.correct || a.t.localeCompare(b2.t));
+  const best = sorted.slice(0, 3), worst = sorted.slice(-3).reverse();
+  const rankHTML = list => list.map((x, i) =>
+    '<div class="rank"><span class="i">' + (i+1) + '</span><span>' + esc(x.t) + '</span><span class="sc">' + x.d.correct + '/' + x.d.total + '</span></div>').join("");
+  $("#bestList").innerHTML = rankHTML(best);
+  $("#worstList").innerHTML = rankHTML(worst);
+}
+
+/* =========================================================
+   REVIEW MODE
+   ========================================================= */
+function statusOf(q){
+  const a = state.answers[q.id];
+  if(a === undefined) return "blank";
+  return a === q.answer ? "correct" : "wrong";
+}
+function renderReview(){
+  const list = state.order.map(id => byId[id]).filter(q => {
+    if(reviewFilters.status !== "all" && statusOf(q) !== reviewFilters.status) return false;
+    if(reviewFilters.topic !== "all" && q.topic !== reviewFilters.topic) return false;
+    const s = reviewFilters.search.toLowerCase().trim();
+    if(s && !(q.question + " " + q.topic + " " + q.formula + " " + q.explanation).toLowerCase().includes(s)) return false;
+    return true;
+  });
+  $("#reviewCount").textContent = "Showing " + list.length + " of " + questions.length + " questions";
+  if(!list.length){
+    $("#reviewGrid").innerHTML = '<div class="empty">No questions match these filters. Clear the search or pick another topic.</div>';
+    return;
+  }
+  $("#reviewGrid").innerHTML = list.map(q => {
+    const st = statusOf(q);
+    const sel = state.answers[q.id];
+    const stLabel = st === "correct" ? "Correct" : (st === "wrong" ? "Wrong" : "Not answered");
+    const stClass = st === "correct" ? "easy" : (st === "wrong" ? "challenging" : "");
+    const num = state.order.indexOf(q.id) + 1;
+    return '<div class="rcard flip ' + st + '" tabindex="0" role="button" aria-label="Question ' + num + '. Activate to flip and see the answer.">' +
+      '<div class="flip-inner">' +
+        '<div class="face front">' +
+          '<div class="qnum"><span class="badge brand">Q' + String(num).padStart(2,"0") + '</span>' +
+          '<span class="badge">' + esc(q.topic) + '</span>' +
+          '<span class="badge ' + stClass + '">' + stLabel + '</span></div>' +
+          '<h3 class="qtext">' + esc(q.question) + '</h3>' +
+          '<div class="opts">' + q.options.map((o, i) => {
+            let c = "opt";
+            if(i === q.answer) c += " correct";
+            if(sel === i && i !== q.answer) c += " wrong";
+            return '<div class="' + c + '"><span class="key">' + LETTERS[i] + '</span><span>' + esc(o) + '</span></div>';
+          }).join("") + '</div>' +
+          '<div class="hint-line">Tap to see the formula and explanation</div>' +
+        '</div>' +
+        '<div class="face back">' + answerFaceHTML(q, sel, false) + '</div>' +
+      '</div></div>';
+  }).join("");
+
+  $$("#reviewGrid .rcard").forEach(c => {
+    const flip = () => c.classList.toggle("flipped");
+    c.addEventListener("click", flip);
+    c.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); flip(); } });
+  });
+}
+function buildTopicFilter(){
+  $("#topicFilter").innerHTML = '<option value="all">All topics</option>' +
+    TOPICS.map(t => '<option value="' + esc(t) + '">' + esc(t) + '</option>').join("");
+}
+
+/* =========================================================
+   EVENT WIRING
+   ========================================================= */
+$("#btnStart").addEventListener("click", () => {
+  if(!state || state.submitted) state = freshState();
+  saveState();
+  show("instructions");
+});
+$("#btnBackWelcome").addEventListener("click", () => show("welcome"));
+$("#btnBegin").addEventListener("click", beginTest);
+
+$("#btnPrev").addEventListener("click", () => { if(state.current > 0){ state.current--; saveState(); renderQuestion(); } });
+$("#btnNext").addEventListener("click", () => { if(state.current < questions.length - 1){ state.current++; saveState(); renderQuestion(); } });
+$("#btnMark").addEventListener("click", () => {
+  const q = currentQuestion();
+  if(state.marked[q.id]) delete state.marked[q.id]; else state.marked[q.id] = true;
+  saveState(); renderQuestion();
+});
+$("#btnClear").addEventListener("click", () => {
+  const q = currentQuestion();
+  delete state.answers[q.id];
+  saveState(); renderQuestion();
+});
+$("#qCard").addEventListener("click", e => {
+  if(!CONFIG.showDeveloperAnswerDuringTest) return;
+  if(e.target.closest(".opt")) return;
+  $("#qCard").classList.toggle("flipped");
+});
+
+$("#btnSubmit").addEventListener("click", () => {
+  const a = answeredCount(), u = questions.length - a;
+  const close = modal(
+    '<h2 style="font-size:20px">Submit test?</h2>' +
+    '<div class="kv"><span>Answered</span><b>' + a + ' / ' + questions.length + '</b></div>' +
+    '<div class="kv"><span>Unanswered</span><b>' + u + '</b></div>' +
+    '<div class="kv" style="border-bottom:0"><span>Time left</span><b>' + fmtTime(state.remaining) + '</b></div>' +
+    '<p style="margin:14px 0 18px;color:var(--ink-2);font-size:14px">You cannot return to the questions after submitting.</p>' +
+    '<div style="display:flex;gap:10px;flex-wrap:wrap">' +
+    '<button class="btn btn-ghost" id="mCancel" type="button" style="flex:1">Continue test</button>' +
+    '<button class="btn btn-primary" id="mOk" type="button" style="flex:1">Submit test</button></div>'
+  );
+  $("#mCancel").addEventListener("click", close);
+  $("#mOk").addEventListener("click", () => { close(); submitTest(false); });
+});
+
+$("#btnReview").addEventListener("click", () => { renderReview(); show("review"); });
+$("#btnBackResult").addEventListener("click", () => show("result"));
+$("#btnFlipAll").addEventListener("click", () => {
+  const cards = $$("#reviewGrid .rcard");
+  const anyUnflipped = cards.some(c => !c.classList.contains("flipped"));
+  cards.forEach(c => c.classList.toggle("flipped", anyUnflipped));
+});
+$$(".fchip").forEach(c => c.addEventListener("click", () => {
+  $$(".fchip").forEach(x => x.classList.remove("active"));
+  c.classList.add("active");
+  reviewFilters.status = c.dataset.status;
+  renderReview();
+}));
+$("#topicFilter").addEventListener("change", e => { reviewFilters.topic = e.target.value; renderReview(); });
+$("#searchBox").addEventListener("input", e => { reviewFilters.search = e.target.value; renderReview(); });
+
+[["#btnFormulaTop"],["#btnFormulaWelcome"],["#btnFormulaResult"]].forEach(([sel]) =>
+  $(sel).addEventListener("click", () => show("formula")));
+$("#btnFormulaBack").addEventListener("click", () => show(lastScreen));
+$("#formulaSearch").addEventListener("input", renderFormulaSheet);
+$("#formulaTopicFilter").addEventListener("change", renderFormulaSheet);
+$("#btnFormulaClear").addEventListener("click", () => {
+  $("#formulaSearch").value = ""; $("#formulaTopicFilter").value = "all"; renderFormulaSheet();
+});
+$("#btnFormulaPrint").addEventListener("click", () => window.print());
+
+$("#btnRestart").addEventListener("click", () => {
+  const close = modal(
+    '<h2 style="font-size:20px">Start a new test?</h2>' +
+    '<p style="color:var(--ink-2);font-size:14.5px">This clears your current score, answers, and review data from this device.</p>' +
+    '<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">' +
+    '<button class="btn btn-ghost" id="mCancel2" type="button" style="flex:1">Keep results</button>' +
+    '<button class="btn btn-danger" id="mOk2" type="button" style="flex:1">Clear and restart</button></div>'
+  );
+  $("#mCancel2").addEventListener("click", close);
+  $("#mOk2").addEventListener("click", () => {
+    close(); clearSaved(); stopTimer();
+    state = freshState();
+    $("#resumeBar").classList.add("hidden");
+    show("welcome");
+    toast("Ready for a new test", 1800);
+  });
+});
+
+/* keyboard shortcuts during the test */
+document.addEventListener("keydown", e => {
+  if($("#screen-test").classList.contains("hidden")) return;
+  if(["INPUT","SELECT","TEXTAREA"].includes(document.activeElement.tagName)) return;
+  const k = e.key.toLowerCase();
+  if(k === "arrowright"){ $("#btnNext").click(); }
+  else if(k === "arrowleft"){ $("#btnPrev").click(); }
+  else if(["1","2","3","4"].includes(k)){ selectOption(Number(k) - 1); }
+  else if(["a","b","c","d"].includes(k)){ selectOption(LETTERS.indexOf(k.toUpperCase())); }
+});
+
+window.addEventListener("beforeunload", e => {
+  if(state && state.startedAt && !state.submitted){ e.preventDefault(); e.returnValue = ""; }
+});
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+(function init(){
+  let theme = "light";
+  try{ theme = localStorage.getItem(LS_THEME) || "light"; }catch(e){}
+  applyTheme(theme);
+
+  $("#qTotal").textContent = questions.length;
+  renderTopicPreview();
+  buildFormulaFilter();
+  renderFormulaSheet();
+  buildTopicFilter();
+
+  const saved = loadSaved();
+  state = saved || freshState();
+
+  if(saved && saved.startedAt && !saved.submitted && saved.order && saved.order.length === questions.length){
+    $("#resumeBar").classList.remove("hidden");
+    $("#resumeMeta").textContent =
+      Object.keys(saved.answers || {}).length + " of " + questions.length + " answered · " + fmtTime(saved.remaining) + " left on the clock";
+    $("#btnResume").addEventListener("click", () => {
+      $("#resumeBar").classList.add("hidden");
+      show("test"); renderQuestion(); startTimer();
+    });
+    $("#btnDiscard").addEventListener("click", () => {
+      clearSaved();
+      state = freshState();
+      $("#resumeBar").classList.add("hidden");
+      toast("Previous attempt cleared", 1800);
+    });
+  }else if(saved && saved.submitted && saved.order && saved.order.length === questions.length){
+    computeResults(); renderResult(); show("result");
+  }
+})();
+</script>
+</body>
+</html>
