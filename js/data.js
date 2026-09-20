@@ -937,7 +937,10 @@ var TECH_LINKS = [
       { name: 'Openclaw AI', url: 'https://openclaw.ai/', desc: 'An open-source autonomous AI assistant designed to perform personal tasks, develop, and deploy applications.' },
       { name: 'Resend', url: 'https://resend.com/', desc: 'An email API for developers to reliably send emails, designed for the modern web with a focus on developer experience.' },
       { name: 'NASA Universe View', url: 'https://share.google/2rzh8eQOsMcBDqxtE', desc: 'NASA (.gov) universe view website.' },
-      { name: 'Photopea', url: 'https://www.photopea.com/', desc: 'Advanced online photo and image editor.' }
+      { name: 'Photopea', url: 'https://www.photopea.com/', desc: 'Advanced online photo and image editor.' },
+      { name: 'Google Stitch', url: 'https://stitch.withgoogle.com/', desc: 'AI-powered UI generation tool by Google.' },
+      { name: 'Napkin AI', url: 'https://www.napkin.ai/', desc: 'Tool for generating workflows, diagrams, and visual notes.' },
+      { name: 'Supabase', url: 'https://supabase.com/', desc: 'Open-source Firebase alternative for database and authentication.' }
     ]
   }
 ];
