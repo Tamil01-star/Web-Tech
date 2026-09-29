@@ -940,7 +940,18 @@ var TECH_LINKS = [
       { name: 'Photopea', url: 'https://www.photopea.com/', desc: 'Advanced online photo and image editor.' },
       { name: 'Google Stitch', url: 'https://stitch.withgoogle.com/', desc: 'AI-powered UI generation tool by Google.' },
       { name: 'Napkin AI', url: 'https://www.napkin.ai/', desc: 'Tool for generating workflows, diagrams, and visual notes.' },
-      { name: 'Supabase', url: 'https://supabase.com/', desc: 'Open-source Firebase alternative for database and authentication.' }
+      { name: 'Supabase', url: 'https://supabase.com/', desc: 'Open-source Firebase alternative for database and authentication.' },
+      { name: 'Tasteskill', url: 'https://www.tasteskill.dev/', desc: 'Frontend looks web.' }
+    ]
+  },
+  {
+    category: 'UI Interface',
+    links: [
+      { name: 'WebsitePrompts', url: 'https://websiteprompts.com/', desc: 'Website, SaaS, portfolio, landing-page prompts for ChatGPT, Claude, v0, Bolt, Lovable.' },
+      { name: 'UI Prompt Library', url: 'https://uipromptlibrary.com/', desc: 'UI prompts for dashboards, landing pages, mobile apps, components.' },
+      { name: 'iToolVerse UI Prompts', url: 'https://www.itoolverse.com/generator/ui-prompts', desc: '100+ UI prompts with categories like Hero, Login, Pricing, Dashboard, FAQ.' },
+      { name: 'Prompt Library', url: 'https://getpromptlibrary.com/', desc: 'Copy-ready prompts for ChatGPT, Gemini and Claude.' },
+      { name: 'Open Prompt Library', url: 'https://openpromptlibrary.com/', desc: 'Coding, writing, SEO, studying, analysis and research prompts.' }
     ]
   }
 ];
