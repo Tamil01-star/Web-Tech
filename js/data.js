@@ -883,7 +883,9 @@ var TECH_LINKS = [
       { name: 'Bus Booking Project', url: 'https://smart-rfid-booking-system-tawny.vercel.app/', desc: 'Smart RFID-based bus booking system project.' },
       { name: 'C Programming Assessment', url: 'https://tamil01-star.github.io/Cprogramming/#q=1', desc: 'Online C programming assessment platform.' },
       { name: 'Aptitude Assessments with Formulae Bank', url: './aptitude-formulae.html', desc: 'Quantitative aptitude formulas and shortcuts.' },
-      { name: 'Self Configure Protocol', url: 'https://self-configure-protocall.vercel.app/', desc: 'Self-configuring protocol application.' }
+      { name: 'Self Configure Protocol', url: 'https://self-configure-protocall.vercel.app/', desc: 'Self-configuring protocol application.' },
+      { name: 'GATE Preparation Site', url: 'https://gate-preparation-site.vercel.app/', desc: 'GATE exam preparation and study portal.' },
+      { name: 'Core Interview Preparation', url: 'https://core-interview-preparation-git-main-tamil01-stars-projects.vercel.app/', desc: 'Comprehensive core engineering interview preparation portal.' }
     ]
   },
   {
